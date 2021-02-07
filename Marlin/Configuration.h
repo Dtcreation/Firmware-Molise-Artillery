@@ -148,7 +148,7 @@
 //#define TOUCH_MI_PROBE                            //uncomment if you use a Touch Mi
   #ifdef TOUCH_MI_PROBE
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
-    #define NOZZLE_TO_PROBE_OFFSET { -40, -30, 0 }  //Offset preset for this fanduct : https://www.thingiverse.com/thing:4713319
+    #define NOZZLE_TO_PROBE_OFFSET { -43, -32, 0 }  //Offset preset for this fanduct : https://www.thingiverse.com/thing:4713319
     #define TOUCH_MI_RETRACT_Z 0.5                  // Height at which the probe retracts
     #define FIX_MOUNTED_PROBE
     //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)  // For a magnet on the right side of the bed
@@ -968,7 +968,7 @@
  *
  * :[2,3,4,5,6,7]
  */
-//#define ENDSTOP_NOISE_THRESHOLD 2
+#define ENDSTOP_NOISE_THRESHOLD 2
 
 // Check for stuck or disconnected endstops during homing moves.
 //#define DETECT_BROKEN_ENDSTOP
@@ -1046,7 +1046,7 @@
  *   M204 T    Travel Acceleration
  */
 #define DEFAULT_ACCELERATION          800    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  10000    // E acceleration for retracts
+#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   2000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
@@ -1330,7 +1330,7 @@
  * Example: `M851 Z-5` with a CLEARANCE of 4  =>  9mm from bed to nozzle.
  *     But: `M851 Z+1` with a CLEARANCE of 2  =>  2mm from bed to nozzle.
  */
-#define Z_CLEARANCE_DEPLOY_PROBE    7 // Z Clearance for Deploy/Stow
+#define Z_CLEARANCE_DEPLOY_PROBE   10 // Z Clearance for Deploy/Stow
 #define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
 #ifdef BLTOUCH
@@ -1339,7 +1339,7 @@
     //#define Z_AFTER_PROBING            10 // Z position after probing is done
 #endif
 
-#define Z_PROBE_LOW_POINT          -3 // Farthest distance below the trigger-point to go before stopping
+#define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
 
 // For M851 give a range for adjusting the Z probe offset
 #define Z_PROBE_OFFSET_RANGE_MIN -20
@@ -1721,7 +1721,7 @@
   //=================================== Mesh ==================================
   //===========================================================================
 
-  #define MESH_INSET 10          // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET 30          // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X 5    // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
