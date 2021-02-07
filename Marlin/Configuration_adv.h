@@ -1265,7 +1265,7 @@
                                       // Note: Only affects SCROLL_LONG_FILENAMES with SDSORT_CACHE_NAMES but not SDSORT_DYNAMIC_RAM.
   #endif
 
-  #if ENABLED(GraphicalLCD) || DISABLED (MKSGENL)
+  #if ENABLED(GraphicalLCD) || DISABLED (MKSGENL) && DISABLED (MKSGENLV21)
   // This allows hosts to request long names for files and folders with M33
   #define LONG_FILENAME_HOST_SUPPORT
 
@@ -1928,7 +1928,7 @@
 #elif ENABLED(SDSUPPORT)
   #define BLOCK_BUFFER_SIZE 64
 #else
-  #ifndef MKSGENL
+  #if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
     #define BLOCK_BUFFER_SIZE 64
   #else
     #define BLOCK_BUFFER_SIZE 32
@@ -1939,7 +1939,7 @@
 
 // The ASCII buffer for serial input
 #define MAX_CMD_SIZE 96
-#ifndef MKSGENL
+#if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
   #define BUFSIZE 64
 #else
   #define BUFSIZE 4
@@ -1952,7 +1952,7 @@
 // For debug-echo: 128 bytes for the optimal speed.
 // Other output doesn't need to be that speedy.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256]
-#ifndef MKSGENL
+#if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
   #define TX_BUFFER_SIZE 64
 #else
   #define TX_BUFFER_SIZE 32
@@ -1962,7 +1962,7 @@
 // Without XON/XOFF flow control (see SERIAL_XON_XOFF below) 32 bytes should be enough.
 // To use flow control, set this buffer size to at least 1024 bytes.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]
-#ifndef MKSGENL
+#if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
   #define RX_BUFFER_SIZE 256
 #else
   //#define RX_BUFFER_SIZE 256
@@ -2524,6 +2524,7 @@
   #define E6_SLAVE_ADDRESS 0
   #define E7_SLAVE_ADDRESS 0
  #endif
+ #endif
   /**
    * Software enable
    *
@@ -2569,7 +2570,10 @@
    * M912 - Clear stepper driver overtemperature pre-warn condition flag.
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
+  #if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
   #define MONITOR_DRIVER_STATUS
+  #else
+  //#define MONITOR_DRIVER_STATUS
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP_DOWN     50  // [mA]
     #define REPORT_CURRENT_CHANGE
