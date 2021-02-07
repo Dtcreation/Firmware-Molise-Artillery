@@ -2248,7 +2248,7 @@
 // Note: Usually sold with a white PCB.
 //
 //#if DISABLED(GraphicalLCD) 
-  #define REPRAP_DISCOUNT_SMART_CONTROLLER
+  //#define REPRAP_DISCOUNT_SMART_CONTROLLER
 //#endif
 
 //
