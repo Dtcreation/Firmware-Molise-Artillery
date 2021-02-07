@@ -2524,7 +2524,6 @@
   #define E6_SLAVE_ADDRESS 0
   #define E7_SLAVE_ADDRESS 0
  #endif
- #endif
   /**
    * Software enable
    *
@@ -2574,6 +2573,7 @@
   #define MONITOR_DRIVER_STATUS
   #else
   //#define MONITOR_DRIVER_STATUS
+  #endif
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP_DOWN     50  // [mA]
     #define REPORT_CURRENT_CHANGE
