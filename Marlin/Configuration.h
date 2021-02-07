@@ -91,7 +91,7 @@
 /*** Section 1 Artillery Printer ***/
 
 //#define GENIUS
-#define X1
+//#define X1
 
 /*** Section 2 Board Type ***/
 
@@ -99,7 +99,7 @@
 //#define MKSGENLV21      // Choose this if you are using MKS GEN L V2.1
 //#define SKR13           // Choose this if you are using BigTreeTech SKR 1.3
 //#define SKR14           // Choose this if you are using BigTreeTech SKR 1.4
-#define SKR14T          // Choose this if you are using BigTreeTech SKR 1.4 Turbo
+//#define SKR14T          // Choose this if you are using BigTreeTech SKR 1.4 Turbo
 //#define MKSSGENLV1      // Choose this if you are using MKS SGEN L V1
 //#define MKSSGENLV2      // Choose this if you are using MKS SGEN L V2
 
@@ -116,7 +116,7 @@
 
 /*** Section 3 Extruder Type ***/
 
-#define TITAN       // Stock Extruder
+//#define TITAN       // Stock Extruder
 //#define BMG         // Choose this if you are using BMG
 //#define HEMERA      // Choose this if you are using HEMERA
 //#define MATRIX      // Choose this if you are using MATRIX
@@ -128,11 +128,11 @@
 //#define TMC_2209_STA    // Standalone Mode
 //#define LV_8729
 //#define TMC_2208        // UART Mode
-#define TMC_2209        // UART Mode
+//#define TMC_2209        // UART Mode
 
 /*** Section 5 Bed Leveling ***/
 
-#define BLTOUCH      //uncomment if you use a BLTouch
+//#define BLTOUCH      //uncomment if you use a BLTouch
   #ifdef BLTOUCH
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }   //Offset preset for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
@@ -163,13 +163,13 @@
 
 /*** Section 6 Options ***/
 
-#define GraphicalLCD                              // Will work next to MKS TFT
+//#define GraphicalLCD                              // Will work next to MKS TFT
 //#define MKSGENL_TFT                                 // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 115200
-#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
+//#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
 
 /*** Section 7 Sensorless Homing XY ***/
 
-#define SENSHOME // Active sensorless homing ONLY for TMC 2208 UART and 2009 UART with SKR 1.3 (extra wiring needed) and SKR 1.4 (no extra wiring needed)
+//#define SENSHOME // Active sensorless homing ONLY for TMC 2208 UART and 2009 UART with SKR 1.3 (extra wiring needed) and SKR 1.4 (no extra wiring needed)
 
 
 
