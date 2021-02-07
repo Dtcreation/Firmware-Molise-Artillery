@@ -163,7 +163,7 @@
 /*** Section 6 Options ***/
 
 //#define GraphicalLCD                              // Will work next to MKS TFT
-#define MKSGENL_TFT                                 // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 115200
+//#define MKSGENL_TFT                                 // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 115200
 //#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
 
 /*** Section 7 Sensorless Homing XY ***/
@@ -972,7 +972,7 @@
  *
  * :[2,3,4,5,6,7]
  */
-#define ENDSTOP_NOISE_THRESHOLD 2
+//#define ENDSTOP_NOISE_THRESHOLD 2
 
 // Check for stuck or disconnected endstops during homing moves.
 //#define DETECT_BROKEN_ENDSTOP
@@ -1286,7 +1286,7 @@
       #ifdef MATRIX
       #define PROBING_MARGIN 20
   #else
-    #define PROBING_MARGIN 10
+    #define PROBING_MARGIN 15
 #endif
 #endif
 
@@ -1316,7 +1316,7 @@
   #define MULTIPLE_PROBING 2
   //#define EXTRA_PROBING    1
 #else
-  //#define MULTIPLE_PROBING 2
+  #define MULTIPLE_PROBING 2
   //#define EXTRA_PROBING    1
 #endif
 
