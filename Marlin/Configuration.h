@@ -106,6 +106,7 @@
 
 /*default_envs in Platformio.ini :
 -Board name: MKS GEN L, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
+-Board name: MKS GEN L V2.1, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
 -Board name: SKR13, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
 -Board name: SKR14, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
 -Board name: SKRV14TURBO, change_value = LPC1769 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1769
