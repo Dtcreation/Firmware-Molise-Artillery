@@ -1265,7 +1265,7 @@
                                       // Note: Only affects SCROLL_LONG_FILENAMES with SDSORT_CACHE_NAMES but not SDSORT_DYNAMIC_RAM.
   #endif
 
-  #if ENABLED(GraphicalLCD) || DISABLED (MKSGENL) && || DISABLED (MKSGENLV21)
+  #if ENABLED(GraphicalLCD) || DISABLED (MKSGENL) && DISABLED (MKSGENLV21)
   // This allows hosts to request long names for files and folders with M33
   #define LONG_FILENAME_HOST_SUPPORT
 
