@@ -96,6 +96,7 @@
 /*** Section 2 Board Type ***/
 
 //#define MKSGENL         // Stock Board
+//#define MKSGENLV21      // Choose this if you are using MKS GEN L V2.1
 //#define SKR13           // Choose this if you are using BigTreeTech SKR 1.3
 //#define SKR14           // Choose this if you are using BigTreeTech SKR 1.4
 //#define SKR14T          // Choose this if you are using BigTreeTech SKR 1.4 Turbo
@@ -153,7 +154,7 @@
     #define FIX_MOUNTED_PROBE
     //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)  // For a magnet on the right side of the bed
     //#define TOUCH_MI_MANUAL_DEPLOY                // For manual deploy (LCD menu)
-    #define TOUCH_MI_LED                          // Uncomment if you have the additional LED from Hotends.fr for the X1
+    //#define TOUCH_MI_LED                          // Uncomment if you have the additional LED from Hotends.fr for the X1
     //#define Z_STEPPER_AUTO_ALIGN                  //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this
 #endif
 
@@ -267,7 +268,7 @@
 #if ENABLED(SKR13) || ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(MKSSGENLV1) || ENABLED(MKSSGENLV2)
   #define SERIAL_PORT_2 -1
 #endif
-#if ENABLED(MKSGENL_TFT) && ENABLED(MKSGENL)
+#if ENABLED(MKSGENL_TFT) && ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
   #define SERIAL_PORT_2 2
 #endif
 
@@ -303,6 +304,9 @@
   #endif
   #ifdef MKSSGENLV2
       #define MOTHERBOARD BOARD_MKS_SGEN
+  #endif
+  #ifdef MKSGENLV21
+      #define MOTHERBOARD BOARD_MKS_GEN_L_V21
   #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -1558,8 +1562,8 @@
   // before executing the runout script. Useful for a sensor at the end of
   // a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead.
   //#define FILAMENT_RUNOUT_DISTANCE_MM 25
-  #ifdef MKSGENL
-  #define FIL_RUNOUT_PIN  2
+ #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
+     #define FIL_RUNOUT_PIN  2
   #endif
 
   #ifdef FILAMENT_RUNOUT_DISTANCE_MM
@@ -1683,7 +1687,7 @@
 
     // Beyond the probed grid, continue the implied tilt?
     // Default is to maintain the height of the nearest edge.
-    //#define EXTRAPOLATE_BEYOND_GRID
+    #define EXTRAPOLATE_BEYOND_GRID
 
     //
     // Experimental Subdivision of the grid by Catmull-Rom method.
@@ -2134,7 +2138,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-#if ENABLED(GraphicalLCD) || DISABLED (MKSGENL)
+#if ENABLED(GraphicalLCD) || DISABLED (MKSGENL) && DISABLED (MKSGENLV21)
   #define SDSUPPORT
 #endif
 
