@@ -109,6 +109,14 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 ### Changelog
 
+#### 1.2.7
+
+- Add MKS Gen L v2.1
+- Optimise ABL
+- Optimise Sensorless Homing
+- Add Readme.md
+- Add Github Wiki
+
 #### 1.2.6
 
 - Compilation with MKS Gen L and Z steppers Alignment bugfix
