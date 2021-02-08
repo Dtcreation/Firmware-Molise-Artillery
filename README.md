@@ -47,7 +47,7 @@ Le Firmware apporte les modifications suivantes à Marlin (par rapport à la ver
 - Solution au problème de communication d'Octoprint via changement de la connexion de l'écran TFT sur la MKS Gen L (option)
 - Déport du capteur de fin de filament sur la carte mère pour compatibilité avec Octoprint et lecteur SD sur carte mère (Option)
 
-Le code du fichier `Configuration.h` a été découpé en 7 sections afin de rendre le code plus lisible. Ainsi, pour les personnes souhaitant compiler le code à partir des sources, le travail sera plus simple. Pour plus d'explication sur la compilation du code, merci de vous reporter à la page du [wiki dédiée](#)
+Le code du fichier `Configuration.h` a été découpé en 7 sections afin de rendre le code plus lisible. Ainsi, pour les personnes souhaitant compiler le code à partir des sources, le travail sera plus simple. Pour plus d'explication sur la compilation du code, merci de vous reporter à la page du [wiki dédiée](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
 Le firmware Molise 1.2 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait faire à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
 
@@ -84,7 +84,7 @@ Merci !
 
 ### Installation et configuration
 
-Afin de vous aider dans l'installation et la configuration du Firmware, merci de faire un tour sur le [Wiki](#)
+Afin de vous aider dans l'installation et la configuration du Firmware, merci de faire un tour sur le [Wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
 #### Créer un Wiki avec les données suivantes 
 
