@@ -85,9 +85,7 @@ Merci !
 ### Installation et configuration
 
 Afin de vous aider dans l'installation et la configuration du Firmware, merci de faire un tour sur le [Wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
-
-#### Créer un Wiki avec les données suivantes 
-
+ 
 PROCÉDURES DE MISE À JOUR DE MARLIN FW:
 
 Sur les imprimantes Sidewinder X1 et Genius, le port USB de la carte mère utilisé pour connecter l'imprimante à un PC (par exemple à Octoprint) est câblé à un bus série. Ce bus est également partagé par le TFT et la carte mère. Le partage du bus série ne permet pas de flasher facilement le firmware Marlin en raison de collisions dans le bus.
