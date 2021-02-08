@@ -105,7 +105,7 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 3) déportez la connexion du TFT sur le port EXP1, vous pourrez alors flasher sans aucun soucis
 
-![Shémas de cablage](https://github.com/Dtcreation/Firmware-Molise-Artillery/blob/master/docs/MKS_GEN_Lnew%20TFT%20wiring.jpg)
+![Shémas de cablage](https://github.com/Dtcreation/Firmware-Molise-Artillery/blob/master/docs/MKS_GEN_LnewTFTwiring.jpg)
 
 
 
