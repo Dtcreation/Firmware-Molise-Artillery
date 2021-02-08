@@ -10,7 +10,7 @@ Rejoignez notre groupe facebook : [Molise Firmware](https://www.facebook.com/gro
 
 Les sources pour l'écran TFT sont [disponible sur ce repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
 
-## FRENCH
+## FRENCH - ENGLISH DOWN
 
 ### Qu'est ce que le firmware Molise
 
