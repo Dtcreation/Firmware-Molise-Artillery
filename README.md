@@ -109,6 +109,10 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 ### Changelog
 
+#### 1.2.6
+
+- Compilation with MKS Gen L and Z steppers Alignment bugfix
+
 #### 1.2.5
 
 - Small bugfix
