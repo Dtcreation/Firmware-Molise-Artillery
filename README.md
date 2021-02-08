@@ -106,6 +106,11 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 3) déportez la connexion du TFT sur le port EXP1, vous pourrez alors flasher sans aucun soucis
 
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> origin/master
 
 ### Changelog
 
@@ -113,12 +118,21 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 - Compilation with MKS Gen L and Z steppers Alignment bugfix
 
+<<<<<<< HEAD
+#### 1.2.5 
+
+- Small bugfix 
+- Support BTT TFT35, TFT43
+
+#### 1.2.4 
+=======
 #### 1.2.5
 
 - Small bugfix
 - Support BTT TFT35, TFT43
 
 #### 1.2.4
+>>>>>>> origin/master
 
 - Improves travel for SKR board
 - Support for TMC2209 Standalone
