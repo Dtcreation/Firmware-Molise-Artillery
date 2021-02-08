@@ -105,17 +105,21 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 3) déportez la connexion du TFT sur le port EXP1, vous pourrez alors flasher sans aucun soucis
 
-![Shémas de cablage](https://github.com/Dtcreation/Firmware-Molise-Artillery/blob/master/docs/MKS_GEN_LnewTFTwiring.jpg)
+![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
+
+
 
 
 
 ### Changelog
 
 #### 1.2.5 
+
 - Small bugfix 
 - Support BTT TFT35, TFT43
 
 #### 1.2.4 
+
 - Improves travel for SKR board
 - Support for TMC2209 Standalone
 
