@@ -47,7 +47,7 @@ Le Firmware apporte les modifications suivantes à Marlin (par rapport à la ver
 - Solution au problème de communication d'Octoprint via changement de la connexion de l'écran TFT sur la MKS Gen L (option)
 - Déport du capteur de fin de filament sur la carte mère pour compatibilité avec Octoprint et lecteur SD sur carte mère (Option)
 
-Le code du fichier `Configuration.h` a été découpé en 7 sections afin de rendre le code plus lisible. Ainsi, pour les personnes souhaitant compiler le code à partir des sources, le travail sera plus simple. Pour plus d'explication sur la compilation du code, merci de vous reporter à la page du [wiki dédiée](#)
+Le code du fichier `Configuration.h` a été découpé en 7 sections afin de rendre le code plus lisible. Ainsi, pour les personnes souhaitant compiler le code à partir des sources, le travail sera plus simple. Pour plus d'explication sur la compilation du code, merci de vous reporter à la page du [wiki dédiée](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
 Le firmware Molise 1.2 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait faire à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
 
@@ -84,7 +84,7 @@ Merci !
 
 ### Installation et configuration
 
-Afin de vous aider dans l'installation et la configuration du Firmware, merci de faire un tour sur le [Wiki](#)
+Afin de vous aider dans l'installation et la configuration du Firmware, merci de faire un tour sur le [Wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
 #### Créer un Wiki avec les données suivantes 
 
@@ -106,42 +106,60 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 3) déportez la connexion du TFT sur le port EXP1, vous pourrez alors flasher sans aucun soucis
 
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
+<<<<<<< HEAD
 
 
-
-
+=======
+>>>>>>> origin/master
 
 ### Changelog
 
+#### 1.2.6
+
+- Compilation with MKS Gen L and Z steppers Alignment bugfix
+
+<<<<<<< HEAD
 #### 1.2.5 
 
 - Small bugfix 
 - Support BTT TFT35, TFT43
 
 #### 1.2.4 
+=======
+#### 1.2.5
+
+- Small bugfix
+- Support BTT TFT35, TFT43
+
+#### 1.2.4
+>>>>>>> origin/master
 
 - Improves travel for SKR board
 - Support for TMC2209 Standalone
 
-#### 1.2.3 
+#### 1.2.3
+
 - TouchMi bugfix
 - Graphical LCD bug fix
 
 #### Version 1.2.2
 
 ##### Fixed
+
 - TFT and Marlin bug fix for Octoprint
 - Add option in section 6 if you want to plug runout sensor filament on the mainboard
 
 #### Version 1.2.1
 
 ##### Fixed
+
 - Communication bug fix
 - New TFT firmware
 
-#### Version 1.2.0 
+#### Version 1.2.0
 
 ##### Fixed
+
 - Add support for TouchMi
 - Add Solution to Octoprint communication problem (you have to change the connection of the TFT on the mainboard, see jpg file included) communication speed : 115000
 - New TFT firmware with TouchMi and Z steppers Align button
@@ -150,6 +168,7 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 #### Version 1.1.2
 
 ##### Fixed
+
 - Bug fixes
 - Add support for LV8729
 - Add Support for Matrix extruder
@@ -159,6 +178,7 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 #### Version 1.1.1
 
 ##### Fixed
+
 - Bug fixes
 - Active or not MBL in section 5
 - M600 works with Octoprint
@@ -167,6 +187,7 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 #### Version 1.1.0
 
 ##### Fixed
+
 - Marlin 2.0.7.2
 - Major Bug fixes
 - Ajout du MBL
@@ -176,21 +197,25 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 #### Version 1.0.3
 
 ##### Fixed
+
 - Add support for MKS SGEN L V1 and V2
 
 #### Version 1.0.2 
 
 ##### Fixed
+
 - TFT bug fix
 
 #### Version 1.0.1 
 
 ##### Fixed
+
 - Buffers bug fix
 
 #### Version 1.0 
 
 ##### Fixed
+
 - First release
 
 # Remerciement
