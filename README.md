@@ -107,23 +107,19 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
-
-
-
-
 ### Changelog
 
-#### 1.2.5 
+#### 1.2.5
 
-- Small bugfix 
+- Small bugfix
 - Support BTT TFT35, TFT43
 
-#### 1.2.4 
+#### 1.2.4
 
 - Improves travel for SKR board
 - Support for TMC2209 Standalone
 
-#### 1.2.3 
+#### 1.2.3
 
 - TouchMi bugfix
 - Graphical LCD bug fix
@@ -142,9 +138,10 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 - Communication bug fix
 - New TFT firmware
 
-#### Version 1.2.0 
+#### Version 1.2.0
 
 ##### Fixed
+
 - Add support for TouchMi
 - Add Solution to Octoprint communication problem (you have to change the connection of the TFT on the mainboard, see jpg file included) communication speed : 115000
 - New TFT firmware with TouchMi and Z steppers Align button
@@ -153,6 +150,7 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 #### Version 1.1.2
 
 ##### Fixed
+
 - Bug fixes
 - Add support for LV8729
 - Add Support for Matrix extruder
@@ -162,6 +160,7 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 #### Version 1.1.1
 
 ##### Fixed
+
 - Bug fixes
 - Active or not MBL in section 5
 - M600 works with Octoprint
@@ -170,6 +169,7 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 #### Version 1.1.0
 
 ##### Fixed
+
 - Marlin 2.0.7.2
 - Major Bug fixes
 - Ajout du MBL
@@ -179,21 +179,25 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 #### Version 1.0.3
 
 ##### Fixed
+
 - Add support for MKS SGEN L V1 and V2
 
 #### Version 1.0.2 
 
 ##### Fixed
+
 - TFT bug fix
 
 #### Version 1.0.1 
 
 ##### Fixed
+
 - Buffers bug fix
 
 #### Version 1.0 
 
 ##### Fixed
+
 - First release
 
 # Remerciement
