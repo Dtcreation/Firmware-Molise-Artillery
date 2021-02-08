@@ -474,14 +474,10 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#if ENABLED(SKR13)
-  #define E0_AUTO_FAN_PIN P2_04
-#else
-  #if ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(MKSSGENLV1) || ENABLED(MKSSGENLV2)
-    #define E0_AUTO_FAN_PIN FAN1_PIN
+#if ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(MKSSGENLV1) || ENABLED(MKSSGENLV2) || ENABLED(SKR13)
+  #define E0_AUTO_FAN_PIN FAN1_PIN
   #else
 #define E0_AUTO_FAN_PIN 7
-  #endif
 #endif
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
