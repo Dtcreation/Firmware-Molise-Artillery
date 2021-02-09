@@ -1,7 +1,5 @@
 # Molise Firmware 
 
-Téléchargez aussi Molise et son super [fang](#) sur [Thingiverse](https://www.thingiverse.com/thing:4589399)
-
 N'hésitez pas à me soutenir. Payez moi une 🍺 ou un ☕ : [https://paypal.me/dtouton](https://paypal.me/dtouton)
 
 Ma chaine Youtube : [Dtcreation 3D](https://www.youtube.com/channel/UCQOsiY8l6Of56zkFhtDT0Sw)
@@ -9,6 +7,10 @@ Ma chaine Youtube : [Dtcreation 3D](https://www.youtube.com/channel/UCQOsiY8l6Of
 Rejoignez notre groupe facebook : [Molise Firmware](https://www.facebook.com/groups/molisefirmware)
 
 Les sources pour l'écran TFT sont [disponible sur ce repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
+
+Téléchargez le super fang pour BLtouch sur [Thingiverse](https://www.thingiverse.com/thing:4589399)
+
+Téléchargez le super fang pour TouchMi sur [Thingiverse](https://www.thingiverse.com/thing:4713319)
 
 ## FRENCH - ENGLISH DOWN
 
