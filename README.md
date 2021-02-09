@@ -40,6 +40,7 @@ Le Firmware supporte actuellement le hardware suivant :
 - TouchMi avec ou sans LED sur X1
 
 Le Firmware apporte les modifications suivantes à Marlin (par rapport à la version stock)
+- Support du BlTouch et du TouchMi
 - Auto Bed Leveling with Stock Sensor [plus d'information sur le site 3dprintbeginner](https://3dprintbeginner.com/sidewinder-x1-auto-bed-leveling-stock-sensor/)
 - Graphical LCD : Mode Marlin pour les écrans Bigtreetech et clônes
 - Sensorless Homing : Permet de positionner un axe sans avoir besoin d'un interrupteur de fin de course physique
@@ -260,6 +261,7 @@ Firmware currently supports the following hardware:
 - TouchMi with or without LED on X1
 
 The Firmware makes the following changes to Marlin (compared to the stock version)
+- Support of BlTouch and TouchMi
 - Auto Bed Leveling with Stock Sensor [more information on the 3dprintbeginner website](https://3dprintbeginner.com/sidewinder-x1-auto-bed-leveling-stock-sensor/)
 - Graphical LCD: Marlin mode for Bigtreetech and clone screens
 - Sensorless Homing: Allows positioning of an axis without the need for a physical limit switch
@@ -267,7 +269,7 @@ The Firmware makes the following changes to Marlin (compared to the stock versio
 - Mesh Bed Leveling: MBL - Allows you to manually palpate several points of your plate as a BLTouch would do it automatically
 - Automatic alignment of Z steppers (Z_STEPPER_AUTO_ALIGN)
 - Solution to the Octoprint communication problem by changing the connection of the TFT screen on the MKS Gen L (option)
-- Removal of the end of filament sensor on the motherboard for compatibility with Octoprint and SD reader on the motherboard (Option)
+- Removal of the runout filament sensor on the motherboard for compatibility with Octoprint and SD reader on the motherboard (Option)
 
 The code in the `Configuration.h` file has been split into 7 sections to make the code more readable. So, for people who want to compile code from source, the job will be easier. For more explanation on the code compilation, please refer to the [dedicated wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
