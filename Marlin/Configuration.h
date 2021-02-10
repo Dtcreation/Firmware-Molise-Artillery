@@ -1489,17 +1489,17 @@
 
 
 #ifdef GENIUS
-  #define X_BED_SIZE 226
+  #define X_BED_SIZE 220
   #define Y_BED_SIZE 226
 #endif
 #ifdef X1
-  #define X_BED_SIZE 308
+  #define X_BED_SIZE 300
   #define Y_BED_SIZE 308
 #endif
 
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 0
+#define X_MIN_POS -5
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
