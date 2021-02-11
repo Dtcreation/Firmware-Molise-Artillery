@@ -1490,16 +1490,8 @@
 
 
 #ifdef GENIUS
-<<<<<<< HEAD
-  #define X_BED_SIZE 220
-<<<<<<< HEAD
-  #define Y_BED_SIZE 223
-=======
-=======
   #define X_BED_SIZE 226
->>>>>>> master
   #define Y_BED_SIZE 226
->>>>>>> origin/develop
 #endif
 #ifdef X1
   #define X_BED_SIZE 308
