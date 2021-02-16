@@ -1494,8 +1494,8 @@
   #define Y_BED_SIZE 220
 #endif
 #ifdef X1
-  #define X_BED_SIZE 308
-  #define Y_BED_SIZE 308
+  #define X_BED_SIZE 300
+  #define Y_BED_SIZE 300
 #endif
 
 
