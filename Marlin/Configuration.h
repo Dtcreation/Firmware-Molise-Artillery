@@ -1490,8 +1490,8 @@
 
 
 #ifdef GENIUS
-  #define X_BED_SIZE 226
-  #define Y_BED_SIZE 226
+  #define X_BED_SIZE 220
+  #define Y_BED_SIZE 220
 #endif
 #ifdef X1
   #define X_BED_SIZE 308
