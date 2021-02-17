@@ -233,8 +233,6 @@ Join our facebook group: [Molise Firmware](https://www.facebook.com/groups/molis
 
 The sources for the TFT screen are [available on this repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
 
-## FRENCH
-
 ### What is Molise firmware
 
 Molise is modified firmware for brand printers [Artillery](https://artillery3d.com/). The firmware also supports X1 and Genius artillery.
