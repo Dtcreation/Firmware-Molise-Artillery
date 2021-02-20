@@ -199,15 +199,9 @@
 //===========================================================================
 
 /**
- * Here are some standard links for getting your machine calibrated:
+ * Here a links for getting your machine calibrated:
  *
- * https://reprap.org/wiki/Calibration
- * https://youtu.be/wAL9d7FgInk
- * http://calculator.josefprusa.cz
- * https://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide
- * https://www.thingiverse.com/thing:5573
- * https://sites.google.com/site/repraplogphase/calibration-of-your-reprap
- * https://www.thingiverse.com/thing:298812
+ * https://www.youtube.com/watch?v=SyN3ruzyw8M&t=342s
  */
 
 //===========================================================================
@@ -1488,16 +1482,14 @@
 
 // The size of the print bed
 
-
 #ifdef GENIUS
   #define X_BED_SIZE 220
-  #define Y_BED_SIZE 220
+  #define Y_BED_SIZE 230
 #endif
 #ifdef X1
   #define X_BED_SIZE 300
-  #define Y_BED_SIZE 300
+  #define Y_BED_SIZE 310
 #endif
-
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
