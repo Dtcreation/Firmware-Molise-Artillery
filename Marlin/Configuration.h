@@ -1505,16 +1505,9 @@
 // @section machine
 
 // The size of the print bed
-<<<<<<< HEAD
-
-#ifdef GENIUS
-  #define X_BED_SIZE 220
-  #define Y_BED_SIZE 230
-=======
 #ifdef GENIUS
   #define X_BED_SIZE 220
   #define Y_BED_SIZE 225
->>>>>>> origin/master
 #endif
 #ifdef X1
   #define X_BED_SIZE 300
