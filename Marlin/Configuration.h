@@ -91,11 +91,11 @@
 /*** Section 1 Artillery Printer ***/
 
 //#define GENIUS
-//#define X1
+#define X1
 
 /*** Section 2 Board Type ***/
 
-//#define MKSGENL         // Stock Board
+#define MKSGENL         // Stock Board
 //#define MKSGENLV21      // Choose this if you are using MKS GEN L V2.1
 //#define SKR13           // Choose this if you are using BigTreeTech SKR 1.3
 //#define SKR14           // Choose this if you are using BigTreeTech SKR 1.4
@@ -116,14 +116,14 @@
 
 /*** Section 3 Extruder Type ***/
 
-//#define TITAN       // Stock Extruder
+#define TITAN       // Stock Extruder
 //#define BMG         // Choose this if you are using BMG
 //#define HEMERA      // Choose this if you are using HEMERA
 //#define MATRIX      // Choose this if you are using MATRIX
 
 /*** Section 4 Drivers Type ***/
 
-//#define TMC_2100        // Stock Drivers
+#define TMC_2100        // Stock Drivers
 //#define TMC_2208_STA    // Standalone Mode
 //#define TMC_2209_STA    // Standalone Mode
 //#define LV_8729
@@ -159,7 +159,7 @@
     //#define TOUCH_MI_LED                          // Uncomment if you have the additional LED from Hotends.fr for the X1
 #endif
 
-//#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
+#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
 
 /*** Section 6 Options ***/
 
