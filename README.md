@@ -110,6 +110,16 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 ### Changelog
 
+#### 1.3.0
+
+- Upgrade with Marlin BugFix 2.0.X
+- Return to 250.000 connection speed (old bug fixed - don't forget to change the connection speed on the TFT screen)
+- Some bugfix for TouchMi (Z_auto_alignement problem still here)
+- Add Offset for fan duct with 5015 : <https://www.thingiverse.com/thing:4548854>
+- Add LEVEL_CORNERS_USE_PROBE (works only with LCD screen or Marlin Mode for now)
+- Add auto pre-heat bed when probe
+- Add BINARY_FILE_TRANSFER (for flashing Molise with Octoprint for boards with sd reader)
+
 #### 1.2.7
 
 - Add MKS Gen L v2.1
@@ -330,6 +340,16 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 1.3.0
+
+- Upgrade with Marlin BugFix 2.0.X
+- Return to 250.000 connection speed (old bug fixed - don't forget to change the connection speed on the TFT screen)
+- Some bugfix for TouchMi (Z_auto_alignement problem still here)
+- Add Offset for fan duct with 5015 : <https://www.thingiverse.com/thing:4548854>
+- Add LEVEL_CORNERS_USE_PROBE (works only with LCD screen or Marlin Mode for now)
+- Add auto pre-heat bed when probe
+- Add BINARY_FILE_TRANSFER (for flashing Molise with Octoprint for boards with sd reader)
 
 #### 1.2.7
 
