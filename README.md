@@ -57,10 +57,10 @@ Le firmware Molise 1.2 vous est fourni gratuitement, dans un état « tel quel �
 Pour vous faciliter la tâche, le firmware molise vous est fourni "pré-compilé" pour les 6 cas de figures suivants:
 
 - X1 Stock
-- X1 Stock + BLTouch
+- X1 Stock + BLTouch (Waggster Mod)
 - X1 Stock + TouchMi
 - Genius Stock
-- Genius Stock + BLTouch
+- Genius Stock + BLTouch (Waggster Mod)
 - Genius Stock + TouchMi
 
 Le Firmware Molise est fourni avec un second firmware, il s'agit du firmware de l'écran TFT. Ce Firmware TFT est basé le firmware Officiel de Bigtreetech avec la prise en charge entre autre des fonctions tactiles suivantes :
@@ -286,10 +286,10 @@ Molise 1.2 firmware is provided to you free of charge in an "as is" state. We ca
 To make your task easier, the molise firmware is supplied to you "pre-compiled" for the following 6 cases:
 
 - X1 Stock
-- X1 Stock + BLTouch
+- X1 Stock + BLTouch (Waggster Mod)
 - X1 Stock + TouchMi
 - Genius Stock
-- Genius Stock + BLTouch
+- Genius Stock + BLTouch (Waggster Mod)
 - Genius Stock + TouchMi
 
 The Molise Firmware is supplied with a second firmware, this is the firmware of the TFT screen. This TFT Firmware is based on the Official Firmware of Bigtreetech with the support among others of the following touch functions:
