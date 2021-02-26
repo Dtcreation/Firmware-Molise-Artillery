@@ -57,10 +57,10 @@ Le firmware Molise 1.2 vous est fourni gratuitement, dans un état « tel quel �
 Pour vous faciliter la tâche, le firmware molise vous est fourni "pré-compilé" pour les 6 cas de figures suivants:
 
 - X1 Stock
-- X1 Stock + BLTouch
+- X1 Stock + BLTouch (Waggster Mod)
 - X1 Stock + TouchMi
 - Genius Stock
-- Genius Stock + BLTouch
+- Genius Stock + BLTouch (Waggster Mod)
 - Genius Stock + TouchMi
 
 Le Firmware Molise est fourni avec un second firmware, il s'agit du firmware de l'écran TFT. Ce Firmware TFT est basé le firmware Officiel de Bigtreetech avec la prise en charge entre autre des fonctions tactiles suivantes :
@@ -109,6 +109,16 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 1.3.0
+
+- Upgrade with Marlin BugFix 2.0.X
+- Return to 250.000 connection speed (old bug fixed - don't forget to change the connection speed on the TFT screen)
+- Some bugfix for TouchMi (Z_auto_alignement problem still here)
+- Add Offset for fan duct with 5015 : <https://www.thingiverse.com/thing:4548854>
+- Add LEVEL_CORNERS_USE_PROBE (works only with LCD screen or Marlin Mode for now)
+- Add auto pre-heat bed when probe
+- Add BINARY_FILE_TRANSFER (for flashing Molise with Octoprint for boards with sd reader)
 
 #### 1.2.7
 
@@ -276,10 +286,10 @@ Molise 1.2 firmware is provided to you free of charge in an "as is" state. We ca
 To make your task easier, the molise firmware is supplied to you "pre-compiled" for the following 6 cases:
 
 - X1 Stock
-- X1 Stock + BLTouch
+- X1 Stock + BLTouch (Waggster Mod)
 - X1 Stock + TouchMi
 - Genius Stock
-- Genius Stock + BLTouch
+- Genius Stock + BLTouch (Waggster Mod)
 - Genius Stock + TouchMi
 
 The Molise Firmware is supplied with a second firmware, this is the firmware of the TFT screen. This TFT Firmware is based on the Official Firmware of Bigtreetech with the support among others of the following touch functions:
@@ -330,6 +340,16 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 1.3.0
+
+- Upgrade with Marlin BugFix 2.0.X
+- Return to 250.000 connection speed (old bug fixed - don't forget to change the connection speed on the TFT screen)
+- Some bugfix for TouchMi (Z_auto_alignement problem still here)
+- Add Offset for fan duct with 5015 : <https://www.thingiverse.com/thing:4548854>
+- Add LEVEL_CORNERS_USE_PROBE (works only with LCD screen or Marlin Mode for now)
+- Add auto pre-heat bed when probe
+- Add BINARY_FILE_TRANSFER (for flashing Molise with Octoprint for boards with sd reader)
 
 #### 1.2.7
 
