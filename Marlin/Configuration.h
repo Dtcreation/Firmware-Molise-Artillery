@@ -158,6 +158,7 @@
     //#define TOUCH_MI_MANUAL_DEPLOY                // For manual deploy (LCD menu)
     //#define TOUCH_MI_LED                          // Uncomment if you have the additional LED from Hotends.fr for the X1
     #define TOUCH_MI_NEOPIXEL                      // Uncomment if you have the additional Neopixel LED from Hotends.fr
+    #define Z_STEPPER_AUTO_ALIGN                    //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this
 #endif
 
 //#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
@@ -3019,9 +3020,9 @@
   #endif
 
   // Use a single NeoPixel LED for static (background) lighting
-  #define NEOPIXEL_BKGD_LED_INDEX  1               // Index of the LED to use
-  #define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
-  #define NEOPIXEL_BKGD_ALWAYS_ON                  // Keep the backlight on when other NeoPixels are off
+  //#define NEOPIXEL_BKGD_LED_INDEX  1               // Index of the LED to use
+  //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
+  //#define NEOPIXEL_BKGD_ALWAYS_ON                  // Keep the backlight on when other NeoPixels are off
 
 #endif
 
