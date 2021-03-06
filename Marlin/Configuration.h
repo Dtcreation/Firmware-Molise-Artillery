@@ -157,6 +157,7 @@
     //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)  // For a magnet on the right side of the bed
     //#define TOUCH_MI_MANUAL_DEPLOY                // For manual deploy (LCD menu)
     //#define TOUCH_MI_LED                          // Uncomment if you have the additional LED from Hotends.fr for the X1
+    //#define TOUCH_MI_NEOPIXEL                      // Uncomment if you have the additional Neopixel LED from Hotends.fr
 #endif
 
 //#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
@@ -2959,14 +2960,23 @@
  *
  * LED Type. Enable only one of the following two options.
  */
-#if ENABLED(SKR13) || ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(MKSSGENLV1) || ENABLED(MKSSGENLV2) || ENABLED(DISABLE_LED)
+#if ENABLED(SKR13) || ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(DISABLE_LED)|| ENABLED(TOUCH_MI_NEOPIXEL)
   //#define RGB_LED
-  #else
+#endif
+#if ENABLED(MKSGENL) && DISABLED(TOUCH_MI_NEOPIXEL)
   #define RGB_LED
-    #define RGB_LED_R_PIN 5
-    #define RGB_LED_G_PIN 4
-    #define RGB_LED_B_PIN 6
-    #define RGB_LED_W_PIN -1
+  #define RGB_LED_R_PIN 5
+  #define RGB_LED_G_PIN 4
+  #define RGB_LED_B_PIN 6
+  #define RGB_LED_W_PIN -1
+#endif
+#if ENABLED(MKSSGENLV1) || ENABLED(MKSSGENLV2)    // Using this method : https://artillery.n3t.ro/img/MKS_SGEN_L/pin-map.png
+  
+  #define RGB_LED
+  #define RGB_LED_R_PIN P3_26
+  #define RGB_LED_G_PIN P1_26
+  #define RGB_LED_B_PIN P3_25
+  #define RGB_LED_W_PIN -1
 #endif
 #if ENABLED(TOUCH_MI_LED) && DISABLED(MKSGENL) && ENABLED(X1)
   #define RGB_LED
@@ -2979,16 +2989,24 @@
 //#define RGBW_LED
 
 // Support for Adafruit NeoPixel LED driver
-//#define NEOPIXEL_LED
-#if ENABLED(NEOPIXEL_LED)
+#ifdef TOUCH_MI_NEOPIXEL
+#define NEOPIXEL_LED
+  #else
+  //#define NEOPIXEL_LED
+#endif
+#ifdef NEOPIXEL_LED
   #define NEOPIXEL_TYPE   NEO_GRBW // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
-  #define NEOPIXEL_PIN     4       // LED driving pin
+  #ifdef MKSGENL
+    #define NEOPIXEL_PIN     4       // LED driving pin
+  #else
+    #define NEOPIXEL_PIN SERVO0_PIN  // LED driving pin
+  #endif
   //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
   //#define NEOPIXEL2_PIN    5
-  #define NEOPIXEL_PIXELS 30       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
+  #define NEOPIXEL_PIXELS 1       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
   #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
-  #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
-  //#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
+  #define NEOPIXEL_BRIGHTNESS 255  // Initial brightness (0-255)
+  #define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
 
   // Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ...
   //#define NEOPIXEL2_SEPARATE
@@ -3001,9 +3019,10 @@
   #endif
 
   // Use a single NeoPixel LED for static (background) lighting
-  //#define NEOPIXEL_BKGD_LED_INDEX  0               // Index of the LED to use
-  //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
-  //#define NEOPIXEL_BKGD_ALWAYS_ON                  // Keep the backlight on when other NeoPixels are off
+  #define NEOPIXEL_BKGD_LED_INDEX  0               // Index of the LED to use
+  #define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
+  #define NEOPIXEL_BKGD_ALWAYS_ON                  // Keep the backlight on when other NeoPixels are off
+
 #endif
 
 /**
