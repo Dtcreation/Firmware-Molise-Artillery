@@ -90,8 +90,8 @@
 
 /*** Section 1 Artillery Printer ***/
 
-//#define GENIUS
-#define X1
+#define GENIUS
+//#define X1
 
 /*** Section 2 Board Type ***/
 
@@ -149,7 +149,7 @@
     #define NOZZLE_TO_PROBE_OFFSET { 0, 0, 0 }   
   #endif
 
-//#define TOUCH_MI_PROBE                            //uncomment if you use a Touch Mi
+#define TOUCH_MI_PROBE                            //uncomment if you use a Touch Mi
   #ifdef TOUCH_MI_PROBE
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #define NOZZLE_TO_PROBE_OFFSET { -43, -32, 0 }  //Offset preset for this fanduct : https://www.thingiverse.com/thing:4713319
@@ -157,16 +157,16 @@
     //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)  // For a magnet on the right side of the bed
     //#define TOUCH_MI_MANUAL_DEPLOY                // For manual deploy (LCD menu)
     //#define TOUCH_MI_LED                          // Uncomment if you have the additional LED from Hotends.fr for the X1
-    //#define TOUCH_MI_NEOPIXEL                      // Uncomment if you have the additional Neopixel LED from Hotends.fr
+    #define TOUCH_MI_NEOPIXEL                      // Uncomment if you have the additional Neopixel LED from Hotends.fr
 #endif
 
-#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
+//#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
 
 /*** Section 6 Options ***/
 
 //#define GraphicalLCD                              // Will work next to MKS TFT
 #define MKSGENL_TFT                                 // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 115200
-//#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
+#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
 
 /*** Section 7 Sensorless Homing XY ***/
 
@@ -2985,9 +2985,9 @@
   #else
   //#define NEOPIXEL_LED
 #endif
-#if ENABLED(NEOPIXEL_LED)
+#ifdef NEOPIXEL_LED
   #define NEOPIXEL_TYPE   NEO_GRBW // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
-  #if ENABLED(MKSGENL)
+  #ifdef MKSGENL
     #define NEOPIXEL_PIN     4       // LED driving pin
   #else
     #define NEOPIXEL_PIN SERVO0_PIN  // LED driving pin
