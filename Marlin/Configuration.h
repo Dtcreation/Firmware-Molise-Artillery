@@ -2960,14 +2960,23 @@
  *
  * LED Type. Enable only one of the following two options.
  */
-#if ENABLED(SKR13) || ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(MKSSGENLV1) || ENABLED(MKSSGENLV2) || ENABLED(DISABLE_LED)|| ENABLED(TOUCH_MI_NEOPIXEL)
+#if ENABLED(SKR13) || ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(DISABLE_LED)|| ENABLED(TOUCH_MI_NEOPIXEL)
   //#define RGB_LED
-  #else
+#endif
+#if ENABLED(MKSGENL)
   #define RGB_LED
-    #define RGB_LED_R_PIN 5
-    #define RGB_LED_G_PIN 4
-    #define RGB_LED_B_PIN 6
-    #define RGB_LED_W_PIN -1
+  #define RGB_LED_R_PIN 5
+  #define RGB_LED_G_PIN 4
+  #define RGB_LED_B_PIN 6
+  #define RGB_LED_W_PIN -1
+#endif
+#if ENABLED(MKSSGENLV1) || ENABLED(MKSSGENLV2)    // Using this method : https://artillery.n3t.ro/img/MKS_SGEN_L/pin-map.png
+  
+  #define RGB_LED
+  #define RGB_LED_R_PIN P3_26
+  #define RGB_LED_G_PIN P1_26
+  #define RGB_LED_B_PIN P3_25
+  #define RGB_LED_W_PIN -1
 #endif
 #if ENABLED(TOUCH_MI_LED) && DISABLED(MKSGENL) && ENABLED(X1)
   #define RGB_LED
