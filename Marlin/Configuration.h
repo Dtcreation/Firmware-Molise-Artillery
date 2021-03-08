@@ -2995,7 +2995,7 @@
   //#define NEOPIXEL_LED
 #endif
 #ifdef NEOPIXEL_LED
-  #define NEOPIXEL_TYPE   NEO_GRBW // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
+  #define NEOPIXEL_TYPE   NEO_GRB // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
   #ifdef MKSGENL
     #define NEOPIXEL_PIN     4       // LED driving pin
   #else
