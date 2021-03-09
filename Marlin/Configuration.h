@@ -132,7 +132,7 @@
 
 /*** Section 5 Bed Leveling ***/
 
-#define BLTOUCH      //uncomment if you use a BLTouch
+//#define BLTOUCH      //uncomment if you use a BLTouch
   #ifdef BLTOUCH
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
   //#define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }   //Offset preset for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
@@ -149,29 +149,30 @@
     #define NOZZLE_TO_PROBE_OFFSET { 0, 0, 0 }   
   #endif
 
-//#define TOUCH_MI_PROBE                            //uncomment if you use a Touch Mi
+#define TOUCH_MI_PROBE                            //uncomment if you use a Touch Mi
   #ifdef TOUCH_MI_PROBE
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #define NOZZLE_TO_PROBE_OFFSET { -43, -32, 0 }  //Offset preset for this fanduct : https://www.thingiverse.com/thing:4713319
     #define TOUCH_MI_RETRACT_Z 0.5                  // Height at which the probe retracts
     //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)  // For a magnet on the right side of the bed
     //#define TOUCH_MI_MANUAL_DEPLOY                // For manual deploy (LCD menu)
+    #define Z_STEPPER_AUTO_ALIGN                    //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this
     //#define TOUCH_MI_LED                          // Uncomment if you have the additional LED from Hotends.fr for the X1
-    //#define TOUCH_MI_NEOPIXEL                      // Uncomment if you have the additional Neopixel LED from Hotends.fr
+    #define TOUCH_MI_NEOPIXEL                      // Uncomment if you have the additional Neopixel LED from Hotends.fr
 #endif
 
 //#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
 
 /*** Section 6 Options ***/
 
-#define GraphicalLCD                              // Will work next to MKS TFT
-//#define MKSGENL_TFT                                 // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 115200
+//#define GraphicalLCD                              // Will work next to MKS TFT
+#define MKSGENL_TFT                                 // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 115200
 #define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
-#define NEOPIXEL_PERSO                            // If you want to use a personal Neopixel LED
+//#define NEOPIXEL_PERSO                            // If you want to use a personal Neopixel LED
 
 /*** Section 7 Sensorless Homing XY ***/
 
-#define SENSHOME // Active sensorless homing ONLY for TMC 2208 UART and 2009 UART with SKR 1.3 (extra wiring needed) and SKR 1.4 (no extra wiring needed)
+//#define SENSHOME // Active sensorless homing ONLY for TMC 2208 UART and 2009 UART with SKR 1.3 (extra wiring needed) and SKR 1.4 (no extra wiring needed)
 
 
 
