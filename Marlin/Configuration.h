@@ -2961,11 +2961,7 @@
  *
  * LED Type. Enable only one of the following two options.
  */
-<<<<<<< HEAD
-#if ENABLED(SKR13) || ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(DISABLE_LED)|| ENABLED(TOUCH_MI_NEOPIXEL)  || ENABLED(NEOPIXEL_PERSO)
-=======
 #if ENABLED(SKR13) || ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(DISABLE_LED) || ENABLED(TOUCH_MI_NEOPIXEL) || ENABLED(NEOPIXEL_PERSO)
->>>>>>> develop
   //#define RGB_LED
 #endif
 #if ENABLED(MKSGENL) && DISABLED(TOUCH_MI_NEOPIXEL)
@@ -3032,11 +3028,7 @@
 #ifdef NEOPIXEL_PERSO
   #define NEOPIXEL_LED
   #define NEOPIXEL_TYPE   NEO_GRB // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
-<<<<<<< HEAD
-  #define NEOPIXEL_PIN P1_24  // LED driving pin
-=======
   //#define NEOPIXEL_PIN P1_24  // LED driving pin
->>>>>>> develop
   //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
   //#define NEOPIXEL2_PIN    5
   #define NEOPIXEL_PIXELS 19       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
