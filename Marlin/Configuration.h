@@ -166,7 +166,7 @@
 /*** Section 6 Options ***/
 
 //#define GraphicalLCD                              // Will work next to MKS TFT
-#define MKSGENL_TFT                                 // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 115200
+#define MKSGENL_TFT                                 // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 250000
 //#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
 //#define NEOPIXEL_PERSO                            // If you want to use a personal Neopixel LED on the Neopixel Port
 //#define LED_PORT_NEOPIXEL                         // If you want to use a personal Neopixel LED on the original LED Port
