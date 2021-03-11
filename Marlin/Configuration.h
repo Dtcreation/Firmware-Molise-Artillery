@@ -1512,7 +1512,7 @@
 // The size of the print bed
 #ifdef GENIUS
   #define X_BED_SIZE 220
-  #define Y_BED_SIZE 225
+  #define Y_BED_SIZE 220
 #endif
 #ifdef X1
   #define X_BED_SIZE 300
