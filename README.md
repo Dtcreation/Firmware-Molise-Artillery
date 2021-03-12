@@ -349,6 +349,14 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 
 ### Changelog
 
+#### 1.3.1
+
+- Bugfix Z_STEPPER_AUTO_ALIGN with TouchMi
+- Bugfix G34 with TouchMi
+- Add TouchMi Neopixel LED support
+- Add personal Neopixel LED for SKR
+- Change PREHEAT_BEFORE_PROBING by PREHEAT_BEFORE_LEVELING
+
 #### 1.3.0
 
 - Upgrade with Marlin BugFix 2.0.X
