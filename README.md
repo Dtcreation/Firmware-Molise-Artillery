@@ -110,6 +110,16 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 ### Changelog
 
+#### 1.3.2
+
+- Add support for BMG Wind
+- Adjust junction deviation
+- Active S Curve
+- Change K value to 0
+- Adjust Genius size bed for BLTouch Y problem
+- Neopixel bugfix
+- Add M73 support
+
 #### 1.3.1
 
 - Bugfix Z_STEPPER_AUTO_ALIGN with TouchMi
@@ -348,6 +358,16 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 1.3.2
+
+- Add support for BMG Wind
+- Adjust junction deviation
+- Active S Curve
+- Change K value to 0
+- Adjust Genius size bed for BLTouch Y problem
+- Neopixel bugfix
+- Add M73 support
 
 #### 1.3.1
 
