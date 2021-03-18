@@ -2030,7 +2030,7 @@
 // Other output doesn't need to be that speedy.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256]
 #if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
-  #define TX_BUFFER_SIZE 64
+  #define TX_BUFFER_SIZE 32
 #else
   #define TX_BUFFER_SIZE 32
 #endif
@@ -2040,7 +2040,7 @@
 // To use flow control, set this buffer size to at least 1024 bytes.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]
 #if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
-  #define RX_BUFFER_SIZE 256
+  #define RX_BUFFER_SIZE 32
 #else
   //#define RX_BUFFER_SIZE 256
 #endif
