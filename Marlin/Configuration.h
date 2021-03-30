@@ -1368,14 +1368,8 @@
 #define Z_PROBE_OFFSET_RANGE_MAX 20
 
 // Enable the M48 repeatability test to test probe accuracy
-#ifdef BLTOUCH
+#if HAS_BED_PROBE
     #define Z_MIN_PROBE_REPEATABILITY_TEST
- #else
-  #ifdef ZMIN_SENSOR_AS_PROBE
-    #define Z_MIN_PROBE_REPEATABILITY_TEST
-  #else
-    //#define Z_MIN_PROBE_REPEATABILITY_TEST
-  #endif
 #endif
 
 // Before deploy/stow pause for user confirmation

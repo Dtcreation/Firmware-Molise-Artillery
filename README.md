@@ -4,6 +4,10 @@ N'hésitez pas à me soutenir. Payez moi une 🍺 ou un ☕ : [https://paypal.me
 
 Ma chaine Youtube : [Dtcreation 3D](https://www.youtube.com/channel/UCQOsiY8l6Of56zkFhtDT0Sw)
 
+Ma page Instagram : [Dtcreation 3D](https://www.instagram.com/dtcreation3d/)
+
+Mon Twitter : [Dtcreation 3D](https://twitter.com/Dtcreation3)
+
 Rejoignez notre groupe facebook : [Molise Firmware](https://www.facebook.com/groups/molisefirmware)
 
 Les sources pour l'écran TFT sont [disponible sur ce repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
@@ -25,7 +29,7 @@ Le Firmware est découpé en 2
 
 ### Version actuelle
 
-Dernière version de Molise __1.2.7__ basée sur [Marlin 2.0.7.2](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
+Dernière version de Molise __1.3.2__ basée sur [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
 
 ### A propos du Firmware Molise
 
@@ -52,14 +56,14 @@ Le Firmware apporte les modifications suivantes à Marlin (par rapport à la ver
 
 Le code du fichier `Configuration.h` a été découpé en 7 sections afin de rendre le code plus lisible. Ainsi, pour les personnes souhaitant compiler le code à partir des sources, le travail sera plus simple. Pour plus d'explication sur la compilation du code, merci de vous reporter à la page du [wiki dédiée](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
-Le firmware Molise 1.2 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait faire à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
+Le firmware Molise 1.3 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait faire à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
 
 Pour vous faciliter la tâche, le firmware molise vous est fourni "pré-compilé" pour les 6 cas de figures suivants:
 
-- X1 Stock
+- X1 Stock + MBL
 - X1 Stock + BLTouch (Waggster Mod)
 - X1 Stock + TouchMi
-- Genius Stock
+- Genius Stock + MBL
 - Genius Stock + BLTouch (Waggster Mod)
 - Genius Stock + TouchMi
 
@@ -251,15 +255,21 @@ Le firmware Molise 1.2 vous est fourni par David TOUTON, [la géniale communaut�
 
 # Molise Firmware
 
-Also download Molise and his super [fang](#) on [Thingiverse](https://www.thingiverse.com/thing:4589399)
-
 Please do not hesitate to support me. Pay me a 🍺 or a ☕: [https://paypal.me/dtouton](https://paypal.me/dtouton)
 
 My Youtube channel: [Dtcreation 3D](https://www.youtube.com/channel/UCQOsiY8l6Of56zkFhtDT0Sw)
 
+My Instagram : [Dtcreation 3D](https://www.instagram.com/dtcreation3d/)
+
+My Twitter : [Dtcreation 3D](https://twitter.com/Dtcreation3)
+
 Join our facebook group: [Molise Firmware](https://www.facebook.com/groups/molisefirmware)
 
 The sources for the TFT screen are [available on this repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
+
+Super fang for BLtouch [Thingiverse](https://www.thingiverse.com/thing:4589399)
+
+Super fang for TouchMi [Thingiverse](https://www.thingiverse.com/thing:4713319)
 
 ### What is Molise firmware
 
@@ -272,7 +282,7 @@ Firmware is split in 2
 
 ### Current version
 
-Latest version of Molise __1.2.7__ based on [Marlin 2.0.7.2](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
+Latest version of Molise __1.3.2__ based on [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
 
 ### About Molise Firmware
 
@@ -299,7 +309,7 @@ The Firmware makes the following changes to Marlin (compared to the stock versio
 
 The code in the `Configuration.h` file has been split into 7 sections to make the code more readable. So, for people who want to compile code from source, the job will be easier. For more explanation on the code compilation, please refer to the [dedicated wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
-Molise 1.2 firmware is provided to you free of charge in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
+Molise 1.3 firmware is provided to you free of charge in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
 
 To make your task easier, the molise firmware is supplied to you "pre-compiled" for the following 6 cases:
 
