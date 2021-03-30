@@ -1104,6 +1104,7 @@
   // Add Probe Z Offset calibration to the Z Probe Offsets menu
   #if HAS_BED_PROBE
     #define PROBE_OFFSET_WIZARD
+    #define Z_MIN_PROBE_REPEATABILITY_TEST
     #if ENABLED(PROBE_OFFSET_WIZARD)
       //
       // Enable to init the Probe Z-Offset when starting the Wizard.
@@ -1122,7 +1123,7 @@
   #if ENABLED(LCD_INFO_MENU)
     //#define LCD_PRINTER_INFO_IS_BOOTSCREEN // Show bootscreen(s) instead of Printer Info pages
   #endif
-
+  
   // BACK menu items keep the highlight at the top
   //#define TURBO_BACK_MENU_ITEM
 
