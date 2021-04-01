@@ -29,7 +29,7 @@ Le Firmware est découpé en 2
 
 ### Version actuelle
 
-Dernière version de Molise __1.3.2__ basée sur [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
+Dernière version de Molise __1.4.0__ basée sur [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
 
 ### A propos du Firmware Molise
 
@@ -261,7 +261,7 @@ Changelog Molise TFT 5.0 :
 
 # Remerciement
 
-Le firmware Molise 1.2 vous est fourni par David TOUTON, [la géniale communauté d’impression 3D sur Facebook](https://www.facebook.com/groups/molisefirmware), et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
+Le firmware Molise 1.4 vous est fourni par David TOUTON, [la géniale communauté d’impression 3D sur Facebook](https://www.facebook.com/groups/molisefirmware), et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
 
 
 
@@ -296,7 +296,7 @@ Firmware is split in 2
 
 ### Current version
 
-Latest version of Molise __1.3.2__ based on [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
+Latest version of Molise __1.4.0__ based on [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
 
 ### About Molise Firmware
 
@@ -530,4 +530,4 @@ Changelog Molise TFT 5.0 :
 
 # Thanks
 
-Molise 1.2 firmware is provided to you by David TOUTON, [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
+Molise 1.4 firmware is provided to you by David TOUTON, [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
