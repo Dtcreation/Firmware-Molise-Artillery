@@ -114,6 +114,20 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 ### Changelog
 
+#### 1.4.0
+
+Changelog Molise Marlin :
+
+- Add M48 For TouchMi
+- Align version number with Molise for Wanhao D12
+
+Changelog Molise TFT 5.0 :
+
+- Add Level Corner With Probe
+- Desactivate TFT M600 Emulation to use Marlin M600 (you can reactivate it in config.ini)
+- Change notifications style
+- Bugfix
+
 #### 1.3.2
 
 - Add support for BMG Wind
@@ -368,6 +382,20 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 1.4.0
+
+Changelog Molise Marlin :
+
+- Add M48 For TouchMi
+- Align version number with Molise for Wanhao D12
+
+Changelog Molise TFT 5.0 :
+
+- Add Level Corner With Probe
+- Desactivate TFT M600 Emulation to use Marlin M600 (you can reactivate it in config.ini)
+- Change notifications style
+- Bugfix
 
 #### 1.3.2
 
