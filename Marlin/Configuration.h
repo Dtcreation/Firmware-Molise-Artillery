@@ -102,6 +102,7 @@
 //#define SKR14T          // Choose this if you are using BigTreeTech SKR 1.4 Turbo
 //#define MKSSGENLV1      // Choose this if you are using MKS SGEN L V1
 //#define MKSSGENLV2      // Choose this if you are using MKS SGEN L V2
+//#define MKSROBINNANOV3  // Choose this if you are using MKS ROBIN NANO V3
 
 
 /*default_envs in Platformio.ini :
@@ -112,6 +113,7 @@
 -Board name: SKRV14TURBO, change_value = LPC1769 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1769
 -Board name: MKSSGENLV1, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
 -Board name: MKSSGENLV2, change_value = LPC1769 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1769
+-Board name: MKSROBINNANOV3, change_value = mks_robin_nano_v3_usb_flash_drive_msc //use this value in platform.ini. Search for 'change_value' and replace it with this value mks_robin_nano_v3_usb_flash_drive_msc
 */
 
 /*** Section 3 Extruder Type ***/
@@ -172,6 +174,7 @@
 //#define GraphicalLCD                              // Will work next to MKS TFT
 //#define MKSGENL_TFT                                 // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 250000
 //#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
+//#define MKSROBIN_LVGL                             // If you want the graphical interface LVGL on the MKS ROBIN TFT 35
 //#define NEOPIXEL_PERSO                            // If you want to use a personal Neopixel LED on the Neopixel Port
 //#define LED_PORT_NEOPIXEL                         // If you want to use a personal Neopixel LED on the original LED Port
 
@@ -262,7 +265,11 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT 0
+#ifdef MKSROBINNANOV3
+#define SERIAL_PORT -1
+  #else
+  #define SERIAL_PORT 0
+#endif
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
@@ -275,6 +282,9 @@
 #endif
 #if ENABLED(MKSGENL_TFT) && ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
   #define SERIAL_PORT_2 2
+#endif
+#if ENABLED(MKSROBINNANOV3)
+  #define SERIAL_PORT_2 3
 #endif
 
 /**
@@ -312,6 +322,9 @@
   #endif
   #ifdef MKSGENLV21
       #define MOTHERBOARD BOARD_MKS_GEN_L_V21
+  #endif
+  #ifdef MKSROBINNANOV3
+      #define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V3
   #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -1117,7 +1130,7 @@
  *      - normally-open switches to 5V and D32.
  */
 //#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
-#if DISABLED(SKR13) && DISABLED(SKR14) && DISABLED(SKR14T) && DISABLED(MKSSGENLV1) && DISABLED(MKSSGENLV2)
+#if DISABLED(SKR13) && DISABLED(SKR14) && DISABLED(SKR14T) && DISABLED(MKSSGENLV1) && DISABLED(MKSSGENLV2) && DISABLED(MKSROBINNANOV3)
   #if ENABLED(BLTOUCH)
     #if ENABLED(WAGGSTER_MOD_WIRING) 
       #define Z_MIN_PIN      19
@@ -2743,7 +2756,9 @@
 // 480x320, 3.5", SPI Display From MKS
 // Normally used in MKS Robin Nano V2
 //
-//#define MKS_TS35_V2_0
+#ifdef MKSROBINNANOV3
+#define MKS_TS35_V2_0
+#endif
 
 //
 // 320x240, 2.4", FSMC Display From MKS
@@ -2833,9 +2848,14 @@
  *   For LVGL_UI also copy the 'assets' folder from the build directory to the
  *   root of your SD card, together with the compiled firmware.
  */
+#ifdef MKSROBINNANOV3
 //#define TFT_CLASSIC_UI
-//#define TFT_COLOR_UI
-//#define TFT_LVGL_UI
+  #ifdef MKSROBIN_LVGL
+  #define TFT_LVGL_UI
+  #else
+  #define TFT_COLOR_UI
+  #endif
+#endif
 
 #if ENABLED(TFT_LVGL_UI)
   //#define MKS_WIFI_MODULE  // MKS WiFi module
@@ -2863,7 +2883,9 @@
 //
 // ADS7843/XPT2046 ADC Touchscreen such as ILI9341 2.8
 //
-//#define TOUCH_SCREEN
+#ifdef MKSROBINNANOV3
+#define TOUCH_SCREEN
+#endif
 #if ENABLED(TOUCH_SCREEN)
   #define BUTTON_DELAY_EDIT  50 // (ms) Button repeat delay for edit screens
   #define BUTTON_DELAY_MENU 250 // (ms) Button repeat delay for menus
@@ -2961,7 +2983,7 @@
  *
  * LED Type. Enable only one of the following two options.
  */
-#if ENABLED(SKR13) || ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(DISABLE_LED) || ENABLED(TOUCH_MI_NEOPIXEL) || ENABLED(NEOPIXEL_PERSO) || ENABLED(LED_PORT_NEOPIXEL)
+#if ENABLED(SKR13) || ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(DISABLE_LED) || ENABLED(TOUCH_MI_NEOPIXEL) || ENABLED(NEOPIXEL_PERSO) || ENABLED(LED_PORT_NEOPIXEL) || ENABLED(MKSROBINNANOV3)
   //#define RGB_LED
 #endif
 #if ENABLED(MKSGENL) && DISABLED(TOUCH_MI_NEOPIXEL) && DISABLED(LED_PORT_NEOPIXEL)
