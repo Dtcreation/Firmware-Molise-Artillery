@@ -246,7 +246,7 @@
  */
 
 // Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
-#if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
+#if ENABLED(GraphicalLCD) || ENABLED(MKSROBINNANOV3)
 #define SHOW_BOOTSCREEN
 
 // Show the bitmap in Marlin/_Bootscreen.h on startup.
@@ -689,7 +689,7 @@
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 
 #if ENABLED(PIDTEMP)
-  #if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
+  #if ENABLED(GraphicalLCD) || ENABLED(MKSROBINNANOV3)
     #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
     #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
   #endif
@@ -1825,7 +1825,7 @@
  * Add a bed leveling sub-menu for ABL or MBL.
  * Include a guided procedure if manual probing is enabled.
  */
-#if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
+#if ENABLED(GraphicalLCD) || ENABLED(MKSROBINNANOV3)
 #define LCD_BED_LEVELING
 
 #if ENABLED(LCD_BED_LEVELING)
@@ -1836,7 +1836,7 @@
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
-#if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
+#if ENABLED(GraphicalLCD) || ENABLED(MKSROBINNANOV3)
   #define LEVEL_BED_CORNERS
 #endif
 
