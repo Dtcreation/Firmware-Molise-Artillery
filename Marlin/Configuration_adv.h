@@ -1182,7 +1182,7 @@
   #define LCD_SET_PROGRESS_MANUALLY
 
   // Show the E position (filament used) during printing
-#if ENABLED(GraphicalLCD)
+#if ENABLED(GraphicalLCD)|| ENABLED(TFT_COLOR_UI)
   #define LCD_SHOW_E_TOTAL
 #endif
 #endif
@@ -1456,7 +1456,7 @@
 
   // A bigger font is available for edit items. Costs 3120 bytes of PROGMEM.
   // Western only. Not available for Cyrillic, Kana, Turkish, Greek, or Chinese.
-  #if ENABLED(GraphicalLCD)
+  #if ENABLED(GraphicalLCD)|| ENABLED(TFT_COLOR_UI)
   #define USE_BIG_EDIT_FONT
   #endif
 
@@ -1737,7 +1737,7 @@
  
   #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
     //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
-    #if ENABLED(GraphicalLCD)
+    #if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
       #define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
     #endif
   #endif
@@ -3480,7 +3480,7 @@
  * Up to 25 may be defined, but the actual number is LCD-dependent.
  */
 #if ANY(ABL_UBL, BLTOUCH)
-  #if ENABLED(GraphicalLCD)
+  #if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
     #define CUSTOM_USER_MENUS
   #endif
 #endif
