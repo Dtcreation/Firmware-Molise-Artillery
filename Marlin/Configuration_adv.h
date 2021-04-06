@@ -1737,7 +1737,7 @@
  
   #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
     //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
-    #if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
+    #if ENABLED(GraphicalLCD)
       #define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
     #endif
   #endif
