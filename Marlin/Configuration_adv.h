@@ -1182,7 +1182,7 @@
   #define LCD_SET_PROGRESS_MANUALLY
 
   // Show the E position (filament used) during printing
-#if ENABLED(GraphicalLCD)
+#if ENABLED(GraphicalLCD)|| ENABLED(TFT_COLOR_UI)
   #define LCD_SHOW_E_TOTAL
 #endif
 #endif
@@ -1360,7 +1360,9 @@
    *
    * [1] On AVR an interrupt-capable pin is best for UHS3 compatibility.
    */
-  //#define USB_FLASH_DRIVE_SUPPORT
+  #ifdef MKSROBINNANOV3
+    #define USB_FLASH_DRIVE_SUPPORT
+  #endif
   #if ENABLED(USB_FLASH_DRIVE_SUPPORT)
     /**
      * USB Host Shield Library
@@ -1378,7 +1380,7 @@
     /**
      * Native USB Host supported by some boards (USB OTG)
      */
-    //#define USE_OTG_USB_HOST
+    #define USE_OTG_USB_HOST
 
     #if DISABLED(USE_OTG_USB_HOST)
       #define USB_CS_PIN    SDSS
@@ -1454,7 +1456,7 @@
 
   // A bigger font is available for edit items. Costs 3120 bytes of PROGMEM.
   // Western only. Not available for Cyrillic, Kana, Turkish, Greek, or Chinese.
-  #if ENABLED(GraphicalLCD)
+  #if ENABLED(GraphicalLCD)|| ENABLED(TFT_COLOR_UI)
   #define USE_BIG_EDIT_FONT
   #endif
 
@@ -1735,7 +1737,7 @@
  
   #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
     //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
-    #if ENABLED(GraphicalLCD)
+    #if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
       #define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
     #endif
   #endif
@@ -3478,7 +3480,7 @@
  * Up to 25 may be defined, but the actual number is LCD-dependent.
  */
 #if ANY(ABL_UBL, BLTOUCH)
-  #if ENABLED(GraphicalLCD)
+  #if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
     #define CUSTOM_USER_MENUS
   #endif
 #endif

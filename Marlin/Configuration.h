@@ -231,7 +231,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "Molise 1.3" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "Molise 1.4" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -246,7 +246,7 @@
  */
 
 // Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
-#if ENABLED(GraphicalLCD)
+#if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
 #define SHOW_BOOTSCREEN
 
 // Show the bitmap in Marlin/_Bootscreen.h on startup.
@@ -689,7 +689,7 @@
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 
 #if ENABLED(PIDTEMP)
-  #if ENABLED(GraphicalLCD) 
+  #if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
     #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
     #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
   #endif
@@ -1836,7 +1836,7 @@
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
-#if ENABLED(GraphicalLCD)
+#if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
   #define LEVEL_BED_CORNERS
 #endif
 
