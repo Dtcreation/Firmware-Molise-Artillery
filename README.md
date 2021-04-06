@@ -29,7 +29,7 @@ Le Firmware est découpé en 2
 
 ### Version actuelle
 
-Dernière version de Molise __1.3.2__ basée sur [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
+Dernière version de Molise __1.4.0__ basée sur [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
 
 ### A propos du Firmware Molise
 
@@ -113,6 +113,20 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 1.4.0
+
+Changelog Molise Marlin :
+
+- Add M48 For TouchMi
+- Align version number with Molise for Wanhao D12
+
+Changelog Molise TFT 5.0 :
+
+- Add Level Corner With Probe
+- Desactivate TFT M600 Emulation to use Marlin M600 (you can reactivate it in config.ini)
+- Change notifications style
+- Bugfix
 
 #### 1.3.2
 
@@ -247,7 +261,7 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 # Remerciement
 
-Le firmware Molise 1.2 vous est fourni par David TOUTON, [la géniale communauté d’impression 3D sur Facebook](https://www.facebook.com/groups/molisefirmware), et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
+Le firmware Molise 1.4 vous est fourni par David TOUTON, [la géniale communauté d’impression 3D sur Facebook](https://www.facebook.com/groups/molisefirmware), et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
 
 
 
@@ -282,7 +296,7 @@ Firmware is split in 2
 
 ### Current version
 
-Latest version of Molise __1.3.2__ based on [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
+Latest version of Molise __1.4.0__ based on [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
 
 ### About Molise Firmware
 
@@ -368,6 +382,20 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 1.4.0
+
+Changelog Molise Marlin :
+
+- Add M48 For TouchMi
+- Align version number with Molise for Wanhao D12
+
+Changelog Molise TFT 5.0 :
+
+- Add Level Corner With Probe
+- Desactivate TFT M600 Emulation to use Marlin M600 (you can reactivate it in config.ini)
+- Change notifications style
+- Bugfix
 
 #### 1.3.2
 
@@ -502,4 +530,4 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 
 # Thanks
 
-Molise 1.2 firmware is provided to you by David TOUTON, [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
+Molise 1.4 firmware is provided to you by David TOUTON, [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
