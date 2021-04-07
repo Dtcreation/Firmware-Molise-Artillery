@@ -2758,7 +2758,7 @@
 // 480x320, 3.5", SPI Display From MKS
 // Normally used in MKS Robin Nano V2
 //
-#ifdef MKSROBINNANOV3
+#ifdef MKSROBIN_LVGL
 #define MKS_TS35_V2_0
 #endif
 
@@ -2855,12 +2855,12 @@
   #ifdef MKSROBIN_LVGL
   #define TFT_LVGL_UI
   #else
-  #define TFT_COLOR_UI
+  //#define TFT_COLOR_UI
   #endif
 #endif
 
 #if ENABLED(TFT_LVGL_UI)
-  //#define MKS_WIFI_MODULE  // MKS WiFi module
+  #define MKS_WIFI_MODULE  // MKS WiFi module
 #endif
 
 /**
@@ -2885,7 +2885,7 @@
 //
 // ADS7843/XPT2046 ADC Touchscreen such as ILI9341 2.8
 //
-#ifdef MKSROBINNANOV3
+#ifdef MKSROBIN_LVGL
 #define TOUCH_SCREEN
 #endif
 #if ENABLED(TOUCH_SCREEN)
