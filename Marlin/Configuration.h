@@ -1827,7 +1827,7 @@
  * Add a bed leveling sub-menu for ABL or MBL.
  * Include a guided procedure if manual probing is enabled.
  */
-#if ENABLED(GraphicalLCD) || ENABLED(MKSROBINNANOV3)
+#if ENABLED(GraphicalLCD)
 #define LCD_BED_LEVELING
 
 #if ENABLED(LCD_BED_LEVELING)
@@ -1838,7 +1838,7 @@
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
-#if ENABLED(GraphicalLCD) || ENABLED(MKSROBINNANOV3)
+#if ENABLED(GraphicalLCD)
   #define LEVEL_BED_CORNERS
 #endif
 
