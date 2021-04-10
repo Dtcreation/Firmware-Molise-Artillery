@@ -285,7 +285,7 @@
   #define SERIAL_PORT_2 2
 #endif
 #if ENABLED(MKSROBINNANOV3)
-  #define SERIAL_PORT_2 1
+  #define SERIAL_PORT_2 3
 #endif
 
 /**
