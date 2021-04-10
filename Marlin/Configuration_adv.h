@@ -1317,7 +1317,7 @@
                                       // Note: Only affects SCROLL_LONG_FILENAMES with SDSORT_CACHE_NAMES but not SDSORT_DYNAMIC_RAM.
   #endif
 
-  #if ENABLED(GraphicalLCD) || DISABLED (MKSGENL) && DISABLED (MKSGENLV21)
+  #if ENABLED(GraphicalLCD)
   // This allows hosts to request long names for files and folders with M33
   #define LONG_FILENAME_HOST_SUPPORT
 
@@ -2007,7 +2007,7 @@
 #elif ENABLED(SDSUPPORT)
   #define BLOCK_BUFFER_SIZE 64
 #else
-  #if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
+  #ifndef MKSGENL
     #define BLOCK_BUFFER_SIZE 64
   #else
     #define BLOCK_BUFFER_SIZE 32
@@ -2018,7 +2018,7 @@
 
 // The ASCII buffer for serial input
 #define MAX_CMD_SIZE 96
-#if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
+#ifndef MKSGENL
   #define BUFSIZE 32
 #else
   #define BUFSIZE 4
@@ -2031,7 +2031,7 @@
 // For debug-echo: 128 bytes for the optimal speed.
 // Other output doesn't need to be that speedy.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256]
-#if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
+#ifndef MKSGENL
   #define TX_BUFFER_SIZE 64
 #else
   #define TX_BUFFER_SIZE 32
@@ -2041,7 +2041,7 @@
 // Without XON/XOFF flow control (see SERIAL_XON_XOFF below) 32 bytes should be enough.
 // To use flow control, set this buffer size to at least 1024 bytes.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]
-#if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
+#ifndef MKSGENL
   #define RX_BUFFER_SIZE 256
 #else
   //#define RX_BUFFER_SIZE 256
