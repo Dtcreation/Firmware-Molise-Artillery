@@ -2,9 +2,9 @@
 //================================== Intro ==================================
 //===========================================================================
 /**
-********************Molise 1.3 Firmware for Artillery Genius 3D Printer and Sidewinder X1 based on Marlin Bugfix 2.0.x*************************
+********************Molise 1.4 Firmware for Artillery Genius 3D Printer and Sidewinder X1 based on Marlin Bugfix 2.0.x*************************
 *
-* Molise 1.3 firmware is brought to you by David TOUTON, the awesome 3D printing community, and of course we can't forget the Marlin team who spent countless days, nights and years building Marlin how far it is today.
+* Molise 1.4 firmware is brought to you by David TOUTON, the awesome 3D printing community, and of course we can't forget the Marlin team who spent countless days, nights and years building Marlin how far it is today.
 *
 * Simple and advanced configuration assistant in 7 sections for "stock" or upgraded printer with:
 * - TMC 2208 or 2209 drivers and LV8729
@@ -29,13 +29,13 @@
 * You can ignore a code by keeping // in front of the code
 * Remember to put your "default_envs" in the platformio.ini file (explanations Section 2) so that VS Code compiles well according to your motherboard.
 *
-* Molise 1.3 firmware is provided to you free of charge, in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
+* Molise 1.4 firmware is provided to you free of charge, in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
 *
 * ------------------------------------------------- -------------------------------------------
 * 
-* ******************Firmware Molise 1.3 pour Imprimante 3D Artillery Genius et Sidewinder X1 basé sur Marlin Bugfix 2.0.x************************
+* ******************Firmware Molise 1.4 pour Imprimante 3D Artillery Genius et Sidewinder X1 basé sur Marlin Bugfix 2.0.x************************
 *
-* Le firmware Molise 1.3 vous est fourni par David TOUTON, la géniale communauté d’impression 3D, et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
+* Le firmware Molise 1.4 vous est fourni par David TOUTON, la géniale communauté d’impression 3D, et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
 *
 * Assisant de configuration simple et avancé en 7 sections pour imprimante « stock » ou upgradé avec :
 * -	Drivers TMC 2208 ou 2209 and LV8729
@@ -59,7 +59,7 @@
 * Vous pouvez ignorer un code en gardant // devant le code
 * Pensez bien à mettre votre « default_envs » dans le fichier platformio.ini (explications Section 2) pour que VS Code compile bien en fonction de votre carte mère.
 *
-* Le firmware Molise 1.3 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait fait à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
+* Le firmware Molise 1.4 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait fait à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
 
  * --------------------------------------------------------------------------------------------
  *
