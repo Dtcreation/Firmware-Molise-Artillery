@@ -174,7 +174,6 @@
 //#define GraphicalLCD                              // Will work next to MKS TFT
 //#define MKSGENL_TFT                               // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 250000
 //#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
-//#define MKSROBIN_LVGL                             // If you want the graphical interface LVGL on the MKS ROBIN TFT 35
 //#define NEOPIXEL_PERSO                            // If you want to use a personal Neopixel LED on the Neopixel Port
 //#define LED_PORT_NEOPIXEL                         // If you want to use a personal Neopixel LED on the original LED Port
 
@@ -286,7 +285,7 @@
   #define SERIAL_PORT_2 2
 #endif
 #if ENABLED(MKSROBINNANOV3)
-  #define SERIAL_PORT_2 3
+  #define SERIAL_PORT_2 1
 #endif
 
 /**
@@ -2760,10 +2759,7 @@
 // 480x320, 3.5", SPI Display From MKS
 // Normally used in MKS Robin Nano V2
 //
-#ifdef MKSROBIN_LVGL
-#define MKS_TS35_V2_0
-#endif
-
+//#define MKS_TS35_V2_0
 //
 // 320x240, 2.4", FSMC Display From MKS
 // Normally used in MKS Robin Nano V1.2
@@ -2852,14 +2848,9 @@
  *   For LVGL_UI also copy the 'assets' folder from the build directory to the
  *   root of your SD card, together with the compiled firmware.
  */
-#ifdef MKSROBINNANOV3
 //#define TFT_CLASSIC_UI
-  #ifdef MKSROBIN_LVGL
-  #define TFT_LVGL_UI
-  #else
-  //#define TFT_COLOR_UI
-  #endif
-#endif
+//#define TFT_LVGL_UI
+//#define TFT_COLOR_UI
 
 #if ENABLED(TFT_LVGL_UI)
   #define MKS_WIFI_MODULE  // MKS WiFi module
@@ -2887,9 +2878,7 @@
 //
 // ADS7843/XPT2046 ADC Touchscreen such as ILI9341 2.8
 //
-#ifdef MKSROBIN_LVGL
-#define TOUCH_SCREEN
-#endif
+//#define TOUCH_SCREEN
 #if ENABLED(TOUCH_SCREEN)
   #define BUTTON_DELAY_EDIT  50 // (ms) Button repeat delay for edit screens
   #define BUTTON_DELAY_MENU 250 // (ms) Button repeat delay for menus
