@@ -1,4 +1,4 @@
-# Molise Firmware 
+# Molise Firmware
 
 N'hésitez pas à me soutenir. Payez moi une 🍺 ou un ☕ : [https://paypal.me/dtouton](https://paypal.me/dtouton)
 
@@ -33,9 +33,9 @@ Dernière version de Molise __1.4.0__ basée sur [Marlin BugFix 2.0.x](https://g
 
 ### A propos du Firmware Molise
 
-Voici un listing de ce que propose actuellement le Firmware : 
+Voici un listing de ce que propose actuellement le Firmware :
 
-Le Firmware supporte actuellement le hardware suivant : 
+Le Firmware supporte actuellement le hardware suivant :
 
 - Drivers TMC 2100, 2208 ou 2209 et LV8729 et mode UART
 - Carte mère SKR 1.3, 1.4, 1.4 Turbo et MKS SGen L v1 and v2, MKS Gen L v1 et v2.1
@@ -52,7 +52,7 @@ Le Firmware apporte les modifications suivantes à Marlin (par rapport à la ver
 - Mesh Bed Leveling : MBL - Permet de palper manuellement plusieurs points de votre plateau comme un BLTouch le ferait automatiquement
 - Alignement automatique des stepper Z (Z_STEPPER_AUTO_ALIGN)
 - Solution au problème de communication d'Octoprint via changement de la connexion de l'écran TFT sur la MKS Gen L (option)
-- Déport du capteur de fin de filament sur la carte mère pour compatibilité avec Octoprint et lecteur SD sur carte mère (Option)
+- Déport du capteur de fin de filament sur la carte mère pour compatibilité avec Octoprint et lecteur SD sur carte mère (Option) (pour la carte mère d'origine, brancher sur le pin D2 du connecteur X+)
 
 Le code du fichier `Configuration.h` a été découpé en 7 sections afin de rendre le code plus lisible. Ainsi, pour les personnes souhaitant compiler le code à partir des sources, le travail sera plus simple. Pour plus d'explication sur la compilation du code, merci de vous reporter à la page du [wiki dédiée](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
@@ -92,7 +92,7 @@ Merci !
 ### Installation et configuration
 
 Afin de vous aider dans l'installation et la configuration du Firmware, merci de faire un tour sur le [Wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
- 
+
 PROCÉDURES DE MISE À JOUR DE MARLIN FW:
 
 Sur les imprimantes Sidewinder X1 et Genius, le port USB de la carte mère utilisé pour connecter l'imprimante à un PC (par exemple à Octoprint) est câblé à un bus série. Ce bus est également partagé par le TFT et la carte mère. Le partage du bus série ne permet pas de flasher facilement le firmware Marlin en raison de collisions dans le bus.
@@ -241,19 +241,19 @@ Changelog Molise TFT 5.0 :
 
 - Add support for MKS SGEN L V1 and V2
 
-#### Version 1.0.2 
+#### Version 1.0.2
 
 ##### Fixed
 
 - TFT bug fix
 
-#### Version 1.0.1 
+#### Version 1.0.1
 
 ##### Fixed
 
 - Buffers bug fix
 
-#### Version 1.0 
+#### Version 1.0
 
 ##### Fixed
 
@@ -319,7 +319,7 @@ The Firmware makes the following changes to Marlin (compared to the stock versio
 - Mesh Bed Leveling: MBL - Allows you to manually palpate several points of your plate as a BLTouch would do it automatically
 - Automatic alignment of Z steppers (Z_STEPPER_AUTO_ALIGN)
 - Solution to the Octoprint communication problem by changing the connection of the TFT screen on the MKS Gen L (option)
-- Removal of the runout filament sensor on the motherboard for compatibility with Octoprint and SD reader on the motherboard (Option)
+- Removal of the runout filament sensor on the motherboard for compatibility with Octoprint and SD reader on the motherboard (Option) (for the original motherboard, plug it on D2 pin X+ connector)
 
 The code in the `Configuration.h` file has been split into 7 sections to make the code more readable. So, for people who want to compile code from source, the job will be easier. For more explanation on the code compilation, please refer to the [dedicated wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
