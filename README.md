@@ -29,7 +29,7 @@ Le Firmware est découpé en 2
 
 ### Version actuelle
 
-Dernière version de Molise __1.4.0__ basée sur [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
+Dernière version de Molise __2.0__ basée sur [Marlin 2.0.8](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.8)
 
 ### A propos du Firmware Molise
 
@@ -38,7 +38,7 @@ Voici un listing de ce que propose actuellement le Firmware :
 Le Firmware supporte actuellement le hardware suivant :
 
 - Drivers TMC 2100, 2208 ou 2209 et LV8729 et mode UART
-- Carte mère SKR 1.3, 1.4, 1.4 Turbo et MKS SGen L v1 and v2, MKS Gen L v1 et v2.1
+- Carte mère SKR 1.3, 1.4, 1.4 Turbo et MKS SGen L v1 and v2, MKS Gen L v1 et v2.1, MKS Robin Nano v3
 - Extruder BMG, Hemera et Matrix
 - BlTouch (avec ou sans Waggster Mod)
 - TouchMi avec ou sans LED sur X1
@@ -56,7 +56,7 @@ Le Firmware apporte les modifications suivantes à Marlin (par rapport à la ver
 
 Le code du fichier `Configuration.h` a été découpé en 7 sections afin de rendre le code plus lisible. Ainsi, pour les personnes souhaitant compiler le code à partir des sources, le travail sera plus simple. Pour plus d'explication sur la compilation du code, merci de vous reporter à la page du [wiki dédiée](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
-Le firmware Molise 1.3 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait faire à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
+Le firmware Molise 2.0 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait faire à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
 
 Pour vous faciliter la tâche, le firmware molise vous est fourni "pré-compilé" pour les 6 cas de figures suivants:
 
@@ -113,6 +113,13 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 2.0
+
+- Upgrade to Marlin 2.0.8
+- Bugfix for MKS SgenL V2
+- Reduce Z feedrate
+- Change manual Z Probe start
 
 #### 1.4.0
 
@@ -261,7 +268,7 @@ Changelog Molise TFT 5.0 :
 
 # Remerciement
 
-Le firmware Molise 1.4 vous est fourni par David TOUTON, [la géniale communauté d’impression 3D sur Facebook](https://www.facebook.com/groups/molisefirmware), et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
+Le firmware Molise 2.0 vous est fourni par David TOUTON, [la géniale communauté d’impression 3D sur Facebook](https://www.facebook.com/groups/molisefirmware), et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
 
 
 
@@ -296,7 +303,7 @@ Firmware is split in 2
 
 ### Current version
 
-Latest version of Molise __1.4.0__ based on [Marlin BugFix 2.0.x](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.7.2)
+Latest version of Molise __2.0__ based on [Marlin 2.0.8](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.8)
 
 ### About Molise Firmware
 
@@ -323,7 +330,7 @@ The Firmware makes the following changes to Marlin (compared to the stock versio
 
 The code in the `Configuration.h` file has been split into 7 sections to make the code more readable. So, for people who want to compile code from source, the job will be easier. For more explanation on the code compilation, please refer to the [dedicated wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
-Molise 1.3 firmware is provided to you free of charge in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
+Molise 2.0 firmware is provided to you free of charge in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
 
 To make your task easier, the molise firmware is supplied to you "pre-compiled" for the following 6 cases:
 
@@ -382,6 +389,13 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 2.0
+
+- Upgrade to Marlin 2.0.8
+- Bugfix for MKS SgenL V2
+- Reduce Z feedrate
+- Change manual Z Probe start
 
 #### 1.4.0
 
@@ -530,4 +544,4 @@ Changelog Molise TFT 5.0 :
 
 # Thanks
 
-Molise 1.4 firmware is provided to you by David TOUTON, [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
+Molise 2.0 firmware is provided to you by David TOUTON, [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
