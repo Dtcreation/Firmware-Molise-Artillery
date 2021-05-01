@@ -1026,7 +1026,11 @@
  *
  * :[2,3,4,5,6,7]
  */
+#ifndef SENSHOME
 #define ENDSTOP_NOISE_THRESHOLD 2
+#else
+//#define ENDSTOP_NOISE_THRESHOLD 2
+#endif
 
 // Check for stuck or disconnected endstops during homing moves.
 //#define DETECT_BROKEN_ENDSTOP
