@@ -91,11 +91,11 @@
 /*** Section 1 Artillery Printer ***/
 
 //#define GENIUS
-#define X1
+//#define X1
 
 /*** Section 2 Board Type ***/
 
-#define MKSGENL         // Stock Board
+//#define MKSGENL         // Stock Board
 //#define MKSGENLV21      // Choose this if you are using MKS GEN L V2.1
 //#define SKR13           // Choose this if you are using BigTreeTech SKR 1.3
 //#define SKR14           // Choose this if you are using BigTreeTech SKR 1.4
@@ -118,14 +118,14 @@
 
 /*** Section 3 Extruder Type ***/
 
-#define TITAN       // Stock Extruder
+//#define TITAN       // Stock Extruder
 //#define BMG         // Choose this if you are using BMG/BMG Wind
 //#define HEMERA      // Choose this if you are using HEMERA
 //#define MATRIX      // Choose this if you are using MATRIX
 
 /*** Section 4 Drivers Type ***/
 
-#define TMC_2100        // Stock Drivers
+//#define TMC_2100        // Stock Drivers
 //#define TMC_2208_STA    // Standalone Mode
 //#define TMC_2209_STA    // Standalone Mode
 //#define LV_8729
@@ -154,7 +154,7 @@
     #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }   
   #endif
 
-#define TOUCH_MI_PROBE                            //uncomment if you use a Touch Mi
+//#define TOUCH_MI_PROBE                            //uncomment if you use a Touch Mi
   #ifdef TOUCH_MI_PROBE
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #define Z_MIN_PROBE_REPEATABILITY_TEST
@@ -3101,7 +3101,7 @@
       #else
     #define NEOPIXEL_PIN SERVO0_PIN  // LED driving pin
   #endif
-  #ifdef MKSNANOROBINV3
+  #ifdef MKSROBINNANOV3
   #define NEOPIXEL2_TYPE NEOPIXEL_TYPE
   #define NEOPIXEL2_PIN    PA13
   #endif
@@ -3111,7 +3111,7 @@
   #define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
 
   // Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ...
-  #ifdef MKSNANOROBINV3
+  #ifdef MKSROBINNANOV3
   #define NEOPIXEL2_SEPARATE
   #endif
   #if ENABLED(NEOPIXEL2_SEPARATE)
@@ -3121,12 +3121,11 @@
   #else
     //#define NEOPIXEL2_INSERIES      // Default behavior is NeoPixel 2 in parallel
   #endif
-
+  #endif
   // Use a single NeoPixel LED for static (background) lighting
   //#define NEOPIXEL_BKGD_LED_INDEX  1               // Index of the LED to use
   //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
   //#define NEOPIXEL_BKGD_ALWAYS_ON                  // Keep the backlight on when other NeoPixels are off
-
 #endif
 #ifdef NEOPIXEL_PERSO
   #define NEOPIXEL_LED
