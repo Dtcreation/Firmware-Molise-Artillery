@@ -313,7 +313,7 @@
       #define MOTHERBOARD BOARD_MKS_SGEN_L
   #endif
   #ifdef MKSSGENLV2
-      #define MOTHERBOARD BOARD_MKS_SGEN_L_V2            1151  // MKS GEN L V2
+      #define MOTHERBOARD BOARD_MKS_SGEN_L_V2
   #endif
   #ifdef MKSGENLV21
       #define MOTHERBOARD BOARD_MKS_GEN_L_V21
