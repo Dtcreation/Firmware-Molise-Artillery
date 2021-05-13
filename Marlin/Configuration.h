@@ -3126,7 +3126,6 @@
   //#define NEOPIXEL_BKGD_LED_INDEX  1               // Index of the LED to use
   //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
   //#define NEOPIXEL_BKGD_ALWAYS_ON                  // Keep the backlight on when other NeoPixels are off
-#endif
 #ifdef NEOPIXEL_PERSO
   #define NEOPIXEL_LED
   #define NEOPIXEL_TYPE   NEO_GRB // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
