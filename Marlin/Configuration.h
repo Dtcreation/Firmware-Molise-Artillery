@@ -263,6 +263,7 @@
 #define SERIAL_PORT -1
 #define LCD_SERIAL_PORT 1
 #define LCD_BAUDRATE 250000
+#define COMMUNICATION_PROTOCOL 3
   #else
   #define SERIAL_PORT 0
 #endif
