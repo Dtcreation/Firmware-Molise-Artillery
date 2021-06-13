@@ -461,9 +461,13 @@
  * The fan turns on automatically whenever any driver is enabled and turns
  * off (or reduces to idle speed) shortly after drivers are turned off.
  */
-//#define USE_CONTROLLER_FAN
+#ifdef ARTILLERYRUBY
+#define USE_CONTROLLER_FAN
+  #else
+  //#define USE_CONTROLLER_FAN
+#endif
 #if ENABLED(USE_CONTROLLER_FAN)
-  //#define CONTROLLER_FAN_PIN -1        // Set a custom pin for the controller fan
+  #define CONTROLLER_FAN_PIN PC6        // Set a custom pin for the controller fan
   //#define CONTROLLER_FAN_USE_Z_ONLY    // With this option only the Z axis is considered
   //#define CONTROLLER_FAN_IGNORE_Z      // Ignore Z stepper. Useful when stepper timeout is disabled.
   #define CONTROLLERFAN_SPEED_MIN      0 // (0-255) Minimum speed. (If set below this value the fan is turned off.)
@@ -479,7 +483,11 @@
 // When first starting the main fan, run it at full speed for the
 // given number of milliseconds.  This gets the fan spinning reliably
 // before setting a PWM value. (Does not work with software PWM for fan on Sanguinololu)
-//#define FAN_KICKSTART_TIME 100
+#ifdef ARTILLERYRUBY
+#define FAN_KICKSTART_TIME 100
+  #else
+  //#define FAN_KICKSTART_TIME 100
+#endif
 
 // Some coolers may require a non-zero "off" state.
 //#define FAN_OFF_PWM  1
@@ -496,7 +504,11 @@
  *
  * Define one or both of these to override the default 0-255 range.
  */
-//#define FAN_MIN_PWM 50
+#ifdef ARTILLERYRUBY
+#define FAN_MIN_PWM 50
+  #else
+  //#define FAN_MIN_PWM 50
+#endif
 //#define FAN_MAX_PWM 128
 
 /**
@@ -548,6 +560,9 @@
 #endif
 #if ENABLED(MKSSGENLV2)
 #define E0_AUTO_FAN_PIN FAN2_PIN
+#endif
+#if ENABLED(ARTILLERYRUBY)
+#define E0_AUTO_FAN_PIN PC7
 #endif
 #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
 #define E0_AUTO_FAN_PIN 7
@@ -659,7 +674,11 @@
 //
 // For Z set the number of stepper drivers
 //
+#ifndef HORNET
 #define NUM_Z_STEPPER_DRIVERS 2   // (1-4) Z options change based on how many
+  #else
+  #define NUM_Z_STEPPER_DRIVERS 1   // (1-4) Z options change based on how many
+#endif
 
 #if NUM_Z_STEPPER_DRIVERS > 1
   // Enable if Z motor direction signals are the opposite of Z1

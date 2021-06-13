@@ -386,6 +386,7 @@
 #define BOARD_ANET_ET4                4226  // ANET ET4 V1.x (STM32F407VGT6)
 #define BOARD_ANET_ET4P               4227  // ANET ET4P V1.x (STM32F407VGT6)
 #define BOARD_FYSETC_CHEETAH_V20      4228  // FYSETC Cheetah V2.0
+#define BOARD_ARTILLERY_RUBY          4229  // Artillery RUBY (STM32F401RCT6)
 
 
 //

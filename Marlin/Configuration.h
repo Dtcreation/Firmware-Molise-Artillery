@@ -92,10 +92,12 @@
 
 //#define GENIUS
 //#define X1
+#define HORNET
 
 /*** Section 2 Board Type ***/
 
-//#define MKSGENL         // Stock Board
+//#define MKSGENL         // Stock Board for X1 and Genius
+#define ARTILLERYRUBY   // Stock Board for Hornet
 //#define MKSGENLV21      // Choose this if you are using MKS GEN L V2.1
 //#define SKR13           // Choose this if you are using BigTreeTech SKR 1.3
 //#define SKR14           // Choose this if you are using BigTreeTech SKR 1.4
@@ -104,9 +106,9 @@
 //#define MKSSGENLV2      // Choose this if you are using MKS SGEN L V2
 //#define MKSROBINNANOV3  // Choose this if you are using MKS ROBIN NANO V3
 
-
 /*default_envs in Platformio.ini :
 -Board name: MKS GEN L, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
+-Board name: ARTILLERY RUBY, change_value = artillery_ruby //use this value in platform.ini. Search for 'change_value' and replace it with this value artillery_ruby
 -Board name: MKS GEN L V2.1, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
 -Board name: SKR13, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
 -Board name: SKR14, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
@@ -118,14 +120,14 @@
 
 /*** Section 3 Extruder Type ***/
 
-//#define TITAN       // Stock Extruder
+#define TITAN       // Stock Extruder
 //#define BMG         // Choose this if you are using BMG/BMG Wind
 //#define HEMERA      // Choose this if you are using HEMERA
 //#define MATRIX      // Choose this if you are using MATRIX
 
 /*** Section 4 Drivers Type ***/
 
-//#define TMC_2100        // Stock Drivers
+#define TMC_2100        // Stock Drivers
 //#define TMC_2208_STA    // Standalone Mode
 //#define TMC_2209_STA    // Standalone Mode
 //#define LV_8729
@@ -167,12 +169,12 @@
     #define TOUCH_MI_NEOPIXEL                      // Uncomment if you have the additional Neopixel LED from Hotends.fr
 #endif
 
-//#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
+#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
 
 /*** Section 6 Options ***/
 
 //#define GraphicalLCD                              // Will work next to MKS TFT
-#define MKSGENL_TFT                               // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 250000
+//#define MKSGENL_TFT                               // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 250000
 //#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
 //#define NEOPIXEL_PERSO                            // If you want to use a personal Neopixel LED on the Neopixel Port
 //#define LED_PORT_NEOPIXEL                         // If you want to use a personal Neopixel LED on the original LED Port
@@ -242,13 +244,17 @@
 // Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
 #ifdef GraphicalLCD
 #define SHOW_BOOTSCREEN
-
+#endif
 // Show the bitmap in Marlin/_Bootscreen.h on startup.
-//#define SHOW_CUSTOM_BOOTSCREEN
+#ifdef HORNET
+#define SHOW_CUSTOM_BOOTSCREEN
+  #else
+  //#define SHOW_CUSTOM_BOOTSCREEN
+#endif
 
 // Show the bitmap in Marlin/_Statusscreen.h on the status screen.
 //#define CUSTOM_STATUS_SCREEN_IMAGE
-#endif
+
 // @section machine
 
 /**
@@ -259,7 +265,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#ifdef MKSROBINNANOV3
+#if ENABLED(MKSROBINNANOV3) || ENABLED(ARTILLERYRUBY)
 #define SERIAL_PORT -1
 #define LCD_SERIAL_PORT 1
 #define LCD_BAUDRATE 250000
@@ -310,6 +316,9 @@
   #ifdef MKSGENL
       #define MOTHERBOARD BOARD_MKS_GEN_L
   #endif
+    #ifdef ARTILLERYRUBY
+      #define MOTHERBOARD BOARD_ARTILLERY_RUBY
+  #endif
   #ifdef MKSSGENLV1
       #define MOTHERBOARD BOARD_MKS_SGEN_L
   #endif
@@ -329,6 +338,9 @@
   #endif
 #ifdef X1
     #define CUSTOM_MACHINE_NAME "Artillery Sidewinder X1"
+  #endif
+#ifdef HORNET
+    #define CUSTOM_MACHINE_NAME "Artillery Hornet"
   #endif
 
 // Printer's unique ID, used by some programs to differentiate between machines.
@@ -704,7 +716,7 @@
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 
 #if ENABLED(PIDTEMP)
-  #if ENABLED(GraphicalLCD)
+  #if ENABLED(GraphicalLCD) || ENABLED(HORNET)
     #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
     #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
   #endif
@@ -814,7 +826,7 @@
   //#define PID_DEBUG             // Sends debug data to the serial port. Use 'M303 D' to toggle activation.
   //#define PID_OPENLOOP          // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
   //#define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
-  #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
+  #define PID_FUNCTIONAL_RANGE 20 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 #endif
 
@@ -835,7 +847,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 200
+#define EXTRUDE_MAXLENGTH 650
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -884,12 +896,21 @@
 // Specify here all the endstop connectors that are connected to any endstop or probe.
 // Almost all printers will be using one per axis. Probes will use one or more of the
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
-#define USE_XMIN_PLUG
+#ifdef HORNET
+//#define USE_XMIN_PLUG
 #define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
-//#define USE_XMAX_PLUG
+#define USE_XMAX_PLUG
 //#define USE_YMAX_PLUG
 //#define USE_ZMAX_PLUG
+  #else
+  #define USE_XMIN_PLUG
+  #define USE_YMIN_PLUG
+  #define USE_ZMIN_PLUG
+  //#define USE_XMAX_PLUG
+  //#define USE_YMAX_PLUG
+  //#define USE_ZMAX_PLUG
+#endif
 
 // Enable pullup for all endstops to prevent a floating state
 #define ENDSTOPPULLUPS
@@ -922,8 +943,13 @@
   #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
   #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #else
-  #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+  #ifdef HORNET
+  #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
   #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+    #else
+    #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+    #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+#endif
 #endif
 #if defined(BLTOUCH) || defined(TOUCH_MI_PROBE)
   #ifdef WAGGSTER_MOD_WIRING
@@ -934,8 +960,11 @@
 #else
   #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #endif
-
-#define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#ifdef HORNET
+#define X_MAX_ENDSTOP_INVERTING true  // Set to true to invert the logic of the endstop.
+  #else
+  #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#endif
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 
@@ -1499,7 +1528,11 @@
 #if ENABLED(TMC_2100)
   #define INVERT_X_DIR false
   #define INVERT_Y_DIR false
-  #define INVERT_Z_DIR true
+  #ifdef HORNET
+  #define INVERT_Z_DIR false
+    #else
+    #define INVERT_Z_DIR true
+  #endif
 #endif
 
 // @section extruder
@@ -1531,7 +1564,11 @@
     #define INVERT_E0_DIR true
   #endif
   #ifdef TITAN
-#define INVERT_E0_DIR false
+    #ifdef HORNET
+    #define INVERT_E0_DIR true
+  #else
+  #define INVERT_E0_DIR false
+  #endif
   #endif
 #endif
 
@@ -1570,7 +1607,11 @@
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
-#define X_HOME_DIR -1
+#ifdef HORNET
+#define X_HOME_DIR 1
+  #else
+  #define X_HOME_DIR -1
+#endif
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 
@@ -1581,18 +1622,30 @@
   #define X_BED_SIZE 220
   #define Y_BED_SIZE 220
 #endif
+#ifdef HORNET
+  #define X_BED_SIZE 220
+  #define Y_BED_SIZE 220
+#endif
 #ifdef X1
   #define X_BED_SIZE 300
   #define Y_BED_SIZE 310
 #endif
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -2
-#define Y_MIN_POS -5
+#ifdef HORNEY
+#define X_MIN_POS 0
+#define Y_MIN_POS 0
+  #else
+  #define X_MIN_POS -2
+  #define Y_MIN_POS -5
+#endif
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #ifdef GENIUS
+  #define Z_MAX_POS 250
+#endif
+#ifdef HORNET
   #define Z_MAX_POS 250
 #endif
 #ifdef X1
@@ -1894,7 +1947,7 @@
  * Add a bed leveling sub-menu for ABL or MBL.
  * Include a guided procedure if manual probing is enabled.
  */
-#if ENABLED(GraphicalLCD)
+#if ENABLED(GraphicalLCD) || ENABLED(HORNET)
 #define LCD_BED_LEVELING
 
 #if ENABLED(LCD_BED_LEVELING)
@@ -1905,7 +1958,7 @@
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
-#if ENABLED(GraphicalLCD)
+#if ENABLED(GraphicalLCD) || ENABLED(HORNET)
   #define LEVEL_BED_CORNERS
 #endif
 
@@ -2330,7 +2383,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-#if ENABLED(GraphicalLCD) || DISABLED (MKSGENL) && DISABLED (MKSGENLV21)
+#if ENABLED(GraphicalLCD) || ENABLED(ARTILLERYRUBY) || DISABLED (MKSGENL) && DISABLED (MKSGENLV21)
   #define SDSUPPORT
 #endif
 
@@ -2339,7 +2392,7 @@
  *
  * Use CRC checks and retries on the SD communication.
  */
-//#define SD_CHECK_AND_RETRY
+#define SD_CHECK_AND_RETRY
 
 /**
  * LCD Menu Items
@@ -2410,7 +2463,11 @@
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
+#ifndef HORNET
 #define SPEAKER
+#else
+//#define SPEAKER
+#endif
 
 //
 // The duration and frequency for the UI feedback sound.
@@ -2671,7 +2728,11 @@
 // FYSETC variant of the MINI12864 graphic controller with SD support
 // https://wiki.fysetc.com/Mini12864_Panel/
 //
+#ifndef HORNET
 //#define FYSETC_MINI_12864_X_X    // Type C/D/E/F. No tunable RGB Backlight by default
+#else
+#define FYSETC_MINI_12864_X_X    // Type C/D/E/F. No tunable RGB Backlight by default
+#endif
 //#define FYSETC_MINI_12864_1_2    // Type C/D/E/F. Simple RGB Backlight (always on)
 //#define FYSETC_MINI_12864_2_0    // Type A/B. Discreet RGB Backlight
 //#define FYSETC_MINI_12864_2_1    // Type A/B. NeoPixel RGB Backlight
@@ -3015,20 +3076,32 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
+#ifndef HORNET
 //#define FAN_SOFT_PWM
+  #else
+  #define FAN_SOFT_PWM
+#endif
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
 // However, control resolution will be halved for each increment;
 // at zero value, there are 128 effective control positions.
 // :[0,1,2,3,4,5,6,7]
+#ifndef HORNET
 #define SOFT_PWM_SCALE 0
+  #else
+  #define SOFT_PWM_SCALE 2
+#endif
 
 // If SOFT_PWM_SCALE is set to a value higher than 0, dithering can
 // be used to mitigate the associated resolution loss. If enabled,
 // some of the PWM cycles are stretched so on average the desired
 // duty cycle is attained.
+#ifndef HORNET
 //#define SOFT_PWM_DITHER
+  #else
+  #define SOFT_PWM_DITHER
+#endif
 
 // Temperature status LEDs that display the hotend and bed temperature.
 // If all hotends, bed temperature, and target temperature are under 54C
