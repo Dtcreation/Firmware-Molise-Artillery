@@ -118,7 +118,7 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 - Upgrade to Marlin 2.0.9.1
 - Add an option to activate Linear Advance (desactivated by default)
-- - Slow Z probing
+- Slow Z probing
 
 #### 2.0
 
