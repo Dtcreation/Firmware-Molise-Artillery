@@ -114,6 +114,11 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 
 ### Changelog
 
+#### 2.3
+
+- Upgrade to Marlin 2.0.9.1
+- Add an option to activate Linear Advance (desactivated by default)
+
 #### 2.0
 
 - Upgrade to Marlin 2.0.8
@@ -389,6 +394,11 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 2.3
+
+- Upgrade to Marlin 2.0.9.1
+- Add an option to activate Linear Advance (desactivated by default)
 
 #### 2.0
 
