@@ -178,6 +178,7 @@
 //#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
 //#define NEOPIXEL_PERSO                            // If you want to use a personal Neopixel LED on the Neopixel Port
 //#define LED_PORT_NEOPIXEL                         // If you want to use a personal Neopixel LED on the original LED Port
+//#define LINEAR_ADV                                // If you want to use Linear Advance
 
 /*** Section 7 Sensorless Homing XY ***/
 
@@ -203,7 +204,7 @@
  *
  * Advanced settings can be found in Configuration_adv.h
  */
-#define CONFIGURATION_H_VERSION 02000801
+#define CONFIGURATION_H_VERSION 02000901
 
 //===========================================================================
 //============================= Getting Started =============================
@@ -653,7 +654,7 @@
 // Use temp sensor 1 as a redundant sensor with sensor 0. If the readings
 // from the two sensors differ too much the print will be aborted.
 //#define TEMP_SENSOR_1_AS_REDUNDANT
-#define MAX_REDUNDANT_TEMP_SENSOR_DIFF 10
+#define TEMP_SENSOR_REDUNDANT_MAX_DIFF 10
 
 #define TEMP_RESIDENCY_TIME         10  // (seconds) Time to wait for hotend to "settle" in M109
 #define TEMP_WINDOW                  1  // (°C) Temperature proximity for the "temperature reached" timer
@@ -970,7 +971,7 @@
 
 #if defined(BLTOUCH)
   #ifdef WAGGSTER_MOD_WIRING
-    #define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
+    #define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
   #else
     #define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
   #endif
@@ -1386,7 +1387,7 @@
 #define XY_PROBE_FEEDRATE (133*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST (20*60)
+#define Z_PROBE_FEEDRATE_FAST (10*60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 2)
@@ -3153,6 +3154,12 @@
 #endif
 #if ENABLED(MKSSGENLV1) || ENABLED(MKSSGENLV2)    // Using this method : https://artillery.n3t.ro/img/MKS_SGEN_L/pin-map.png
   #define RGB_LED
+  #ifdef MKSSGENLV1
+    #define RGB_LED_R_PIN P3_26
+    #define RGB_LED_G_PIN P1_26
+    #define RGB_LED_B_PIN P3_25
+    #define RGB_LED_W_PIN -1
+  #endif
 #endif
 #if ENABLED(TOUCH_MI_LED) && DISABLED(MKSGENL) && ENABLED(X1)
   #define RGB_LED
