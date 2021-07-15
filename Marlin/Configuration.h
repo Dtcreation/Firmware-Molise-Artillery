@@ -3081,6 +3081,12 @@
 #endif
 #if ENABLED(MKSSGENLV1) || ENABLED(MKSSGENLV2)    // Using this method : https://artillery.n3t.ro/img/MKS_SGEN_L/pin-map.png
   #define RGB_LED
+  #ifdef MKSSGENLV1
+    #define RGB_LED_R_PIN P3_26
+    #define RGB_LED_G_PIN P1_26
+    #define RGB_LED_B_PIN P3_25
+    #define RGB_LED_W_PIN -1
+  #endif
 #endif
 #if ENABLED(TOUCH_MI_LED) && DISABLED(MKSGENL) && ENABLED(X1)
   #define RGB_LED
