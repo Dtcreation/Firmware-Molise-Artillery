@@ -226,7 +226,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "Molise 2.0" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "Molise 2.3" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -326,11 +326,11 @@
 
 // Name displayed in the LCD "Ready" message and Info menu
 #ifdef GENIUS
-    #define CUSTOM_MACHINE_NAME "Artillery Genius"
-  #endif
+  #define CUSTOM_MACHINE_NAME "Artillery Genius - " STRING_CONFIG_H_AUTHOR
+#endif
 #ifdef X1
-    #define CUSTOM_MACHINE_NAME "Artillery Sidewinder X1"
-  #endif
+  #define CUSTOM_MACHINE_NAME "Artillery Sidewinder X1 - " STRING_CONFIG_H_AUTHOR
+#endif
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
