@@ -189,7 +189,7 @@
   #define FIL_RUNOUT_PIN            MT_DET_1_PIN
 #endif
 #ifndef FIL_RUNOUT2_PIN
-  #define FIL_RUNOUT2_PIN           MT_DET_2_PIN
+  #define FIL_RUNOUT2_PIN                   PE6
 #endif
 
 #ifndef POWER_LOSS_PIN

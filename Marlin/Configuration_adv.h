@@ -1612,7 +1612,7 @@
 
   // A bigger font is available for edit items. Costs 3120 bytes of PROGMEM.
   // Western only. Not available for Cyrillic, Kana, Turkish, Greek, or Chinese.
-#if ENABLED(GraphicalLCD)|| ENABLED(TFT_COLOR_UI)
+#if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)
   #define USE_BIG_EDIT_FONT
   #endif
 
@@ -2201,32 +2201,20 @@
 
 // The number of linear moves that can be in the planner at once.
 // The value of BLOCK_BUFFER_SIZE must be a power of 2 (e.g., 8, 16, 32)
-#if BOTH(SDSUPPORT, DIRECT_STEPPING)
-  #define BLOCK_BUFFER_SIZE  8
-#elif ENABLED(SDSUPPORT)
-  #define BLOCK_BUFFER_SIZE 64
-#else
-  #ifndef MKSGENL
-    #define BLOCK_BUFFER_SIZE 64
-        #endif
-  #ifndef MKSGENLV21
-    #define BLOCK_BUFFER_SIZE 64
-  #else
+  #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
     #define BLOCK_BUFFER_SIZE 32
-#endif
+   #else
+      #define BLOCK_BUFFER_SIZE 64
 #endif
 
 // @section serial
 
 // The ASCII buffer for serial input
 #define MAX_CMD_SIZE 96
-#ifndef MKSGENL
-  #define BUFSIZE 32
-    #endif
-#ifndef MKSGENLV21
-  #define BUFSIZE 32
-#else
+ #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
   #define BUFSIZE 4
+#else
+  #define BUFSIZE 32
 #endif
 
 // Transmission to Host Buffer Size
@@ -2236,26 +2224,20 @@
 // For debug-echo: 128 bytes for the optimal speed.
 // Other output doesn't need to be that speedy.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256]
-#ifndef MKSGENL
-  #define TX_BUFFER_SIZE 64
-    #endif
-#ifndef MKSGENLV21
-  #define TX_BUFFER_SIZE 64
-#else
+ #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
   #define TX_BUFFER_SIZE 32
+  #else
+  #define TX_BUFFER_SIZE 64
 #endif
 
 // Host Receive Buffer Size
 // Without XON/XOFF flow control (see SERIAL_XON_XOFF below) 32 bytes should be enough.
 // To use flow control, set this buffer size to at least 1024 bytes.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]
-#ifndef MKSGENL
-  #define RX_BUFFER_SIZE 256
-    #endif
-#ifndef MKSGENLV21
-  #define RX_BUFFER_SIZE 256
-#else
+ #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
   //#define RX_BUFFER_SIZE 256
+#else
+  #define RX_BUFFER_SIZE 256
 #endif
 
 #if RX_BUFFER_SIZE >= 1024
