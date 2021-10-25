@@ -79,16 +79,21 @@
 U8G_CLASS u8g;
 
 #include LANGUAGE_DATA_INCL(LCD_LANGUAGE)
+#ifdef LCD_LANGUAGE_2
+  #include LANGUAGE_DATA_INCL(LCD_LANGUAGE_2)
+#endif
+#ifdef LCD_LANGUAGE_3
+  #include LANGUAGE_DATA_INCL(LCD_LANGUAGE_3)
+#endif
+#ifdef LCD_LANGUAGE_4
+  #include LANGUAGE_DATA_INCL(LCD_LANGUAGE_4)
+#endif
+#ifdef LCD_LANGUAGE_5
+  #include LANGUAGE_DATA_INCL(LCD_LANGUAGE_5)
+#endif
 
 #if HAS_LCD_CONTRAST
-
-  int16_t MarlinUI::contrast = DEFAULT_LCD_CONTRAST;
-
-  void MarlinUI::set_contrast(const int16_t value) {
-    contrast = constrain(value, LCD_CONTRAST_MIN, LCD_CONTRAST_MAX);
-    u8g.setContrast(contrast);
-  }
-
+  void MarlinUI::_set_contrast() { u8g.setContrast(contrast); }
 #endif
 
 void MarlinUI::set_font(const MarlinFont font_nr) {
@@ -293,7 +298,29 @@ void MarlinUI::init_lcd() {
   TERN_(LCD_SCREEN_ROT_180, u8g.setRot180());
   TERN_(LCD_SCREEN_ROT_270, u8g.setRot270());
 
-  uxg_SetUtf8Fonts(g_fontinfo, COUNT(g_fontinfo));
+  update_language_font();
+}
+
+void MarlinUI::update_language_font() {
+  #if HAS_MULTI_LANGUAGE
+    switch (language) {
+      default: uxg_SetUtf8Fonts(LANG_FONT_INFO(LCD_LANGUAGE), COUNT(LANG_FONT_INFO(LCD_LANGUAGE))); break;
+      #ifdef LCD_LANGUAGE_2
+        case 1: uxg_SetUtf8Fonts(LANG_FONT_INFO(LCD_LANGUAGE_2), COUNT(LANG_FONT_INFO(LCD_LANGUAGE_2))); break;
+      #endif
+      #ifdef LCD_LANGUAGE_3
+        case 2: uxg_SetUtf8Fonts(LANG_FONT_INFO(LCD_LANGUAGE_3), COUNT(LANG_FONT_INFO(LCD_LANGUAGE_3))); break;
+      #endif
+      #ifdef LCD_LANGUAGE_4
+        case 3: uxg_SetUtf8Fonts(LANG_FONT_INFO(LCD_LANGUAGE_4), COUNT(LANG_FONT_INFO(LCD_LANGUAGE_4))); break;
+      #endif
+      #ifdef LCD_LANGUAGE_5
+        case 4: uxg_SetUtf8Fonts(LANG_FONT_INFO(LCD_LANGUAGE_5), COUNT(LANG_FONT_INFO(LCD_LANGUAGE_5))); break;
+      #endif
+    }
+  #else
+    uxg_SetUtf8Fonts(LANG_FONT_INFO(LCD_LANGUAGE), COUNT(LANG_FONT_INFO(LCD_LANGUAGE)));
+  #endif
 }
 
 // The kill screen is displayed for unrecoverable conditions
@@ -311,6 +338,15 @@ void MarlinUI::draw_kill_screen() {
 
 void MarlinUI::clear_lcd() { } // Automatically cleared by Picture Loop
 
+#if HAS_LCD_BRIGHTNESS
+  void MarlinUI::_set_brightness() {
+    #if PIN_EXISTS(TFT_BACKLIGHT)
+      if (PWM_PIN(TFT_BACKLIGHT_PIN))
+        analogWrite(pin_t(TFT_BACKLIGHT_PIN), brightness);
+    #endif
+  }
+#endif
+
 #if HAS_LCD_MENU
 
   #include "../menu/menu.h"
@@ -320,12 +356,11 @@ void MarlinUI::clear_lcd() { } // Automatically cleared by Picture Loop
   #if ENABLED(ADVANCED_PAUSE_FEATURE)
 
     void MarlinUI::draw_hotend_status(const uint8_t row, const uint8_t extruder) {
-      row_y1 = row * (MENU_FONT_HEIGHT) + 1;
-      row_y2 = row_y1 + MENU_FONT_HEIGHT - 1;
+      u8g_uint_t y1 = row * (MENU_FONT_HEIGHT) + 1, y2 = y1 + MENU_FONT_HEIGHT - 1;
 
-      if (!PAGE_CONTAINS(row_y1 + 1, row_y2 + 2)) return;
+      if (!PAGE_CONTAINS(y1 + 1, y2 + 2)) return;
 
-      lcd_put_wchar(LCD_PIXEL_WIDTH - 11 * (MENU_FONT_WIDTH), row_y2, 'E');
+      lcd_put_wchar(LCD_PIXEL_WIDTH - 11 * (MENU_FONT_WIDTH), y2, 'E');
       lcd_put_wchar((char)('1' + extruder));
       lcd_put_wchar(' ');
       lcd_put_u8str(i16tostr3rj(thermalManager.wholeDegHotend(extruder)));
@@ -370,7 +405,7 @@ void MarlinUI::clear_lcd() { } // Automatically cleared by Picture Loop
 
     if (mark_as_selected(row, style & SS_INVERT)) {
       pixel_len_t n = LCD_PIXEL_WIDTH; // pixel width of string allowed
- 
+
       const int plen = pstr ? calculateWidth(pstr) : 0,
                 vlen = vstr ? utf8_strlen(vstr) : 0;
       if (style & SS_CENTER) {

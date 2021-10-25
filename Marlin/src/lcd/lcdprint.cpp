@@ -26,7 +26,7 @@
 
 #include "../inc/MarlinConfigPre.h"
 
-#if HAS_WIRED_LCD && !HAS_GRAPHICAL_TFT
+#if HAS_WIRED_LCD && !HAS_GRAPHICAL_TFT && !IS_DWIN_MARLINUI
 
 #include "marlinui.h"
 #include "lcdprint.h"
@@ -86,7 +86,7 @@ int calculateWidth(PGM_P const pstr) {
   const uint8_t prop = 2;
   uint8_t *p = (uint8_t*)pstr;
   int n = 0;
- 
+
   do {
     wchar_t ch;
     p = get_utf8_value_cb(p, read_byte_rom, &ch);
