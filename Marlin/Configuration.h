@@ -93,7 +93,7 @@
 //#define GENIUS
 //#define X1
 //#define GENIUSPRO
-//#define SWD-X2
+//#define SWD_X2
 //#define HORNET
 
 /*** Section 2 Board Type ***/
@@ -111,7 +111,7 @@
 
 /*default_envs in Platformio.ini :
 -Board name: MKS GEN L, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
--Board name: RUBY, change_value = artillery_ruby //use this value in platform.ini. Search for 'change_value' and replace it with this value artillery_ruby
+-Board name: RUBY, change_value = Artillery_Ruby //use this value in platform.ini. Search for 'change_value' and replace it with this value Artillery_Ruby
 -Board name: MKS GEN L V2.1, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
 -Board name: SKR13, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
 -Board name: SKR14, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
@@ -359,7 +359,7 @@
 #ifdef GENIUSPRO
   #define CUSTOM_MACHINE_NAME "Artillery Genius Pro - " STRING_CONFIG_H_AUTHOR
 #endif
-#ifdef SWD-X2
+#ifdef SWD_X2
   #define CUSTOM_MACHINE_NAME "Artillery Sidewinder X2 - " STRING_CONFIG_H_AUTHOR
 #endif
 #ifdef HORNET
@@ -1775,11 +1775,11 @@
 // @section machine
 
 // The size of the printable area
-#if ENBLED(GENIUS) || ENABLED(GENIUSPRO) || ENABLED(HORNET)
+#if ENABLED(GENIUS) || ENABLED(GENIUSPRO) || ENABLED(HORNET)
   #define X_BED_SIZE 220
   #define Y_BED_SIZE 220
 #endif
-#if ENBLED(X1) || ENABLED(SWD-X2)
+#if ENABLED(X1) || ENABLED(SWD_X2)
   #define X_BED_SIZE 300
   #define Y_BED_SIZE 310
 #endif
@@ -1795,10 +1795,10 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#if ENBLED(GENIUS) || ENABLED(GENIUSPRO) || ENABLED(HORNET)
+#if ENABLED(GENIUS) || ENABLED(GENIUSPRO) || ENABLED(HORNET)
   #define Z_MAX_POS 250
 #endif
-#if ENBLED(X1) || ENABLED(SWD-X2)
+#if ENABLED(X1) || ENABLED(SWD_X2)
   #define Z_MAX_POS 400
 #endif
 //#define I_MIN_POS 0
@@ -3478,6 +3478,8 @@
   //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 }  // R, G, B, W
   //#define NEOPIXEL_BKGD_ALWAYS_ON                   // Keep the backlight on when other NeoPixels are off
 #endif
+#endif
+
 
 /**
  * Printer Event LEDs
