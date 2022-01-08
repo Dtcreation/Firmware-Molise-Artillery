@@ -2,9 +2,9 @@
 //================================== Intro ==================================
 //===========================================================================
 /**
-********************Molise 2.0 Firmware for Artillery Genius 3D Printer and Sidewinder X1 based on Marlin 2.0.9.2*************************
+********************Molise 3.0 Firmware for Artillery Genius, Genius Pro, Sidewinder X1, Sidewinder X2 and Hornet based on Marlin 2.0.9.3*************************
 *
-* Molise 2.0 firmware is brought to you by David TOUTON, the awesome 3D printing community, and of course we can't forget the Marlin team who spent countless days, nights and years building Marlin how far it is today.
+* Molise 3.0 firmware is brought to you by David TOUTON, the awesome 3D printing community, and of course we can't forget the Marlin team who spent countless days, nights and years building Marlin how far it is today.
 *
 * Simple and advanced configuration assistant in 7 sections for "stock" or upgraded printer with:
 * - TMC 2208 or 2209 drivers and LV8729
@@ -29,13 +29,13 @@
 * You can ignore a code by keeping // in front of the code
 * Remember to put your "default_envs" in the platformio.ini file (explanations Section 2) so that VS Code compiles well according to your motherboard.
 *
-* Molise 2.0 firmware is provided to you free of charge, in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
+* Molise 3.0 firmware is provided to you free of charge, in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
 *
 * ------------------------------------------------- -------------------------------------------
 * 
-* ******************Firmware Molise 2.0 pour Imprimante 3D Artillery Genius et Sidewinder X1 basé sur Marlin 2.0.9.2************************
+* ******************Firmware Molise 3.0 pour Imprimante 3D Artillery Genius, Genius Pro, Sidewinder X1, Sidewinder X2 et Hornet basé sur Marlin 2.0.9.3************************
 *
-* Le firmware Molise 2.0 vous est fourni par David TOUTON, la géniale communauté d’impression 3D, et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
+* Le firmware Molise 3.0 vous est fourni par David TOUTON, la géniale communauté d’impression 3D, et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
 *
 * Assisant de configuration simple et avancé en 7 sections pour imprimante « stock » ou upgradé avec :
 * -	Drivers TMC 2208 ou 2209 and LV8729
@@ -59,12 +59,12 @@
 * Vous pouvez ignorer un code en gardant // devant le code
 * Pensez bien à mettre votre « default_envs » dans le fichier platformio.ini (explications Section 2) pour que VS Code compile bien en fonction de votre carte mère.
 *
-* Le firmware Molise 2.0 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait fait à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
+* Le firmware Molise 3.0 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait fait à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
 
  * --------------------------------------------------------------------------------------------
  *
  * Marlin 3D Printer Firmware
- * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2022 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -92,12 +92,14 @@
 
 //#define GENIUS
 //#define X1
-#define HORNET
+//#define GENIUSPRO
+//#define SWD_X2
+//#define HORNET
 
 /*** Section 2 Board Type ***/
 
-//#define MKSGENL         // Stock Board for X1 and Genius
-#define ARTILLERYRUBY   // Stock Board for Hornet
+//#define MKSGENL         // Stock Board for Genuis and X1
+//#define RUBY            // Stock Board for Genuis Pro, X2 and Hornet
 //#define MKSGENLV21      // Choose this if you are using MKS GEN L V2.1
 //#define SKR13           // Choose this if you are using BigTreeTech SKR 1.3
 //#define SKR14           // Choose this if you are using BigTreeTech SKR 1.4
@@ -108,7 +110,7 @@
 
 /*default_envs in Platformio.ini :
 -Board name: MKS GEN L, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
--Board name: ARTILLERY RUBY, change_value = artillery_ruby //use this value in platform.ini. Search for 'change_value' and replace it with this value artillery_ruby
+-Board name: RUBY, change_value = Artillery_Ruby //use this value in platform.ini. Search for 'change_value' and replace it with this value Artillery_Ruby
 -Board name: MKS GEN L V2.1, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
 -Board name: SKR13, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
 -Board name: SKR14, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
@@ -140,12 +142,13 @@
   #ifdef BLTOUCH
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #define Z_MIN_PROBE_REPEATABILITY_TEST
-    #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }   //Offset preset for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
-  //#define NOZZLE_TO_PROBE_OFFSET { -17, -42, 0 }  //Offset preset for this fanduct with 5015 Fan on Thingiverse : https://www.thingiverse.com/thing:4741530
-  //#define NOZZLE_TO_PROBE_OFFSET { 56, -34, 0 }   //Offset preset for this fanduct with 5015 Fan on Thingiverse : https://www.thingiverse.com/thing:4548854
-  //#define NOZZLE_TO_PROBE_OFFSET { 36, -38, 0 }   //Offset preset for BMG Wind for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
-  #define WAGGSTER_MOD_WIRING                     //Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
-  //#define Z_STEPPER_AUTO_ALIGN                    //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this
+  //#define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }         //Offset preset for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
+  //#define NOZZLE_TO_PROBE_OFFSET { 27.25, -12.8, -2 }   //Offset preset for stock X2 and Genius Pro
+  //#define NOZZLE_TO_PROBE_OFFSET { -17, -42, 0 }        //Offset preset for this fanduct with 5015 Fan on Thingiverse : https://www.thingiverse.com/thing:4741530
+  //#define NOZZLE_TO_PROBE_OFFSET { 56, -34, 0 }         //Offset preset for this fanduct with 5015 Fan on Thingiverse : https://www.thingiverse.com/thing:4548854
+  //#define NOZZLE_TO_PROBE_OFFSET { 36, -38, 0 }         //Offset preset for BMG Wind for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
+  //#define WAGGSTER_MOD_WIRING                       //Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
+  //#define Z_STEPPER_AUTO_ALIGN                    //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
   //#define DISABLE_LED                             // Uncomment to disable LED, some users report compatibilty issues with BL Touch and LED enabled
   #endif
 
@@ -164,7 +167,7 @@
     #define TOUCH_MI_RETRACT_Z 0.5                  // Height at which the probe retracts
     //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)  // For a magnet on the right side of the bed
     //#define TOUCH_MI_MANUAL_DEPLOY                // For manual deploy (LCD menu)
-    //#define Z_STEPPER_AUTO_ALIGN                    //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this
+    //#define Z_STEPPER_AUTO_ALIGN                    //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
     //#define TOUCH_MI_LED                          // Uncomment if you have the additional LED from Hotends.fr for the X1
     #define TOUCH_MI_NEOPIXEL                      // Uncomment if you have the additional Neopixel LED from Hotends.fr
 #endif
@@ -204,14 +207,14 @@
  *
  * Advanced settings can be found in Configuration_adv.h
  */
-#define CONFIGURATION_H_VERSION 02000902
+#define CONFIGURATION_H_VERSION 02000903
 
 //===========================================================================
 //============================= Getting Started =============================
 //===========================================================================
 
 /**
-  * Here a links for getting your machine calibrated:
+ * Here are some useful links to help get your machine configured and calibrated:
  *
  * https://www.youtube.com/watch?v=SyN3ruzyw8M&t=342s
  */
@@ -228,7 +231,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "Molise 2.4" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "Molise 3.0" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -243,15 +246,12 @@
  */
 
 // Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
-#ifdef GraphicalLCD
+#if ENABLED(GraphicalLCD) || ENABLED(HORNET)
 #define SHOW_BOOTSCREEN
 #endif
 // Show the bitmap in Marlin/_Bootscreen.h on startup.
-#ifdef HORNET
+#if ENABLED(GraphicalLCD) || ENABLED(HORNET)
 #define SHOW_CUSTOM_BOOTSCREEN
-  #else
-  //#define SHOW_CUSTOM_BOOTSCREEN
-#endif
 
 // Show the bitmap in Marlin/_Statusscreen.h on the status screen.
 //#define CUSTOM_STATUS_SCREEN_IMAGE
@@ -266,13 +266,15 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#if ENABLED(MKSROBINNANOV3) || ENABLED(ARTILLERYRUBY)
+#if ENABLED(MKSROBINNANOV3)|| ENABLED(RUBY)
 #define SERIAL_PORT -1
+  #else
+  #define SERIAL_PORT 0
+#endif
+#ifdef MKSROBINNANOV3
 #define LCD_SERIAL_PORT 1
 #define LCD_BAUDRATE 250000
 #define COMMUNICATION_PROTOCOL 3
-  #else
-  #define SERIAL_PORT 0
 #endif
 
 /**
@@ -289,10 +291,14 @@
 #if ENABLED(MKSROBINNANOV3)
   #define SERIAL_PORT_2 3
 #endif
-
+#if ENABLED(RUBY)
+  #define SERIAL_PORT_2 1
+#endif
 /**
- * This setting determines the communication speed of the printer.
- * 
+ * Serial Port Baud Rate
+ * This is the default communication speed for all serial ports.
+ * Set the baud rate defaults for additional serial ports below.
+ *
  * 250000 works in most cases, but you might try a lower speed if
  * you commonly experience drop-outs during host printing.
  * You may try up to 1000000 to speed up SD file transfer.
@@ -301,14 +307,6 @@
  */
 #define BAUDRATE 250000
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
-
-/**
- * Select a secondary serial port on the board to use for communication with the host.
- * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
- * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
- */
-//#define SERIAL_PORT_2 -1
-//#define BAUDRATE_2 250000   // Enable to override BAUDRATE
 
 /**
  * Select a third serial port on the board to use for communication with the host.
@@ -324,6 +322,9 @@
 // Choose the name from boards.h that matches your setup
 #ifdef SKR13
       #define MOTHERBOARD BOARD_BTT_SKR_V1_3
+  #endif
+  #ifdef RUBY
+      #define MOTHERBOARD BOARD_ARTILLERY_RUBY
   #endif
   #ifdef SKR14
       #define MOTHERBOARD BOARD_BTT_SKR_V1_4
@@ -357,6 +358,15 @@
 #ifdef X1
 
   #define CUSTOM_MACHINE_NAME "Artillery Sidewinder X1 - " STRING_CONFIG_H_AUTHOR
+#endif
+#ifdef GENIUSPRO
+  #define CUSTOM_MACHINE_NAME "Artillery Genius Pro - " STRING_CONFIG_H_AUTHOR
+#endif
+#ifdef SWD_X2
+  #define CUSTOM_MACHINE_NAME "Artillery Sidewinder X2 - " STRING_CONFIG_H_AUTHOR
+#endif
+#ifdef HORNET
+  #define CUSTOM_MACHINE_NAME "Artillery Hornet - " STRING_CONFIG_H_AUTHOR
 #endif
 
 
@@ -475,7 +485,6 @@
 
   #define PARKING_EXTRUDER_PARKING_X { -78, 184 }     // X positions for parking the extruders
   #define PARKING_EXTRUDER_GRAB_DISTANCE 1            // (mm) Distance to move beyond the parking point to grab the extruder
-  //#define MANUAL_SOLENOID_CONTROL                   // Manual control of docking solenoids with M380 S / M381
 
   #if ENABLED(PARKING_EXTRUDER)
 
@@ -812,9 +821,7 @@
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 
 #if ENABLED(PIDTEMP)
-
- #if ENABLED(GraphicalLCD)
-
+ #if ENABLED(GraphicalLCD) || ENABLED(HORNET)
     #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
     #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
   #endif
@@ -824,13 +831,13 @@
   #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify up to one value per hotend here, according to your setup.
     // If there are fewer values, the last one applies to the remaining hotends.
-    #define DEFAULT_Kp_LIST {  14.58,  14.58 }
-    #define DEFAULT_Ki_LIST {   1.14,   1.14 }
-    #define DEFAULT_Kd_LIST {  46.57,  46.57 }
+    #define DEFAULT_Kp_LIST {  22.20,  22.20 }
+    #define DEFAULT_Ki_LIST {   1.08,   1.08 }
+    #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  14.58
-    #define DEFAULT_Ki   1.14
-    #define DEFAULT_Kd  46.57
+    #define DEFAULT_Kp 14.58
+    #define DEFAULT_Ki  1.14
+    #define DEFAULT_Kd 46.57
   #endif
 #endif // PIDTEMP
 
@@ -867,9 +874,11 @@
   //#define MIN_BED_POWER 0
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
-  #define DEFAULT_bedKp 244.21
-  #define DEFAULT_bedKi 45.87
-  #define DEFAULT_bedKd 325.08
+  // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
+  // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
+  #define DEFAULT_bedKp 62.75
+  #define DEFAULT_bedKi 9.39
+  #define DEFAULT_bedKd 279.43
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -922,7 +931,7 @@
   //#define PID_DEBUG             // Sends debug data to the serial port. Use 'M303 D' to toggle activation.
   //#define PID_OPENLOOP          // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
   //#define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
-  #define PID_FUNCTIONAL_RANGE 20 // If the temperature difference between the target temperature and the actual temperature
+  #define PID_FUNCTIONAL_RANGE 25 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 #endif
 
@@ -982,6 +991,7 @@
 //#define COREZX
 //#define COREZY
 //#define MARKFORGED_XY  // MarkForged. See https://reprap.org/forum/read.php?152,504042
+//#define MARKFORGED_YX
 
 // Enable for a belt style printer with endless "Z" motion
 //#define BELTPRINTER
@@ -1002,14 +1012,22 @@
 // Specify here all the endstop connectors that are connected to any endstop or probe.
 // Almost all printers will be using one per axis. Probes will use one or more of the
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
-#ifdef HORNET
+#if ENABLED(HORNET)
 //#define USE_XMIN_PLUG
+  #else
+  #define USE_XMIN_PLUG
+#endif
 #define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
 
 //#define USE_IMIN_PLUG
 //#define USE_JMIN_PLUG
 //#define USE_KMIN_PLUG
+#if ENABLED(HORNET)
+#define USE_XMAX_PLUG
+  #else
+  //#define USE_XMAX_PLUG
+#endif
 //#define USE_XMAX_PLUG
 //#define USE_YMAX_PLUG
 //#define USE_ZMAX_PLUG
@@ -1063,6 +1081,9 @@
 #else
   #ifdef HORNET
   #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+    #else
+    #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+  #endif
   #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
     #else
     #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
@@ -1078,13 +1099,14 @@
 #else
   #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #endif
+<<<<<<< HEAD
 
 
-#define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-
+  #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#endif
+>>>>>>> master
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define I_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #if defined(BLTOUCH)
@@ -1100,6 +1122,7 @@
     #define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
   #endif    
 #endif
+
 /**
  * Stepper Drivers
  *
@@ -1227,11 +1250,11 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 40, 70 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 30, 60 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 300, 300, 30, 70 } // ...or, set your own edit limits
+  #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 10, 50 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -1255,8 +1278,8 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          800    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
+#define DEFAULT_ACCELERATION          800     // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_RETRACT_ACCELERATION  3000   // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   2000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
@@ -1269,8 +1292,8 @@
  */
 //#define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-  #define DEFAULT_XJERK 8.0
-  #define DEFAULT_YJERK 8.0
+  #define DEFAULT_XJERK 10.0
+  #define DEFAULT_YJERK 10.0
   #define DEFAULT_ZJERK  0.3
   //#define DEFAULT_IJERK  0.3
   //#define DEFAULT_JJERK  0.3
@@ -1343,7 +1366,6 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-//#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
 #if DISABLED(SKR13) && DISABLED(SKR14) && DISABLED(SKR14T) && DISABLED(MKSSGENLV1) && DISABLED(MKSSGENLV2) && DISABLED(MKSROBINNANOV3)
   #if ENABLED(BLTOUCH)
     #if ENABLED(WAGGSTER_MOD_WIRING) 
@@ -1351,6 +1373,9 @@
       #define Z_MAX_PIN      18
     #endif
   #endif
+#endif
+#ifdef RUBY
+#define Z_MIN_PROBE_PIN PC2
 #endif
 
 /**
@@ -1540,6 +1565,15 @@
 #endif
 
 /**
+ * Probe Enable / Disable
+ * The probe only provides a triggered signal when enabled.
+ */
+//#define PROBE_ENABLE_DISABLE
+#if ENABLED(PROBE_ENABLE_DISABLE)
+  //#define PROBE_ENABLE_PIN -1   // Override the default pin here
+#endif
+
+/**
  * Multiple Probing
  *
  * You may get improved results by probing 2 or more times.
@@ -1656,12 +1690,15 @@
 #if ENABLED(TMC_2100)
   #define INVERT_X_DIR false
   #define INVERT_Y_DIR false
-  #ifdef HORNET
+  #if ENABLED(HORNET)
   #define INVERT_Z_DIR false
     #else
     #define INVERT_Z_DIR true
   #endif
 #endif
+//#define INVERT_I_DIR false
+//#define INVERT_J_DIR false
+//#define INVERT_K_DIR false
 
 // @section extruder
 
@@ -1694,9 +1731,9 @@
   #ifdef TITAN
     #ifdef HORNET
     #define INVERT_E0_DIR true
-  #else
-  #define INVERT_E0_DIR false
-  #endif
+      #else
+      #define INVERT_E0_DIR false
+    #endif  
   #endif
 #endif
 #define INVERT_E1_DIR false
@@ -1748,37 +1785,30 @@
 // @section machine
 
 // The size of the printable area
-#ifdef GENIUS
+#if ENABLED(GENIUS) || ENABLED(GENIUSPRO) || ENABLED(HORNET)
   #define X_BED_SIZE 220
   #define Y_BED_SIZE 220
 #endif
-#ifdef HORNET
-  #define X_BED_SIZE 220
-  #define Y_BED_SIZE 220
-#endif
-#ifdef X1
+#if ENABLED(X1) || ENABLED(SWD_X2)
   #define X_BED_SIZE 300
   #define Y_BED_SIZE 310
 #endif
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#ifdef HORNEY
-#define X_MIN_POS 0
-#define Y_MIN_POS 0
-  #else
-  #define X_MIN_POS -2
-  #define Y_MIN_POS -5
+#ifdef HORNET
+  #define X_MIN_POS 0
+  #define Y_MIN_POS 0
+    #else
+    #define X_MIN_POS -2
+    #define Y_MIN_POS -5
 #endif
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#ifdef GENIUS
+#if ENABLED(GENIUS) || ENABLED(GENIUSPRO) || ENABLED(HORNET)
   #define Z_MAX_POS 250
 #endif
-#ifdef HORNET
-  #define Z_MAX_POS 250
-#endif
-#ifdef X1
+#if ENABLED(X1) || ENABLED(SWD_X2)
   #define Z_MAX_POS 400
 #endif
 //#define I_MIN_POS 0
@@ -2269,7 +2299,8 @@
 #define EEPROM_CHITCHAT       // Give feedback on EEPROM commands. Disable to save PROGMEM.
 //#define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
 #if ENABLED(EEPROM_SETTINGS)
-  #define EEPROM_AUTO_INIT  // Init EEPROM automatically on any errors.
+  #define EEPROM_AUTO_INIT    // Init EEPROM automatically on any errors.
+  #define EEPROM_INIT_NOW   // Init EEPROM on first boot after a new build.
 #endif
 
 //
@@ -2537,7 +2568,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-#if ENABLED(GraphicalLCD) || ENABLED(ARTILLERYRUBY) || DISABLED (MKSGENL) && DISABLED (MKSGENLV21)
+#if ENABLED(GraphicalLCD) || DISABLED (MKSGENL) && DISABLED (MKSGENLV21) || ENABLED(HORNET)
   #define SDSUPPORT
 #endif
 
@@ -2894,15 +2925,20 @@
 // FYSETC variant of the MINI12864 graphic controller with SD support
 // https://wiki.fysetc.com/Mini12864_Panel/
 //
-#ifndef HORNET
-//#define FYSETC_MINI_12864_X_X    // Type C/D/E/F. No tunable RGB Backlight by default
-#else
+#if ENABLED(HORNET)
 #define FYSETC_MINI_12864_X_X    // Type C/D/E/F. No tunable RGB Backlight by default
+  #else
+  //#define FYSETC_MINI_12864_X_X    // Type C/D/E/F. No tunable RGB Backlight by default
 #endif
 //#define FYSETC_MINI_12864_1_2    // Type C/D/E/F. Simple RGB Backlight (always on)
 //#define FYSETC_MINI_12864_2_0    // Type A/B. Discreet RGB Backlight
 //#define FYSETC_MINI_12864_2_1    // Type A/B. NeoPixel RGB Backlight
 //#define FYSETC_GENERIC_12864_1_1 // Larger display with basic ON/OFF backlight.
+
+//
+// BigTreeTech Mini 12864 V1.0 is an alias for FYSETC_MINI_12864_2_1. Type A/B. NeoPixel RGB Backlight.
+//
+//#define BTT_MINI_12864_V1
 
 //
 // Factory display for Creality CR-10
@@ -3096,32 +3132,32 @@
  */
 
 //
-// 480x320, 3.5", SPI Display From MKS
-// Normally used in MKS Robin Nano V2
+// 480x320, 3.5", SPI Display with Rotary Encoder from MKS
+// Usually paired with MKS Robin Nano V2 & V3
 //
 //#define MKS_TS35_V2_0
 
 //
 // 320x240, 2.4", FSMC Display From MKS
-// Normally used in MKS Robin Nano V1.2
+// Usually paired with MKS Robin Nano V1.2
 //
 //#define MKS_ROBIN_TFT24
 
 //
 // 320x240, 2.8", FSMC Display From MKS
-// Normally used in MKS Robin Nano V1.2
+// Usually paired with MKS Robin Nano V1.2
 //
 //#define MKS_ROBIN_TFT28
 
 //
 // 320x240, 3.2", FSMC Display From MKS
-// Normally used in MKS Robin Nano V1.2
+// Usually paired with MKS Robin Nano V1.2
 //
 //#define MKS_ROBIN_TFT32
 
 //
 // 480x320, 3.5", FSMC Display From MKS
-// Normally used in MKS Robin Nano V1.2
+// Usually paired with MKS Robin Nano V1.2
 //
 //#define MKS_ROBIN_TFT35
 
@@ -3132,7 +3168,7 @@
 
 //
 // 320x240, 3.2", FSMC Display From MKS
-// Normally used in MKS Robin
+// Usually paired with MKS Robin
 //
 //#define MKS_ROBIN_TFT_V1_1R
 
@@ -3162,9 +3198,14 @@
 //#define ANET_ET5_TFT35
 
 //
-// 1024x600, 7", RGB Stock Display from BIQU-BX
+// 1024x600, 7", RGB Stock Display with Rotary Encoder from BIQU-BX
 //
 //#define BIQU_BX_TFT70
+
+//
+// 480x320, 3.5", SPI Stock Display with Rotary Encoder from BIQU B1 SE Series
+//
+//#define BTT_TFT35_SPI_V1_0
 
 //
 // Generic TFT with detailed options
@@ -3220,23 +3261,11 @@
 //
 // Ender-3 v2 OEM display. A DWIN display with Rotary Encoder.
 //
-//#define DWIN_CREALITY_LCD
-
-//
-// Ender-3 v2 OEM display, enhanced.
-//
-//#define DWIN_CREALITY_LCD_ENHANCED
-
-//
-// Ender-3 v2 OEM display with enhancements by Jacob Myers
-//
-//#define DWIN_CREALITY_LCD_JYERSUI
-
-//
-// MarlinUI for Creality's DWIN display (and others)
-//
-//#define DWIN_MARLINUI_PORTRAIT
-//#define DWIN_MARLINUI_LANDSCAPE
+//#define DWIN_CREALITY_LCD           // Creality UI
+//#define DWIN_CREALITY_LCD_ENHANCED  // Enhanced UI
+//#define DWIN_CREALITY_LCD_JYERSUI   // Jyers UI by Jacob Myers
+//#define DWIN_MARLINUI_PORTRAIT      // MarlinUI (portrait orientation)
+//#define DWIN_MARLINUI_LANDSCAPE     // MarlinUI (landscape orientation)
 
 //
 // Touch Screen Settings
@@ -3272,6 +3301,11 @@
 //#define REPRAPWORLD_KEYPAD
 //#define REPRAPWORLD_KEYPAD_MOVE_STEP 10.0 // (mm) Distance to move per key-press
 
+//
+// EasyThreeD ET-4000+ with button input and status LED
+//
+//#define EASYTHREED_UI
+
 //=============================================================================
 //=============================== Extra Features ==============================
 //=============================================================================
@@ -3282,38 +3316,23 @@
 // :[1,2,3,4,5,6,7,8]
 //#define NUM_M106_FANS 1
 
-// Increase the FAN PWM frequency. Removes the PWM noise but increases heating in the FET/Arduino
-//#define FAST_PWM_FAN
-
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-#ifndef HORNET
-//#define FAN_SOFT_PWM
-  #else
-  #define FAN_SOFT_PWM
-#endif
+#define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
 // However, control resolution will be halved for each increment;
 // at zero value, there are 128 effective control positions.
 // :[0,1,2,3,4,5,6,7]
+#define SOFT_PWM_SCALE 2
 #ifndef HORNET
-#define SOFT_PWM_SCALE 0
-  #else
-  #define SOFT_PWM_SCALE 2
-#endif
-
-// If SOFT_PWM_SCALE is set to a value higher than 0, dithering can
-// be used to mitigate the associated resolution loss. If enabled,
-// some of the PWM cycles are stretched so on average the desired
-// duty cycle is attained.
-#ifndef HORNET
-//#define SOFT_PWM_DITHER
   #else
   #define SOFT_PWM_DITHER
 #endif
+=======
+#define SOFT_PWM_DITHER
 
 // Temperature status LEDs that display the hotend and bed temperature.
 // If all hotends, bed temperature, and target temperature are under 54C
@@ -3321,15 +3340,6 @@
 //#define TEMP_STAT_LEDS
 
 // Support for the BariCUDA Paste Extruder
-//#define BARICUDA
-
-// Support for BlinkM/CyzRgb
-//#define BLINKM
-
-// Support for PCA9632 PWM LED driver
-//#define PCA9632
-
-// Support for PCA9533 PWM LED driver
 //#define PCA9533
 
 /**
@@ -3445,6 +3455,36 @@
   //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 }  // R, G, B, W
   //#define NEOPIXEL_BKGD_ALWAYS_ON                   // Keep the backlight on when other NeoPixels are off
 #endif
+#ifdef RUBY
+  #define NEOPIXEL_LED
+#if ENABLED(NEOPIXEL_LED)
+  #define NEOPIXEL_TYPE   NEO_GRB  // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
+  #define NEOPIXEL_PIN    PB7      // LED driving pin
+  //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
+  //#define NEOPIXEL2_PIN    5
+  #define NEOPIXEL_PIXELS 1        // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
+  #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
+  #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
+  //#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
+
+  // Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ...
+  //#define NEOPIXEL2_SEPARATE
+  #if ENABLED(NEOPIXEL2_SEPARATE)
+    #define NEOPIXEL2_PIXELS      15  // Number of LEDs in the second strip
+    #define NEOPIXEL2_BRIGHTNESS 127  // Initial brightness (0-255)
+    #define NEOPIXEL2_STARTUP_TEST    // Cycle through colors at startup
+  #else
+    //#define NEOPIXEL2_INSERIES      // Default behavior is NeoPixel 2 in parallel
+  #endif
+
+  // Use some of the NeoPixel LEDs for static (background) lighting
+  //#define NEOPIXEL_BKGD_INDEX_FIRST  0              // Index of the first background LED
+  //#define NEOPIXEL_BKGD_INDEX_LAST   5              // Index of the last background LED
+  //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 }  // R, G, B, W
+  //#define NEOPIXEL_BKGD_ALWAYS_ON                   // Keep the backlight on when other NeoPixels are off
+#endif
+#endif
+
 
 /**
  * Printer Event LEDs
@@ -3468,7 +3508,11 @@
  * Set this manually if there are extra servos needing manual control.
  * Set to 0 to turn off servo support.
  */
-//#define NUM_SERVOS 3 // Note: Servo index starts with 0 for M280-M282 commands
+#ifdef RUBY
+  #define NUM_SERVOS 1 // Note: Servo index starts with 0 for M280-M282 commands
+    #else
+    //#define NUM_SERVOS 3 // Note: Servo index starts with 0 for M280-M282 commands
+#endif
 
 // (ms) Delay before the next move will start, to give the servo time to reach its target angle.
 // 300ms is a good value but you can try less delay.
