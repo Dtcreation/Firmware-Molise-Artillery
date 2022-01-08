@@ -20,7 +20,7 @@ Téléchargez le super fang pour TouchMi sur [Thingiverse](https://www.thingiver
 
 ### Qu'est ce que le firmware Molise
 
-Molise est un firmware modifié pour les imprimantes de la marque [Artillery](https://artillery3d.com/). Le firmware support atuellement l'artillery X1 et Genius.
+Molise est un firmware modifié pour les imprimantes de la marque [Artillery](https://artillery3d.com/). Le firmware support atuellement les Sidewinder X1 et X2, les Genius et Genius Pro et la Hornet.
 
 Le Firmware est découpé en 2
 
@@ -29,7 +29,7 @@ Le Firmware est découpé en 2
 
 ### Version actuelle
 
-Dernière version de Molise __2.0__ basée sur [Marlin 2.0.8](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.8)
+Dernière version de Molise __3.0__ basée sur [Marlin 2.0.9.3](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.9.3)
 
 ### A propos du Firmware Molise
 
@@ -38,7 +38,7 @@ Voici un listing de ce que propose actuellement le Firmware :
 Le Firmware supporte actuellement le hardware suivant :
 
 - Drivers TMC 2100, 2208 ou 2209 et LV8729 et mode UART
-- Carte mère SKR 1.3, 1.4, 1.4 Turbo et MKS SGen L v1 and v2, MKS Gen L v1 et v2.1, MKS Robin Nano v3
+- Carte mère SKR 1.3, 1.4, 1.4 Turbo et MKS SGen L v1 and v2, MKS Gen L v1 et v2.1, MKS Robin Nano v3, Artillery Ruby
 - Extruder BMG, Hemera et Matrix
 - BlTouch (avec ou sans Waggster Mod)
 - TouchMi avec ou sans LED sur X1
@@ -56,7 +56,7 @@ Le Firmware apporte les modifications suivantes à Marlin (par rapport à la ver
 
 Le code du fichier `Configuration.h` a été découpé en 7 sections afin de rendre le code plus lisible. Ainsi, pour les personnes souhaitant compiler le code à partir des sources, le travail sera plus simple. Pour plus d'explication sur la compilation du code, merci de vous reporter à la page du [wiki dédiée](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
-Le firmware Molise 2.0 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait faire à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
+Le firmware Molise 3.0 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait faire à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
 
 Pour vous faciliter la tâche, le firmware molise vous est fourni "pré-compilé" pour les 6 cas de figures suivants:
 
@@ -66,6 +66,9 @@ Pour vous faciliter la tâche, le firmware molise vous est fourni "pré-compilé
 - Genius Stock + MBL
 - Genius Stock + BLTouch (Waggster Mod)
 - Genius Stock + TouchMi
+- X2 Stock
+- Genius Pro Stock
+- Hornet Stock
 
 Le Firmware Molise est fourni avec un second firmware, il s'agit du firmware de l'écran TFT. Ce Firmware TFT est basé le firmware Officiel de Bigtreetech avec la prise en charge entre autre des fonctions tactiles suivantes :
 
@@ -80,7 +83,7 @@ Le Firmware Molise est fourni avec un second firmware, il s'agit du firmware de 
 - Gestion de l'UART
 - COnfigurations diverses
 
-Et le tout préconfiguré pour X1 et Genius, en Français et Anglais
+Et le tout préconfiguré en Français et Anglais
 
 Si vous l'aimez ou si vous souhaitez contribuer à d'autres améliorations de ce firmware, veuillez envisager la possibilité de faire un don à :
 
@@ -113,6 +116,11 @@ Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprim
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 3.0
+
+- Upgrade to Marlin 2.0.9.3
+- Add support for Sidewinder X2, Genius Pro and Hornet
 
 #### 2.3
 
@@ -300,7 +308,7 @@ Super fang for TouchMi [Thingiverse](https://www.thingiverse.com/thing:4713319)
 
 ### What is Molise firmware
 
-Molise is modified firmware for brand printers [Artillery](https://artillery3d.com/). The firmware also supports X1 and Genius artillery.
+Molise is modified firmware for brand printers [Artillery](https://artillery3d.com/). The firmware also supports Sidewinder X1 and X2, Genius and Genius Pro and la Hornet.
 
 Firmware is split in 2
 
@@ -309,7 +317,7 @@ Firmware is split in 2
 
 ### Current version
 
-Latest version of Molise __2.0__ based on [Marlin 2.0.8](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.8)
+Latest version of Molise __3.0__ based on [Marlin 2.0.9.3](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.9.3)
 
 ### About Molise Firmware
 
@@ -346,6 +354,9 @@ To make your task easier, the molise firmware is supplied to you "pre-compiled" 
 - Genius Stock
 - Genius Stock + BLTouch (Waggster Mod)
 - Genius Stock + TouchMi
+- X2 Stock
+- Genius Pro Stock
+- Hornet Stock
 
 The Molise Firmware is supplied with a second firmware, this is the firmware of the TFT screen. This TFT Firmware is based on the Official Firmware of Bigtreetech with the support among others of the following touch functions:
 
@@ -360,7 +371,7 @@ The Molise Firmware is supplied with a second firmware, this is the firmware of 
 - UART management
 - Various configurations
 
-And all preconfigured for X1 and Genius, in French and English
+And all preconfigured in French and English
 
 If you like it or would like to contribute to other improvements to this firmware, please consider the possibility of donating to:
 
@@ -395,6 +406,11 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 ### Changelog
+
+#### 3.0
+
+- Upgrade to Marlin 2.0.9.3
+- Add support for Sidewinder X2, Genius Pro and Hornet
 
 #### 2.3
 
@@ -556,4 +572,4 @@ Changelog Molise TFT 5.0 :
 
 # Thanks
 
-Molise 2.0 firmware is provided to you by David TOUTON, [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
+Molise 3.0 firmware is provided to you by David TOUTON, [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
