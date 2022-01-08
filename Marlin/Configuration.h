@@ -122,14 +122,14 @@
 
 /*** Section 3 Extruder Type ***/
 
-#define TITAN       // Stock Extruder
+//#define TITAN       // Stock Extruder
 //#define BMG         // Choose this if you are using BMG/BMG Wind
 //#define HEMERA      // Choose this if you are using HEMERA
 //#define MATRIX      // Choose this if you are using MATRIX
 
 /*** Section 4 Drivers Type ***/
 
-#define TMC_2100        // Stock Drivers
+//#define TMC_2100        // Stock Drivers
 //#define TMC_2208_STA    // Standalone Mode
 //#define TMC_2209_STA    // Standalone Mode
 //#define LV_8729
@@ -172,7 +172,7 @@
     #define TOUCH_MI_NEOPIXEL                      // Uncomment if you have the additional Neopixel LED from Hotends.fr
 #endif
 
-#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
+//#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
 
 /*** Section 6 Options ***/
 
