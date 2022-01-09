@@ -457,10 +457,10 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
 
     case 'M': switch (parser.codenum) {
 
-      #if HAS_RESUME_CONTINUE
+      /*#if HAS_RESUME_CONTINUE
         case 0:                                                   // M0: Unconditional stop - Wait for user button press on LCD
         case 1: M0_M1(); break;                                   // M1: Conditional stop - Wait for user button press on LCD
-      #endif
+      #endif*/
 
       #if HAS_CUTTER
         case 3: M3_M4(false); break;                              // M3: Turn ON Laser | Spindle (clockwise), set Power | Speed
