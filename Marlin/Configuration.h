@@ -294,6 +294,7 @@
 #endif
 #if ENABLED(RUBY)
   #define SERIAL_PORT_2 1
+  #define BAUDRATE_2 115200
 #endif
 /**
  * Serial Port Baud Rate
