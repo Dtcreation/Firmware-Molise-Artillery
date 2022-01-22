@@ -99,7 +99,7 @@
 /*** Section 2 Board Type ***/
 
 //#define MKSGENL         // Stock Board for Genuis and X1
-#define RUBY            // Stock Board for Genuis Pro, X2 and Hornet
+//#define RUBY            // Stock Board for Genuis Pro, X2 and Hornet
 //#define MKSGENLV21      // Choose this if you are using MKS GEN L V2.1
 //#define SKR13           // Choose this if you are using BigTreeTech SKR 1.3
 //#define SKR14           // Choose this if you are using BigTreeTech SKR 1.4
@@ -1085,7 +1085,7 @@
   #ifdef WAGGSTER_MOD_WIRING
     #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
   #else
-    #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+    #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
   #endif
 #else
   #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
