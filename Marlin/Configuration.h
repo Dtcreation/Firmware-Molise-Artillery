@@ -266,7 +266,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#if ENABLED(MKSROBINNANOV3)|| ENABLED(RUBY)
+#if ENABLED(MKSROBINNANOV3) || ENABLED(RUBY)
 #define SERIAL_PORT -1
   #else
   #define SERIAL_PORT 0
@@ -293,6 +293,7 @@
 #endif
 #if ENABLED(RUBY)
   #define SERIAL_PORT_2 1
+  #define BAUDRATE_2 115200
 #endif
 /**
  * Serial Port Baud Rate
@@ -1094,7 +1095,7 @@
   #ifdef WAGGSTER_MOD_WIRING
     #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
   #else
-    #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+    #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
   #endif
 #else
   #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.

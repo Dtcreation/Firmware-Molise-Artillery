@@ -590,9 +590,9 @@ private:
     static void G425();
   #endif
 
-  #if HAS_RESUME_CONTINUE
+  /*#if HAS_RESUME_CONTINUE
     static void M0_M1();
-  #endif
+  #endif*/
 
   #if HAS_CUTTER
     static void M3_M4(const bool is_M4);
