@@ -549,7 +549,7 @@
 // When first starting the main fan, run it at full speed for the
 // given number of milliseconds.  This gets the fan spinning reliably
 // before setting a PWM value. (Does not work with software PWM for fan on Sanguinololu)
-//#define FAN_KICKSTART_TIME 100
+#define FAN_KICKSTART_TIME 100
 
 // Some coolers may require a non-zero "off" state.
 //#define FAN_OFF_PWM  1
@@ -911,7 +911,7 @@
 
   // Safety: The probe needs time to recognize the command.
   //         Minimum command delay (ms). Enable and increase if needed.
-  #define BLTOUCH_DELAY 500
+  //#define BLTOUCH_DELAY 500
 
   /**
    * Settings for BLTOUCH Classic 1.2, 1.3 or BLTouch Smart 1.0, 2.0, 2.2, 3.0, 3.1, and most clones:
@@ -1676,8 +1676,10 @@
    *
    * :[ 'LCD', 'ONBOARD', 'CUSTOM_CABLE' ]
    */
-#ifndef MKSGENL
-    #define SDCARD_CONNECTION ONBOARD
+#if DISABLED(MKSGENL) || DISABLED(RUBY)
+  #define SDCARD_CONNECTION ONBOARD
+    #else
+    //#define SDCARD_CONNECTION ONBOARD
   #endif
 
   // Enable if SD detect is rendered useless (e.g., by using an SD extender)
