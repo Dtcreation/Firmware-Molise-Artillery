@@ -140,7 +140,11 @@
 
 //#define BLTOUCH      //uncomment if you use a BLTouch
   #ifdef BLTOUCH
-    #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+    #ifdef RUBY
+    //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+      #else
+      #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+    #endif
     #define Z_MIN_PROBE_REPEATABILITY_TEST
   //#define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }         //Offset preset for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
   //#define NOZZLE_TO_PROBE_OFFSET { 27.25, -12.8, -2 }   //Offset preset for stock X2 and Genius Pro
@@ -1091,14 +1095,14 @@
     #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #endif
 #endif
-#if defined(BLTOUCH) || defined(TOUCH_MI_PROBE)
-  #ifdef WAGGSTER_MOD_WIRING
-    #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#if defined(RUBY)
+  #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+  #else
+    #if defined(BLTOUCH) || defined(TOUCH_MI_PROBE)
+      #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
   #else
     #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
-  #endif
-#else
-  #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+#endif
 #endif
 <<<<<<< HEAD
 
@@ -1171,7 +1175,11 @@
 #define Z_DRIVER_TYPE  drivertype
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
+#ifndef RUBY
 #define Z2_DRIVER_TYPE drivertype
+#else
+//#define Z2_DRIVER_TYPE drivertype
+#endif
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
 //#define I_DRIVER_TYPE  A4988
@@ -1202,7 +1210,7 @@
  *
  * :[2,3,4,5,6,7]
  */
-#define ENDSTOP_NOISE_THRESHOLD 2
+//#define ENDSTOP_NOISE_THRESHOLD 2
 
 // Check for stuck or disconnected endstops during homing moves.
 //#define DETECT_BROKEN_ENDSTOP
@@ -1350,7 +1358,7 @@
 //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
-//#define USE_PROBE_FOR_Z_HOMING
+#define USE_PROBE_FOR_Z_HOMING
 
 /**
  * Z_MIN_PROBE_PIN
@@ -1583,11 +1591,11 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-#ifdef ZMIN_SENSOR_AS_PROBE
+#ifndef RUBY
   #define MULTIPLE_PROBING 2
-  //#define EXTRA_PROBING    1
+    //#define EXTRA_PROBING    1
 #else
-  #define MULTIPLE_PROBING 2
+  //#define MULTIPLE_PROBING 2
   //#define EXTRA_PROBING    1
 #endif
 
@@ -2650,11 +2658,7 @@
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
-#ifndef HORNET
-#define SPEAKER
-#else
 //#define SPEAKER
-#endif
 
 //
 // The duration and frequency for the UI feedback sound.
