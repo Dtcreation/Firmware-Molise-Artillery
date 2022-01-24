@@ -1099,7 +1099,9 @@
   #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
   #else
     #if defined(BLTOUCH) || defined(TOUCH_MI_PROBE)
-      #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+      #ifdef WAGGSTER_MOD_WIRING
+        #define Z_MIN_ENDSTOP_INVERTING false
+      #endif
   #else
     #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #endif
