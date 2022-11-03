@@ -1,10 +1,10 @@
 //===========================================================================
 //================================== Intro ==================================
 //===========================================================================
-/**
+/*
 ******************** Molise Firmware for Artillery Genius, Genius Pro, Sidewinder X1, Sidewinder X2 and Hornet based on Marlin 2 *************************
 *
-* Molise 4.0 firmware is brought to you by David TOUTON, Thomas Bourcey and the awesome 3D printing community, and of course we can't forget the Marlin team who spent countless days, nights and years building Marlin how far it is today.
+* Molise firmware is brought to you by David TOUTON, Thomas Bourcey and the awesome 3D printing community, and of course we can't forget the Marlin team who spent countless days, nights and years building Marlin how far it is today.
 *
 * Simple and advanced configuration assistant in 7 sections.
 * Supported Artillery printers : 
@@ -63,6 +63,11 @@
 //============================= Molise Options ============================== 
 //=========================================================================== 
 
+/*
+MOLISE VERSION : 4.0
+Based on Marlin : 2.1.1-bugfix
+Last Merge : 2022.11.03
+*/
 
 /*** Section 1 - Artillery Printer ***/
 
@@ -122,59 +127,59 @@
 //#define BLTOUCH      //uncomment if you use a BLTouch
   #ifdef BLTOUCH
     #ifdef RUBY
-    //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+      //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #else
       #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #endif
       #define Z_MIN_PROBE_REPEATABILITY_TEST
-      #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }         //Offset preset for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
+      #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }           //Offset preset for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
       //#define NOZZLE_TO_PROBE_OFFSET { 27.25, -12.8, -2 }   //Offset preset for stock X2 and Genius Pro
       //#define NOZZLE_TO_PROBE_OFFSET { -17, -42, 0 }        //Offset preset for this fanduct with 5015 Fan on Thingiverse : https://www.thingiverse.com/thing:4741530
       //#define NOZZLE_TO_PROBE_OFFSET { 56, -34, 0 }         //Offset preset for this fanduct with 5015 Fan on Thingiverse : https://www.thingiverse.com/thing:4548854
       //#define NOZZLE_TO_PROBE_OFFSET { 36, -38, 0 }         //Offset preset for BMG Wind for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
-      //#define WAGGSTER_MOD_WIRING                       //Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
-      //#define Z_STEPPER_AUTO_ALIGN                    //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
-      //#define DISABLE_LED                             // Uncomment to disable LED, some users report compatibilty issues with BL Touch and LED enabled
+      //#define WAGGSTER_MOD_WIRING                           //Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
+      //#define Z_STEPPER_AUTO_ALIGN                          //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
+      //#define DISABLE_LED                                   // Uncomment to disable LED, some users report compatibilty issues with BL Touch and LED enabled
   #endif
 
-//#define ZMIN_SENSOR_AS_PROBE                      //uncomment to use Z min as Probe for bed leveling (incompatible with BLTouch)
+//#define ZMIN_SENSOR_AS_PROBE                                //uncomment to use Z min as Probe for bed leveling (incompatible with BLTouch)
   #ifdef ZMIN_SENSOR_AS_PROBE
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #define Z_MIN_PROBE_REPEATABILITY_TEST
     #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }   
   #endif
 
-//#define TOUCH_MI_PROBE                            //uncomment if you use a Touch Mi
+//#define TOUCH_MI_PROBE                                        //uncomment if you use a Touch Mi
   #ifdef TOUCH_MI_PROBE
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #define Z_MIN_PROBE_REPEATABILITY_TEST
-    #define NOZZLE_TO_PROBE_OFFSET { -43, -32, 0 }  //Offset preset for this fanduct : https://www.thingiverse.com/thing:4713319
-    #define TOUCH_MI_RETRACT_Z 0.5                  // Height at which the probe retracts
-    //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)  // For a magnet on the right side of the bed
-    //#define TOUCH_MI_MANUAL_DEPLOY                // For manual deploy (LCD menu)
-    //#define Z_STEPPER_AUTO_ALIGN                    //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
-    //#define TOUCH_MI_LED                          // Uncomment if you have the additional LED from Hotends.fr for the X1
-    #define TOUCH_MI_NEOPIXEL                      // Uncomment if you have the additional Neopixel LED from Hotends.fr
+    #define NOZZLE_TO_PROBE_OFFSET { -43, -32, 0 }              //Offset preset for this fanduct : https://www.thingiverse.com/thing:4713319
+    #define TOUCH_MI_RETRACT_Z 0.5                              //Height at which the probe retracts
+    //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)              //For a magnet on the right side of the bed
+    //#define TOUCH_MI_MANUAL_DEPLOY                            //For manual deploy (LCD menu)
+    //#define Z_STEPPER_AUTO_ALIGN                              //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
+    //#define TOUCH_MI_LED                                      // Uncomment if you have the additional LED from Hotends.fr for the X1
+    #define TOUCH_MI_NEOPIXEL                                   // Uncomment if you have the additional Neopixel LED from Hotends.fr
 #endif
 
-//#define MESH_BED_LEVELING                         //uncomment if you want to use Mesh Bed Leveling
+//#define MESH_BED_LEVELING                                     //uncomment if you want to use Mesh Bed Leveling
 
-//#define BLTOUCH_HIGH_SPEED                        //Enable "HIGH SPEED" option for probing. 
-                                                    //Danger: Disable if your probe sometimes fails. Only suitable for stable well-adjusted systems. 
+//#define BLTOUCH_HIGH_SPEED                                    //Enable "HIGH SPEED" option for probing. 
+                                                                //Danger: Disable if your probe sometimes fails. Only suitable for stable well-adjusted systems. 
 
 /*** Section 6 - Options ***/
 
-//#define GraphicalLCD                              // Will work next to MKS TFT
-//#define MKSGENL_TFT                               // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 250000
-//#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
-//#define NEOPIXEL_PERSO                            // If you want to use a personal Neopixel LED on the Neopixel Port
-//#define LED_PORT_NEOPIXEL                         // If you want to use a personal Neopixel LED on the original LED Port
-//#define LINEAR_ADV                                // If you want to use Linear Advance (can't be used with S Curve Acceleration)
-//#define S_CURVE_ACCELERATION                       // If you want to use S Curve Acceleration (can't be used with Linear Advance)
+//#define GraphicalLCD                                          // Will work next to MKS TFT
+//#define MKSGENL_TFT                                           // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 250000
+//#define FILAMENT_RUNOUT_SENSOR                                // If you connect your filament runout sensor to the motherboard instead of the TFT
+//#define NEOPIXEL_PERSO                                        // If you want to use a personal Neopixel LED on the Neopixel Port
+//#define LED_PORT_NEOPIXEL                                     // If you want to use a personal Neopixel LED on the original LED Port
+//#define LINEAR_ADV                                            // If you want to use Linear Advance (can't be used with S Curve Acceleration)
+//#define S_CURVE_ACCELERATION                                  // If you want to use S Curve Acceleration (can't be used with Linear Advance)
 
 /*** Section 7 Sensorless Homing XY ***/
 
-//#define SENSHOME                                  // Active sensorless homing ONLY for TMC 2208 UART and 2009 UART with SKR 1.3 (extra wiring needed) and SKR 1.4 (no extra wiring needed)
+//#define SENSHOME                                              // Active sensorless homing ONLY for TMC 2208 UART and 2009 UART with SKR 1.3 (extra wiring needed) and SKR 1.4 (no extra wiring needed)
 
 /*
 * --------------------------------------------------------------------------------------------
@@ -799,12 +804,13 @@
 #ifdef HEMERA
   #define TEMP_SENSOR_0 5
 #else
-    #ifdef MATRIX
+  #ifdef MATRIX
     #define TEMP_SENSOR_0 5
-#else
-#define TEMP_SENSOR_0 1
+  #else
+    #define TEMP_SENSOR_0 1
+  #endif
 #endif
-#endif
+
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -1264,17 +1270,18 @@
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #if ENABLED(HORNET)
   //#define USE_XMIN_PLUG
-  #else
+#else
   #define USE_XMIN_PLUG
 #endif
+
 #define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
 //#define USE_IMIN_PLUG
 //#define USE_JMIN_PLUG
 //#define USE_KMIN_PLUG
 #if ENABLED(HORNET)
-#define USE_XMAX_PLUG
-  #else
+  #define USE_XMAX_PLUG
+#else
   //#define USE_XMAX_PLUG
 #endif
 //#define USE_XMAX_PLUG
@@ -1339,30 +1346,33 @@
 
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #if ENABLED(TMC_2209) && ENABLED(SENSHOME)
-#define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+  #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+  #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #else
   #ifdef HORNET
-  #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-    #else
+    #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+  #else
     #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
   #endif
   #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #endif
+
 #if defined(RUBY)
   #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
-  #else
-    #if defined(BLTOUCH) || defined(TOUCH_MI_PROBE)
-        #define Z_MIN_ENDSTOP_INVERTING false    
+#else
+  #if defined(BLTOUCH) || defined(TOUCH_MI_PROBE)
+    #define Z_MIN_ENDSTOP_INVERTING false    
   #else
     #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+  #endif
 #endif
-#endif
+
 #ifdef HORNET
-#define X_MAX_ENDSTOP_INVERTING true  // Set to true to invert the logic of the endstop.
-  #else
-#define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+  #define X_MAX_ENDSTOP_INVERTING true  // Set to true to invert the logic of the endstop.
+#else
+  #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #endif
+
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define I_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -1378,7 +1388,7 @@
   #ifdef ZMIN_SENSOR_AS_PROBE
     #define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
   #else
-#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
+    #define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
   #endif    
 #endif
 
@@ -1401,27 +1411,22 @@
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
 #ifdef TMC_2100
-    #define drivertype TMC2100
-#else
-  #ifdef TMC_2208
-      #define drivertype TMC2208
-  #else
-    #ifdef TMC_2208_STA
-      #define drivertype TMC2208_STANDALONE
-      #else
-      #ifdef TMC_2209_STA
-      #define drivertype TMC2209_STANDALONE
-    #else
-      #ifdef TMC_2209
-        #define drivertype TMC2209
-      #else
-              #ifdef LV_8729
-          #define drivertype LV8729
-      #endif
-    #endif
-  #endif
+  #define drivertype TMC2100
 #endif
+#ifdef TMC_2208
+  #define drivertype TMC2208
 #endif
+#ifdef TMC_2208_STA
+  #define drivertype TMC2208_STANDALONE
+#endif
+#ifdef TMC_2209_STA
+  #define drivertype TMC2209_STANDALONE
+#endif
+#ifdef TMC_2209
+  #define drivertype TMC2209
+#endif
+#ifdef LV_8729
+  #define drivertype LV8729
 #endif
 
 #define X_DRIVER_TYPE  drivertype
@@ -1506,7 +1511,8 @@
 #ifdef TITAN
     #define eSteps 431   //STOCK
 #endif
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.121, 80.121, 399.778, eSteps }
+
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.121, 80.121, 399.778, eSteps }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1643,7 +1649,7 @@
   #endif
 #endif
 #ifdef RUBY
-#define Z_MIN_PROBE_PIN PC2
+  #define Z_MIN_PROBE_PIN PC2
 #endif
 
 /**
@@ -1852,13 +1858,13 @@
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
 #ifdef HEMERA
+  #define PROBING_MARGIN 20
+#else
+  #ifdef MATRIX
     #define PROBING_MARGIN 20
-    #else
-      #ifdef MATRIX
-      #define PROBING_MARGIN 20
   #else
     #define PROBING_MARGIN 10
-#endif
+  #endif
 #endif
 
 // X and Y axis travel speed (mm/min) between probes
@@ -1917,7 +1923,7 @@
  */
 #ifndef RUBY
   #define MULTIPLE_PROBING 2
-    //#define EXTRA_PROBING    1
+  //#define EXTRA_PROBING    1
 #else
     //#define MULTIPLE_PROBING 2
     //#define EXTRA_PROBING    1
@@ -1941,8 +1947,8 @@
 #define Z_CLEARANCE_BETWEEN_PROBES  3 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
 #ifdef BLTOUCH
-    #define Z_AFTER_PROBING            5 // Z position after probing is done
-  #else
+  #define Z_AFTER_PROBING            5 // Z position after probing is done
+#else
     //#define Z_AFTER_PROBING            10 // Z position after probing is done
 #endif
 
@@ -2030,8 +2036,8 @@
   #define INVERT_X_DIR false
   #define INVERT_Y_DIR false
   #if ENABLED(HORNET)
-  #define INVERT_Z_DIR false
-    #else
+    #define INVERT_Z_DIR false
+  #else
     #define INVERT_Z_DIR true
   #endif
 #endif
@@ -2072,12 +2078,13 @@
   #endif
   #ifdef TITAN
     #ifdef HORNET
-    #define INVERT_E0_DIR true
-      #else
+      #define INVERT_E0_DIR true
+    #else
       #define INVERT_E0_DIR false
     #endif  
   #endif
 #endif
+
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -2114,8 +2121,8 @@
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
 #ifdef HORNET
-#define X_HOME_DIR 1
-  #else
+  #define X_HOME_DIR 1
+#else
   #define X_HOME_DIR -1
 #endif
 #define Y_HOME_DIR -1
@@ -2143,9 +2150,9 @@
 #ifdef HORNET
   #define X_MIN_POS 0
   #define Y_MIN_POS 0
-    #else
-    #define X_MIN_POS -2
-    #define Y_MIN_POS -5
+#else
+  #define X_MIN_POS -2
+  #define Y_MIN_POS -5
 #endif
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
@@ -2334,8 +2341,8 @@
 #ifdef BLTOUCH
   //#define AUTO_BED_LEVELING_UBL
   #define AUTO_BED_LEVELING_BILINEAR
-  #else
-    #ifdef TOUCH_MI_PROBE
+#else
+  #ifdef TOUCH_MI_PROBE
     #define AUTO_BED_LEVELING_BILINEAR
   #else
     #ifdef ZMIN_SENSOR_AS_PROBE
@@ -2488,13 +2495,12 @@
  * Include a guided procedure if manual probing is enabled.
  */
 #if ENABLED(GraphicalLCD) || ENABLED(HORNET)
-#define LCD_BED_LEVELING
-
-#if ENABLED(LCD_BED_LEVELING)
-  #define MESH_EDIT_Z_STEP  0.01 // (mm) Step size while manually probing Z axis.
-  #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
-  #define MESH_EDIT_MENU        // Add a menu to edit mesh points
-#endif
+  #define LCD_BED_LEVELING
+  #if ENABLED(LCD_BED_LEVELING)
+    #define MESH_EDIT_Z_STEP  0.01 // (mm) Step size while manually probing Z axis.
+    #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
+    #define MESH_EDIT_MENU        // Add a menu to edit mesh points
+  #endif
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
@@ -2507,11 +2513,11 @@
   #define LEVEL_CORNERS_HEIGHT      0.0   // (mm) Z height of nozzle at leveling points
   #define LEVEL_CORNERS_Z_HOP       4.0   // (mm) Z height of nozzle between leveling points
   //#define LEVEL_CENTER_TOO              // Move to the center after the last corner
-   #if ENABLED(BLTOUCH) || ENABLED(TOUCH_MI_PROBE) || ENABLED(ZMIN_SENSOR_AS_PROBE)
-  #define LEVEL_CORNERS_USE_PROBE
+    #if ENABLED(BLTOUCH) || ENABLED(TOUCH_MI_PROBE) || ENABLED(ZMIN_SENSOR_AS_PROBE)
+      #define LEVEL_CORNERS_USE_PROBE
     #else
     //#define LEVEL_CORNERS_USE_PROBE
-  #endif
+    #endif
   #if ENABLED(LEVEL_CORNERS_USE_PROBE)
     #define LEVEL_CORNERS_PROBE_TOLERANCE 0.1
     #define LEVEL_CORNERS_VERIFY_RAISED   // After adjustment triggers the probe, re-probe to verify
@@ -3768,10 +3774,10 @@
  *  Use FAST_PWM_FAN, if possible, to reduce fan noise.
  */
 #if ENABLED(SKR13) || ENABLED(SKR14) || ENABLED(SKR14T) || ENABLED(SKR20A) || ENABLED(SKR20B) || ENABLED(DISABLE_LED) || ENABLED(TOUCH_MI_NEOPIXEL) || ENABLED(NEOPIXEL_PERSO) || ENABLED(LED_PORT_NEOPIXEL) || ENABLED(MKSROBINNANOV3)
-//#define RGB_LED
+  //#define RGB_LED
 #endif
 #if ENABLED(MKSGENL) && DISABLED(TOUCH_MI_NEOPIXEL) && DISABLED(LED_PORT_NEOPIXEL)
-#define RGB_LED
+  #define RGB_LED
   #define RGB_LED_R_PIN 5
   #define RGB_LED_G_PIN 4
   #define RGB_LED_B_PIN 6
@@ -3804,21 +3810,20 @@
   #define NEOPIXEL_TYPE   NEO_GRB // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
   #ifdef MKSGENL
     #define NEOPIXEL_PIN     4       // LED driving pin
-      #else
+  #else
     #define NEOPIXEL_PIN SERVO0_PIN  // LED driving pin
   #endif
   #ifdef MKSROBINNANOV3
-  #define NEOPIXEL2_TYPE NEOPIXEL_TYPE
-  #define NEOPIXEL2_PIN    PB2
+    #define NEOPIXEL2_TYPE NEOPIXEL_TYPE
+    #define NEOPIXEL2_PIN    PB2
   #endif
   #define NEOPIXEL_PIXELS 1       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
   #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
   #define NEOPIXEL_BRIGHTNESS 255  // Initial brightness (0-255)
   #define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
-
   // Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ...
   #ifdef MKSROBINNANOV3
-  #define NEOPIXEL2_SEPARATE
+    #define NEOPIXEL2_SEPARATE
   #endif
   #if ENABLED(NEOPIXEL2_SEPARATE)
     #define NEOPIXEL2_PIXELS      10  // Number of LEDs in the second strip
@@ -3827,11 +3832,11 @@
   #else
     //#define NEOPIXEL2_INSERIES      // Default behavior is NeoPixel 2 in parallel
   #endif
-  #endif
-  // Use a single NeoPixel LED for static (background) lighting
-  //#define NEOPIXEL_BKGD_LED_INDEX  1               // Index of the LED to use
-  //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
-  //#define NEOPIXEL_BKGD_ALWAYS_ON                  // Keep the backlight on when other NeoPixels are off
+#endif
+// Use a single NeoPixel LED for static (background) lighting
+//#define NEOPIXEL_BKGD_LED_INDEX  1               // Index of the LED to use
+//#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
+//#define NEOPIXEL_BKGD_ALWAYS_ON                  // Keep the backlight on when other NeoPixels are off
 #ifdef NEOPIXEL_PERSO
   #define NEOPIXEL_LED
   #define NEOPIXEL_TYPE   NEO_GRB // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
@@ -3861,32 +3866,31 @@
 #endif
 #ifdef RUBY
   #define NEOPIXEL_LED
-#if ENABLED(NEOPIXEL_LED)
-  #define NEOPIXEL_TYPE   NEO_GRB  // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
-  #define NEOPIXEL_PIN    PB7      // LED driving pin
-  //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
-  //#define NEOPIXEL2_PIN    5
-  #define NEOPIXEL_PIXELS 1        // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
-  #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
-  #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
-  //#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
+  #if ENABLED(NEOPIXEL_LED)
+    #define NEOPIXEL_TYPE   NEO_GRB  // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
+    #define NEOPIXEL_PIN    PB7      // LED driving pin
+    //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
+    //#define NEOPIXEL2_PIN    5
+    #define NEOPIXEL_PIXELS 1        // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
+    #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
+    #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
+    //#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
 
-  // Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ...
-  //#define NEOPIXEL2_SEPARATE
-  #if ENABLED(NEOPIXEL2_SEPARATE)
-    #define NEOPIXEL2_PIXELS           15 // Number of LEDs in the second strip
-    #define NEOPIXEL2_BRIGHTNESS      127 // Initial brightness (0-255)
-    #define NEOPIXEL2_STARTUP_TEST        // Cycle through colors at startup
-  #else
-    //#define NEOPIXEL2_INSERIES          // Default behavior is NeoPixel 2 in parallel
+    // Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ...
+    //#define NEOPIXEL2_SEPARATE
+    #if ENABLED(NEOPIXEL2_SEPARATE)
+      #define NEOPIXEL2_PIXELS           15 // Number of LEDs in the second strip
+      #define NEOPIXEL2_BRIGHTNESS      127 // Initial brightness (0-255)
+      #define NEOPIXEL2_STARTUP_TEST        // Cycle through colors at startup
+    #else
+      //#define NEOPIXEL2_INSERIES          // Default behavior is NeoPixel 2 in parallel
+    #endif
+    // Use some of the NeoPixel LEDs for static (background) lighting
+    //#define NEOPIXEL_BKGD_INDEX_FIRST   0 // Index of the first background LED
+    //#define NEOPIXEL_BKGD_INDEX_LAST    5 // Index of the last background LED
+    //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 }  // R, G, B, W
+    //#define NEOPIXEL_BKGD_ALWAYS_ON                   // Keep the backlight on when other NeoPixels are off
   #endif
-
-  // Use some of the NeoPixel LEDs for static (background) lighting
-  //#define NEOPIXEL_BKGD_INDEX_FIRST   0 // Index of the first background LED
-  //#define NEOPIXEL_BKGD_INDEX_LAST    5 // Index of the last background LED
-  //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 }  // R, G, B, W
-  //#define NEOPIXEL_BKGD_ALWAYS_ON                   // Keep the backlight on when other NeoPixels are off
-#endif
 #endif
 
 /**
@@ -3914,9 +3918,9 @@
  * Set to 0 to turn off servo support.
  */
 #ifdef RUBY
-  #define NUM_SERVOS 1 // Note: Servo index starts with 0 for M280-M282 commands
-    #else
-//#define NUM_SERVOS 3 // Note: Servo index starts with 0 for M280-M282 commands
+    #define NUM_SERVOS 1 // Note: Servo index starts with 0 for M280-M282 commands
+  #else
+    //#define NUM_SERVOS 3 // Note: Servo index starts with 0 for M280-M282 commands
 #endif
 
 // (ms) Delay before the next move will start, to give the servo time to reach its target angle.

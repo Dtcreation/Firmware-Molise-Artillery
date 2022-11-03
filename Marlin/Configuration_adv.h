@@ -3390,7 +3390,7 @@
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
   #if DISABLED(MKSGENL) && DISABLED(MKSGENLV21)
-  #define MONITOR_DRIVER_STATUS
+    #define MONITOR_DRIVER_STATUS
   #else
   //#define MONITOR_DRIVER_STATUS
   #endif
@@ -3460,7 +3460,7 @@
    * Comment *_STALL_SENSITIVITY to disable sensorless homing for that axis.
    */
   #ifndef SENSHOME
-  //#define SENSORLESS_HOMING // StallGuard capable drivers only
+    //#define SENSORLESS_HOMING // StallGuard capable drivers only
   #else
     #define SENSORLESS_HOMING // StallGuard capable drivers only
   #endif
@@ -3509,7 +3509,7 @@
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continuous reporting.
    */
-  #define TMC_DEBUG
+  //#define TMC_DEBUG
 
   /**
    * You can set your own advanced settings by filling in predefined functions.
@@ -4266,67 +4266,67 @@
 // Custom Menu: Main Menu
 #if ANY(ABL_UBL, BLTOUCH)
   #if ENABLED(GraphicalLCD) || ENABLED(TFT_COLOR_UI)|| ENABLED(HORNET)
-#define CUSTOM_MENU_MAIN
+    #define CUSTOM_MENU_MAIN
   #endif
-#if ENABLED(CUSTOM_MENU_MAIN)
-  //#define CUSTOM_MENU_MAIN_TITLE "Custom Commands"
-  #define CUSTOM_MENU_MAIN_SCRIPT_DONE "M117 User Script Done"
-  #define CUSTOM_MENU_MAIN_SCRIPT_AUDIBLE_FEEDBACK
-  //#define CUSTOM_MENU_MAIN_SCRIPT_RETURN   // Return to status screen after a script
-  #define CUSTOM_MENU_MAIN_ONLY_IDLE         // Only show custom menu when the machine is idle
+  #if ENABLED(CUSTOM_MENU_MAIN)
+    //#define CUSTOM_MENU_MAIN_TITLE "Custom Commands"
+    #define CUSTOM_MENU_MAIN_SCRIPT_DONE "M117 User Script Done"
+    #define CUSTOM_MENU_MAIN_SCRIPT_AUDIBLE_FEEDBACK
+    //#define CUSTOM_MENU_MAIN_SCRIPT_RETURN   // Return to status screen after a script
+    #define CUSTOM_MENU_MAIN_ONLY_IDLE         // Only show custom menu when the machine is idle
 
-  #define MAIN_MENU_ITEM_1_DESC "Home & UBL Info"
-  #define MAIN_MENU_ITEM_1_GCODE "G28\nG29 W"
-  //#define MAIN_MENU_ITEM_1_CONFIRM          // Show a confirmation dialog before this action
+    #define MAIN_MENU_ITEM_1_DESC "Home & UBL Info"
+    #define MAIN_MENU_ITEM_1_GCODE "G28\nG29 W"
+    //#define MAIN_MENU_ITEM_1_CONFIRM          // Show a confirmation dialog before this action
 
-  #define MAIN_MENU_ITEM_2_DESC "Preheat for " PREHEAT_1_LABEL
-  #define MAIN_MENU_ITEM_2_GCODE "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_1_TEMP_HOTEND)
-  //#define MAIN_MENU_ITEM_2_CONFIRM
+    #define MAIN_MENU_ITEM_2_DESC "Preheat for " PREHEAT_1_LABEL
+    #define MAIN_MENU_ITEM_2_GCODE "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_1_TEMP_HOTEND)
+    //#define MAIN_MENU_ITEM_2_CONFIRM
 
-  //#define MAIN_MENU_ITEM_3_DESC "Preheat for " PREHEAT_2_LABEL
-  //#define MAIN_MENU_ITEM_3_GCODE "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
-  //#define MAIN_MENU_ITEM_3_CONFIRM
+    //#define MAIN_MENU_ITEM_3_DESC "Preheat for " PREHEAT_2_LABEL
+    //#define MAIN_MENU_ITEM_3_GCODE "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
+    //#define MAIN_MENU_ITEM_3_CONFIRM
 
-  //#define MAIN_MENU_ITEM_4_DESC "Heat Bed/Home/Level"
-  //#define MAIN_MENU_ITEM_4_GCODE "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
-  //#define MAIN_MENU_ITEM_4_CONFIRM
+    //#define MAIN_MENU_ITEM_4_DESC "Heat Bed/Home/Level"
+    //#define MAIN_MENU_ITEM_4_GCODE "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
+    //#define MAIN_MENU_ITEM_4_CONFIRM
 
-  //#define MAIN_MENU_ITEM_5_DESC "Home & Info"
-  //#define MAIN_MENU_ITEM_5_GCODE "G28\nM503"
-  //#define MAIN_MENU_ITEM_5_CONFIRM
-#endif
+    //#define MAIN_MENU_ITEM_5_DESC "Home & Info"
+    //#define MAIN_MENU_ITEM_5_GCODE "G28\nM503"
+    //#define MAIN_MENU_ITEM_5_CONFIRM
+  #endif
 
-// @section custom config menu
+  // @section custom config menu
 
-// Custom Menu: Configuration Menu
-#define CUSTOM_MENU_CONFIG
-#if ENABLED(CUSTOM_MENU_CONFIG)
-  //#define CUSTOM_MENU_CONFIG_TITLE "Custom Commands"
-  #define CUSTOM_MENU_CONFIG_SCRIPT_DONE "M117 Wireless Script Done"
-  #define CUSTOM_MENU_CONFIG_SCRIPT_AUDIBLE_FEEDBACK
-  //#define CUSTOM_MENU_CONFIG_SCRIPT_RETURN  // Return to status screen after a script
-  #define CUSTOM_MENU_CONFIG_ONLY_IDLE        // Only show custom menu when the machine is idle
+  // Custom Menu: Configuration Menu
+  #define CUSTOM_MENU_CONFIG
+  #if ENABLED(CUSTOM_MENU_CONFIG)
+    //#define CUSTOM_MENU_CONFIG_TITLE "Custom Commands"
+    #define CUSTOM_MENU_CONFIG_SCRIPT_DONE "M117 Wireless Script Done"
+    #define CUSTOM_MENU_CONFIG_SCRIPT_AUDIBLE_FEEDBACK
+    //#define CUSTOM_MENU_CONFIG_SCRIPT_RETURN  // Return to status screen after a script
+    #define CUSTOM_MENU_CONFIG_ONLY_IDLE        // Only show custom menu when the machine is idle
 
-  #define CONFIG_MENU_ITEM_1_DESC "Wifi ON"
-  #define CONFIG_MENU_ITEM_1_GCODE "M118 [ESP110] WIFI-STA pwd=12345678"
-  //#define CONFIG_MENU_ITEM_1_CONFIRM        // Show a confirmation dialog before this action
+    #define CONFIG_MENU_ITEM_1_DESC "Wifi ON"
+    #define CONFIG_MENU_ITEM_1_GCODE "M118 [ESP110] WIFI-STA pwd=12345678"
+    //#define CONFIG_MENU_ITEM_1_CONFIRM        // Show a confirmation dialog before this action
 
-  #define CONFIG_MENU_ITEM_2_DESC "Bluetooth ON"
-  #define CONFIG_MENU_ITEM_2_GCODE "M118 [ESP110] BT pwd=12345678"
-  //#define CONFIG_MENU_ITEM_2_CONFIRM
+    #define CONFIG_MENU_ITEM_2_DESC "Bluetooth ON"
+    #define CONFIG_MENU_ITEM_2_GCODE "M118 [ESP110] BT pwd=12345678"
+    //#define CONFIG_MENU_ITEM_2_CONFIRM
 
-  //#define CONFIG_MENU_ITEM_3_DESC "Radio OFF"
-  //#define CONFIG_MENU_ITEM_3_GCODE "M118 [ESP110] OFF pwd=12345678"
-  //#define CONFIG_MENU_ITEM_3_CONFIRM
+    //#define CONFIG_MENU_ITEM_3_DESC "Radio OFF"
+    //#define CONFIG_MENU_ITEM_3_GCODE "M118 [ESP110] OFF pwd=12345678"
+    //#define CONFIG_MENU_ITEM_3_CONFIRM
 
-  //#define CONFIG_MENU_ITEM_4_DESC "Wifi ????"
-  //#define CONFIG_MENU_ITEM_4_GCODE "M118 ????"
-  //#define CONFIG_MENU_ITEM_4_CONFIRM
+    //#define CONFIG_MENU_ITEM_4_DESC "Wifi ????"
+    //#define CONFIG_MENU_ITEM_4_GCODE "M118 ????"
+    //#define CONFIG_MENU_ITEM_4_CONFIRM
 
-  //#define CONFIG_MENU_ITEM_5_DESC "Wifi ????"
-  //#define CONFIG_MENU_ITEM_5_GCODE "M118 ????"
-  //#define CONFIG_MENU_ITEM_5_CONFIRM
-#endif
+    //#define CONFIG_MENU_ITEM_5_DESC "Wifi ????"
+    //#define CONFIG_MENU_ITEM_5_GCODE "M118 ????"
+    //#define CONFIG_MENU_ITEM_5_CONFIRM
+  #endif
 #endif
 /**
  * User-defined buttons to run custom G-code.
@@ -4382,8 +4382,8 @@
   #if ENABLED(HOST_PROMPT_SUPPORT)
     //#define HOST_STATUS_NOTIFICATIONS   // Send some status messages to the host as notifications
   #endif
-  //#define HOST_START_MENU_ITEM          // Add a menu item that tells the host to start
-  //#define HOST_SHUTDOWN_MENU_ITEM       // Add a menu item that tells the host to shut down
+   //#define HOST_START_MENU_ITEM          // Add a menu item that tells the host to start
+   //#define HOST_SHUTDOWN_MENU_ITEM       // Add a menu item that tells the host to shut down
 #endif
 
 // @section extras
