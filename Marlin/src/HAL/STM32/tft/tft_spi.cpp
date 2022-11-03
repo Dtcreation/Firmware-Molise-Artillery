@@ -179,7 +179,7 @@ uint32_t TFT_SPI::ReadID(uint16_t Reg) {
 }
 
 bool TFT_SPI::isBusy() {
-  #if defined(STM32F1xx)
+  #ifdef STM32F1xx
     volatile bool dmaEnabled = (DMAtx.Instance->CCR & DMA_CCR_EN) != RESET;
   #elif defined(STM32F4xx)
     volatile bool dmaEnabled = DMAtx.Instance->CR & DMA_SxCR_EN;
@@ -241,6 +241,30 @@ void TFT_SPI::TransmitDMA(uint32_t MemoryIncrease, uint16_t *Data, uint16_t Coun
   HAL_DMA_PollForTransfer(&DMAtx, HAL_DMA_FULL_TRANSFER, HAL_MAX_DELAY);
   Abort();
 }
+
+#if ENABLED(USE_SPI_DMA_TC)
+
+  void TFT_SPI::TransmitDMA_IT(uint32_t MemoryIncrease, uint16_t *Data, uint16_t Count) {
+
+    DMAtx.Init.MemInc = MemoryIncrease;
+    HAL_DMA_Init(&DMAtx);
+
+    if (TFT_MISO_PIN == TFT_MOSI_PIN)
+      SPI_1LINE_TX(&SPIx);
+
+    DataTransferBegin();
+
+    HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 5, 0);
+    HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
+    HAL_DMA_Start_IT(&DMAtx, (uint32_t)Data, (uint32_t)&(SPIx.Instance->DR), Count);
+    __HAL_SPI_ENABLE(&SPIx);
+
+    SET_BIT(SPIx.Instance->CR2, SPI_CR2_TXDMAEN);   // Enable Tx DMA Request
+  }
+
+  extern "C" void DMA2_Stream3_IRQHandler(void) { HAL_DMA_IRQHandler(&TFT_SPI::DMAtx); }
+
+#endif
 
 #endif // HAS_SPI_TFT
 #endif // HAL_STM32
