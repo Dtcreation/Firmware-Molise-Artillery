@@ -4,24 +4,47 @@
 /**
 ******************** Molise Firmware for Artillery Genius, Genius Pro, Sidewinder X1, Sidewinder X2 and Hornet based on Marlin 2 *************************
 *
-* Molise 4.0 firmware is brought to you by David TOUTON and Thomas Bourcey, the awesome 3D printing community, and of course we can't forget the Marlin team who spent countless days, nights and years building Marlin how far it is today.
+* Molise 4.0 firmware is brought to you by David TOUTON, Thomas Bourcey and the awesome 3D printing community, and of course we can't forget the Marlin team who spent countless days, nights and years building Marlin how far it is today.
 *
-* Simple and advanced configuration assistant in 7 sections for "stock" or upgraded printer with:
+* Simple and advanced configuration assistant in 7 sections.
+* Supported Artillery printers : 
+* - Genius
+* - Genuis Pro
+* - Sidewinder X1
+* - Sidewinder X2
+* - Hornet
+*
+* Supported boards : 
+* - Stock Board for Genuis and X1
+* - Stock Board for Genuis Pro, X2 and Hornet
+* - MKS GEN L V2.1, SGEN L V1, SGEN L V2, ROBIN NANO V3
+* - BigTreeTech SKR 1.3, SKR 1.4, SKR 1.4 Turbo, SKR 2.0 (Rev A and B)
+*
+* Supported drivers :
 * - TMC 2208 or 2209 drivers and LV8729
-* - SKR 1.3, 1.4 and 1.4 Turbo motherboard
-* - Extruder BMG, Hemera and Matrix
-* Taking in exchange for:
-* - BlTouch with or without Waggster Mod
+*
+* Supported Extruders :
+* - Titan (Stock Extruder)
+* - BMG, BMG Wind
+* - HEMERA
+* - Matrix
+* 
+* Others supported Options : 
+* - BlTouch (High Speed Mode)
 * - TouchMi with or without LED on X1
 * - 3DPRINTBEGINNER Z MIN SENSOR AS ABL BED MESH PROBE MOD
 * - GraphicalLCD
 * - Sensorless Homing
-* - HYBRID_THRESHOLD
 * - MBL
-* - M600
-* - Z_STEPPER_AUTO_ALIGN
-* - Solution to Octoprint communication problem
-* - If you connect your filament runout sensor to the motherboard instead of the TFT
+* - M600 & Nozzle Park / Advanced Pause
+* - NeoPixels
+* - PID Tune
+* - EEPROM
+* - Linear Advance
+* - S Curve Acceleration
+* - ABL Bilinear Subdivision
+* - Z Steppers Auto-Alignment (G34)
+* - Mesh Validation Pattern (G26)
 * - Etc ...
 *
 * You just have to uncomment your configuration for the 7 sections in Configuration.h at the beginning in “Molise Options” and to compile with VS code only.
@@ -31,34 +54,17 @@
 *
 * Molise firmware is provided to you free of charge, in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
 *
- * --------------------------------------------------------------------------------------------
- *
- * Marlin 3D Printer Firmware
- * Copyright (c) 2022 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
+* Facebook Support page : https://www.facebook.com/groups/molisefirmware
+* Github Page : https://github.com/Dtcreation/Firmware-Molise-Artillery
+*
+*/
 
 //===========================================================================
 //============================= Molise Options ============================== 
 //=========================================================================== 
 
-/*** Section 1 Artillery Printer ***/
+
+/*** Section 1 - Artillery Printer ***/
 
 //#define GENIUS
 //#define X1
@@ -66,7 +72,7 @@
 //#define SWD_X2
 //#define HORNET
 
-/*** Section 2 Board Type ***/
+/*** Section 2 - Board Type ***/
 
 //#define MKSGENL         // Stock Board for Genuis and X1
 //#define RUBY            // Stock Board for Genuis Pro, X2 and Hornet
@@ -95,14 +101,14 @@
 -Board name: MKSROBINNANOV3, change_value = mks_robin_nano_v3_usb_flash_drive_msc //use this value in platform.ini. Search for 'change_value' and replace it with this value mks_robin_nano_v3_usb_flash_drive_msc
 */
 
-/*** Section 3 Extruder Type ***/
+/*** Section 3 - Extruder Type ***/
 
 //#define TITAN       // Stock Extruder
 //#define BMG         // Choose this if you are using BMG/BMG Wind
 //#define HEMERA      // Choose this if you are using HEMERA
 //#define MATRIX      // Choose this if you are using MATRIX
 
-/*** Section 4 Drivers Type ***/
+/*** Section 4 - Drivers Type ***/
 
 //#define TMC_2100        // Stock Drivers
 //#define TMC_2208_STA    // Standalone Mode
@@ -111,7 +117,7 @@
 //#define TMC_2208        // UART Mode
 //#define TMC_2209        // UART Mode
 
-/*** Section 5 Bed Leveling ***/
+/*** Section 5 - Bed Leveling ***/
 
 //#define BLTOUCH      //uncomment if you use a BLTouch
   #ifdef BLTOUCH
@@ -121,7 +127,7 @@
       #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #endif
       #define Z_MIN_PROBE_REPEATABILITY_TEST
-      //#define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }         //Offset preset for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
+      #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }         //Offset preset for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
       //#define NOZZLE_TO_PROBE_OFFSET { 27.25, -12.8, -2 }   //Offset preset for stock X2 and Genius Pro
       //#define NOZZLE_TO_PROBE_OFFSET { -17, -42, 0 }        //Offset preset for this fanduct with 5015 Fan on Thingiverse : https://www.thingiverse.com/thing:4741530
       //#define NOZZLE_TO_PROBE_OFFSET { 56, -34, 0 }         //Offset preset for this fanduct with 5015 Fan on Thingiverse : https://www.thingiverse.com/thing:4548854
@@ -156,22 +162,43 @@
 //#define BLTOUCH_HIGH_SPEED                        //Enable "HIGH SPEED" option for probing. 
                                                     //Danger: Disable if your probe sometimes fails. Only suitable for stable well-adjusted systems. 
 
-/*** Section 6 Options ***/
+/*** Section 6 - Options ***/
 
 //#define GraphicalLCD                              // Will work next to MKS TFT
 //#define MKSGENL_TFT                               // To be activated if you have deported the TFT connection to EXP1 on the MKS Gen L ==> communication speed : 250000
 //#define FILAMENT_RUNOUT_SENSOR                    // If you connect your filament runout sensor to the motherboard instead of the TFT
 //#define NEOPIXEL_PERSO                            // If you want to use a personal Neopixel LED on the Neopixel Port
 //#define LED_PORT_NEOPIXEL                         // If you want to use a personal Neopixel LED on the original LED Port
-//#define LINEAR_ADV                                // If you want to use Linear Advance
+//#define LINEAR_ADV                                // If you want to use Linear Advance (can't be used with S Curve Acceleration)
+//#define S_CURVE_ACCELERATION                       // If you want to use S Curve Acceleration (can't be used with Linear Advance)
 
 /*** Section 7 Sensorless Homing XY ***/
 
 //#define SENSHOME                                  // Active sensorless homing ONLY for TMC 2208 UART and 2009 UART with SKR 1.3 (extra wiring needed) and SKR 1.4 (no extra wiring needed)
 
-
-
-
+/*
+* --------------------------------------------------------------------------------------------
+*
+* Marlin 3D Printer Firmware
+* Copyright (c) 2022 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+*
+* Based on Sprinter and grbl.
+* Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*
+*/
 
 #pragma once
 
@@ -217,7 +244,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "Molise 4.0 - Based on Marlin 2.1.1" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "Molise 4.0" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -253,14 +280,14 @@
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
 #if ENABLED(MKSROBINNANOV3) || ENABLED(RUBY)
-#define SERIAL_PORT -1
-  #else
-#define SERIAL_PORT 0
+  #define SERIAL_PORT -1
+#else
+  #define SERIAL_PORT 0
 #endif
 #ifdef MKSROBINNANOV3
-#define LCD_SERIAL_PORT 1
-#define LCD_BAUDRATE 250000
-#define COMMUNICATION_PROTOCOL 3
+  #define LCD_SERIAL_PORT 1
+  #define LCD_BAUDRATE 250000
+  #define COMMUNICATION_PROTOCOL 3
 #endif
 
 /**
@@ -292,7 +319,11 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 250000
+#if ENABLED(RUBY)
+  #define BAUDRATE_2 115200
+#else
+  #define BAUDRATE 250000
+#endif
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
 /**
@@ -317,37 +348,37 @@
 // Choose the name from boards.h that matches your setup
 #ifdef SKR13
       #define MOTHERBOARD BOARD_BTT_SKR_V1_3
-  #endif
-  #ifdef RUBY
-      #define MOTHERBOARD BOARD_ARTILLERY_RUBY
-  #endif
-  #ifdef SKR14
-      #define MOTHERBOARD BOARD_BTT_SKR_V1_4
-  #endif
-  #ifdef SKR14T
-      #define MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
-  #endif
-  #ifdef SKR20A
-      #define MOTHERBOARD BOARD_BTT_SKR_V2_0_REV_A
-  #endif
-  #ifdef SKR20B
-      #define MOTHERBOARD BOARD_BTT_SKR_V2_0_REV_B
-  #endif
-  #ifdef MKSGENL
-      #define MOTHERBOARD BOARD_MKS_GEN_L
-  #endif
-  #ifdef MKSSGENLV1
-      #define MOTHERBOARD BOARD_MKS_SGEN_L
-  #endif
-  #ifdef MKSSGENLV2
-      #define MOTHERBOARD BOARD_MKS_SGEN_L_V2
-  #endif
-  #ifdef MKSGENLV21
-      #define MOTHERBOARD BOARD_MKS_GEN_L_V21
-  #endif
-  #ifdef MKSROBINNANOV3
-      #define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V3
-      #endif
+#endif
+#ifdef RUBY
+  #define MOTHERBOARD BOARD_ARTILLERY_RUBY
+#endif
+#ifdef SKR14
+  #define MOTHERBOARD BOARD_BTT_SKR_V1_4
+#endif
+#ifdef SKR14T
+  #define MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
+#endif
+#ifdef SKR20A
+  #define MOTHERBOARD BOARD_BTT_SKR_V2_0_REV_A
+#endif
+#ifdef SKR20B
+  #define MOTHERBOARD BOARD_BTT_SKR_V2_0_REV_B
+#endif
+#ifdef MKSGENL
+  #define MOTHERBOARD BOARD_MKS_GEN_L
+#endif
+#ifdef MKSSGENLV1
+  #define MOTHERBOARD BOARD_MKS_SGEN_L
+#endif
+#ifdef MKSSGENLV2
+  #define MOTHERBOARD BOARD_MKS_SGEN_L_V2
+#endif
+#ifdef MKSGENLV21
+  #define MOTHERBOARD BOARD_MKS_GEN_L_V21
+#endif
+#ifdef MKSROBINNANOV3
+  #define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V3
+#endif
 
 // Name displayed in the LCD "Ready" message and Info menu
 #ifdef GENIUS
@@ -1565,7 +1596,9 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#define S_CURVE_ACCELERATION
+#if ENABLED(S_CURVE_ACCELERATION)
+  #define S_CURVE_ACCELERATION
+#endif
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1601,7 +1634,7 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-#if DISABLED(SKR13) && DISABLED(SKR14) && DISABLED(SKR14T) && DISABLED(MKSSGENLV1) && DISABLED(MKSSGENLV2) && DISABLED(MKSROBINNANOV3)
+#if DISABLED(SKR13) && DISABLED(SKR14) && DISABLED(SKR14T) && DISABLED(SKR20A) && DISABLED(SKR20B) && DISABLED(MKSSGENLV1) && DISABLED(MKSSGENLV2) && DISABLED(MKSROBINNANOV3)
   #if ENABLED(BLTOUCH)
     #if ENABLED(WAGGSTER_MOD_WIRING) 
       #define Z_MIN_PIN      19
@@ -2349,7 +2382,7 @@
  * Turn on with the command 'M111 S32'.
  * NOTE: Requires a lot of PROGMEM!
  */
-#define DEBUG_LEVELING_FEATURE
+//#define DEBUG_LEVELING_FEATURE
 
 #if ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL, PROBE_MANUALLY)
   // Set a height for the start of manual adjustment
@@ -2406,10 +2439,10 @@
     // Experimental Subdivision of the grid by Catmull-Rom method.
     // Synthesizes intermediate points to produce a more detailed mesh.
     //
-    //#define ABL_BILINEAR_SUBDIVISION
+    #define ABL_BILINEAR_SUBDIVISION
     #if ENABLED(ABL_BILINEAR_SUBDIVISION)
       // Number of subdivisions between probe points
-      #define BILINEAR_SUBDIVISIONS 3
+      #define BILINEAR_SUBDIVISIONS 2
     #endif
 
   #endif
