@@ -72,11 +72,27 @@ void ControllerFan::update() {
       ? settings.active_speed : settings.idle_speed
     );
 
+    speed = CALC_FAN_SPEED(speed);
+
+    #if FAN_KICKSTART_TIME
+      static millis_t fan_kick_end = 0;
+      if (speed > FAN_OFF_PWM) {
+        if (!fan_kick_end) {
+          fan_kick_end = ms + FAN_KICKSTART_TIME; // May be longer based on slow update interval for controller fn check. Sets minimum
+          speed = FAN_KICKSTART_POWER;
+        }
+        else if (PENDING(ms, fan_kick_end))
+          speed = FAN_KICKSTART_POWER;
+      }
+      else
+        fan_kick_end = 0;
+    #endif
+
     #if ENABLED(FAN_SOFT_PWM)
       thermalManager.soft_pwm_controller_speed = speed;
     #else
       if (PWM_PIN(CONTROLLER_FAN_PIN))
-        set_pwm_duty(pin_t(CONTROLLER_FAN_PIN), speed);
+        hal.set_pwm_duty(pin_t(CONTROLLER_FAN_PIN), speed);
       else
         WRITE(CONTROLLER_FAN_PIN, speed > 0);
     #endif
