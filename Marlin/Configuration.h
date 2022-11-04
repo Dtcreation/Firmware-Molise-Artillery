@@ -21,7 +21,10 @@
 * - BigTreeTech SKR 1.3, SKR 1.4, SKR 1.4 Turbo, SKR 2.0 (Rev A and B)
 *
 * Supported drivers :
-* - TMC 2208 or 2209 drivers and LV8729
+* - TMC 2100
+* - TMC 2208 
+* - TMC 2209
+* - LV8729
 *
 * Supported Extruders :
 * - Titan (Stock Extruder)
@@ -56,7 +59,9 @@
 *
 * Facebook Support page : https://www.facebook.com/groups/molisefirmware
 * Github Page : https://github.com/Dtcreation/Firmware-Molise-Artillery
+* Open issue : https://github.com/Dtcreation/Firmware-Molise-Artillery/issues
 *
+* Molise TFT Firmware : https://github.com/Dtcreation/Firmware-Molise-TFT
 */
 
 //===========================================================================
