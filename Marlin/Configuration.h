@@ -286,6 +286,8 @@ Last Merge : 2022.11.03
  */
 #if ENABLED(MKSROBINNANOV3) || ENABLED(RUBY)
   #define SERIAL_PORT -1
+#elif ENABLED(SKR20A) || ENABLED(SKR20B)
+  #define SERIAL_PORT 1
 #else
   #define SERIAL_PORT 0
 #endif
