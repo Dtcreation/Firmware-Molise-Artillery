@@ -659,8 +659,11 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#if ENABLED(SKR14) || ENABLED(SKR14T) ||ENABLED(SKR20A) || ENABLED(SKR20B) ||  ENABLED(MKSSGENLV1) || ENABLED(SKR13)|| ENABLED(RUBY)
+#if ENABLED(SKR14) || ENABLED(SKR14T) ||  ENABLED(MKSSGENLV1) || ENABLED(SKR13)|| ENABLED(RUBY)
   #define E0_AUTO_FAN_PIN FAN1_PIN
+#endif
+#if ENABLED(SKR20A) || ENABLED(SKR20B)
+  #define E0_AUTO_FAN_PIN PB4
 #endif
 #if ENABLED(MKSROBINNANOV3)
   #define E0_AUTO_FAN_PIN HEATER_1_PIN

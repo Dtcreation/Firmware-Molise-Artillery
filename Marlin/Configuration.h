@@ -179,8 +179,8 @@ Last Merge : 2022.11.03
 //#define FILAMENT_RUNOUT_SENSOR                                // If you connect your filament runout sensor to the motherboard instead of the TFT
 //#define NEOPIXEL_PERSO                                        // If you want to use a personal Neopixel LED on the Neopixel Port
 //#define LED_PORT_NEOPIXEL                                     // If you want to use a personal Neopixel LED on the original LED Port
-//#define LINEAR_ADV                                            // If you want to use Linear Advance (can't be used with S Curve Acceleration)
-//#define S_CURVE_ACCELERATION                                  // If you want to use S Curve Acceleration (can't be used with Linear Advance)
+//#define LINEAR_ADV                                            // If you want to use Linear Advance ( /!\ can't be used with S Curve Acceleration)
+//#define S_CURVE_ACCELERATION                                  // If you want to use S Curve Acceleration ( /!\ can't be used with Linear Advance)
 
 /*** Section 7 Sensorless Homing XY ***/
 
@@ -274,10 +274,9 @@ Last Merge : 2022.11.03
 #endif
 // Show the bitmap in Marlin/_Bootscreen.h on startup.
 #if ENABLED(GraphicalLCD) || ENABLED(HORNET)
-  #define SHOW_CUSTOM_BOOTSCREEN
-
-// Show the bitmap in Marlin/_Statusscreen.h on the status screen.
-//#define CUSTOM_STATUS_SCREEN_IMAGE
+  //#define SHOW_CUSTOM_BOOTSCREEN
+  // Show the bitmap in Marlin/_Statusscreen.h on the status screen.
+  //#define CUSTOM_STATUS_SCREEN_IMAGE
 #endif
 // @section machine
 
@@ -318,7 +317,6 @@ Last Merge : 2022.11.03
 #endif
 #if ENABLED(RUBY)
   #define SERIAL_PORT_2 1
-  #define BAUDRATE_2 115200
 #endif
 /**
  * Serial Port Baud Rate
@@ -333,8 +331,7 @@ Last Merge : 2022.11.03
  */
 #if ENABLED(RUBY)
   #define BAUDRATE_2 115200
-#else
-  #define BAUDRATE 250000
+  #define BAUDRATE 115200
 #endif
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
@@ -1441,11 +1438,7 @@ Last Merge : 2022.11.03
 #define Z_DRIVER_TYPE  drivertype
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
-#ifndef RUBY
 #define Z2_DRIVER_TYPE drivertype
-#else
-//#define Z2_DRIVER_TYPE drivertype
-#endif
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
 //#define I_DRIVER_TYPE  A4988
@@ -1986,8 +1979,8 @@ Last Merge : 2022.11.03
   //#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
   //#define WAIT_FOR_HOTEND         // Wait for hotend to heat back up between probes (to improve accuracy & prevent cold extrude)
 #endif
-//#define PROBING_FANS_OFF          // Turn fans off when probing
-//#define PROBING_ESTEPPERS_OFF     // Turn all extruder steppers off when probing
+#define PROBING_FANS_OFF          // Turn fans off when probing
+#define PROBING_ESTEPPERS_OFF     // Turn all extruder steppers off when probing
 //#define PROBING_STEPPERS_OFF      // Turn all steppers off (unless needed to hold position) when probing (including extruders)
 //#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
 
@@ -2149,8 +2142,8 @@ Last Merge : 2022.11.03
   #define Y_BED_SIZE 220
 #endif
 #if ENABLED(X1) || ENABLED(SWD_X2)
-  #define X_BED_SIZE 300
-  #define Y_BED_SIZE 310
+  #define X_BED_SIZE 305
+  #define Y_BED_SIZE 305
 #endif
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
@@ -2512,23 +2505,23 @@ Last Merge : 2022.11.03
 
 // Add a menu item to move between bed corners for manual bed adjustment
 #if ENABLED(GraphicalLCD) || ENABLED(HORNET)
-  #define LEVEL_BED_CORNERS
+  #define LCD_BED_TRAMMING
 #endif
 
-#if ENABLED(LEVEL_BED_CORNERS)
-  #define LEVEL_CORNERS_INSET_LFRB { 55, 55, 55, 55 } // (mm) Left, Front, Right, Back insets
-  #define LEVEL_CORNERS_HEIGHT      0.0   // (mm) Z height of nozzle at leveling points
-  #define LEVEL_CORNERS_Z_HOP       4.0   // (mm) Z height of nozzle between leveling points
+#if ENABLED(LCD_BED_TRAMMING)
+  #define BED_TRAMMING_INSET_LFRB { 55, 55, 55, 55 } // (mm) Left, Front, Right, Back insets
+  #define BED_TRAMMING_HEIGHT      0.0   // (mm) Z height of nozzle at leveling points
+  #define BED_TRAMMING_Z_HOP       4.0   // (mm) Z height of nozzle between leveling points
   //#define LEVEL_CENTER_TOO              // Move to the center after the last corner
     #if ENABLED(BLTOUCH) || ENABLED(TOUCH_MI_PROBE) || ENABLED(ZMIN_SENSOR_AS_PROBE)
-      #define LEVEL_CORNERS_USE_PROBE
+      #define BED_TRAMMING_USE_PROBE
     #else
-    //#define LEVEL_CORNERS_USE_PROBE
+    //#define BED_TRAMMING_USE_PROBE
     #endif
-  #if ENABLED(LEVEL_CORNERS_USE_PROBE)
-    #define LEVEL_CORNERS_PROBE_TOLERANCE 0.1
-    #define LEVEL_CORNERS_VERIFY_RAISED   // After adjustment triggers the probe, re-probe to verify
-    //#define LEVEL_CORNERS_AUDIO_FEEDBACK
+  #if ENABLED(BED_TRAMMING_USE_PROBE)
+    #define BED_TRAMMING_PROBE_TOLERANCE 0.1
+    #define BED_TRAMMING_VERIFY_RAISED   // After adjustment triggers the probe, re-probe to verify
+    //#define BED_TRAMMING_AUDIO_FEEDBACK
   #endif
 
   /**
@@ -3045,7 +3038,7 @@ Last Merge : 2022.11.03
 //
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
-//#define INDIVIDUAL_AXIS_HOMING_MENU
+#define INDIVIDUAL_AXIS_HOMING_MENU
 //#define INDIVIDUAL_AXIS_HOMING_SUBMENU
 
 //
