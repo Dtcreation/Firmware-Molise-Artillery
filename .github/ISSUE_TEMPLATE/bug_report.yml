@@ -2,36 +2,12 @@ name: 🪲 Report a bug
 description: Create a bug report to help improve Marlin Firmware
 title: "[BUG] (bug summary)"
 body:
-  - type: markdown
-    attributes:
-      value: >
-        Do you want to ask a question? Are you looking for support? Please use one of the [support links](https://github.com/MarlinFirmware/Marlin/issues/new/choose).
-
-  - type: markdown
-    attributes:
-      value: |
-        **Thank you for reporting a bug in Marlin Firmware!**
-
-        ## Before Reporting a Bug
-
-        - Read and understand Marlin's [Code of Conduct](https://github.com/MarlinFirmware/Marlin/blob/bugfix-2.1.x/.github/code_of_conduct.md). You are expected to comply with it, including treating everyone with respect.
-
-        - Test with the [`bugfix-2.1.x` branch](https://github.com/MarlinFirmware/Marlin/archive/bugfix-2.1.x.zip) to see whether the issue still exists.
-
-        ## Instructions
-
-        Please follow the instructions below. Failure to do so may result in your issue being closed. See [Contributing to Marlin](https://github.com/MarlinFirmware/Marlin/blob/bugfix-2.1.x/.github/contributing.md) for additional guidelines.
-
-        1. Provide a good title starting with [BUG].
-        2. Fill out all sections of this bug report form.
-        3. Always attach configuration files so we can build and test your setup.
 
   - type: dropdown
     attributes:
-      label: Did you test the latest `bugfix-2.1.x` code?
+      label: Did you test the latest Molise code ?
       description: >-
-        Always try the latest code to make sure the issue you are reporting is not already fixed. To download
-        the latest code just [click this link](https://github.com/MarlinFirmware/Marlin/archive/bugfix-2.1.x.zip).
+        Always try the latest code to make sure the issue you are reporting is not already fixed. 
       options:
         - Yes, and the problem still exists.
         - No, but I will test it now!
@@ -53,7 +29,7 @@ body:
 
         When pasting formatted text don't forget to put ` ``` ` (on its own line) before and after to make it readable.
       placeholder: |
-        Marlin doesn't work.
+        Molise doesn't work.
     validations:
       required: true
 
@@ -92,7 +68,7 @@ body:
 
   - type: input
     attributes:
-      label: Version of Marlin Firmware
+      label: Version of Molise or Marlin Firmware
       description: "See the About Menu on the LCD or the output of `M115`. NOTE: For older releases we only patch critical bugs."
     validations:
       required: true
@@ -100,7 +76,7 @@ body:
   - type: input
     attributes:
       label: Printer model
-      description: Creality Ender 3, Prusa mini, or Kossel Delta?
+      description: Artillery X1, Genius, Artillery X2, Hornet ... ?
 
   - type: input
     attributes:

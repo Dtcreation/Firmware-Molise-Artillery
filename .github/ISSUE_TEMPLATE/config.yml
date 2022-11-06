@@ -1,20 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: 🗨️ Molise Facebook group
+    url: https://www.facebook.com/groups/molisefirmware
+    about: Please ask and answer questions here.
   - name: 📖 Marlin Documentation
     url: https://marlinfw.org/
     about: Lots of documentation on installing and using Marlin.
-  - name: 👤 MarlinFirmware Facebook group
-    url: https://www.facebook.com/groups/1049718498464482
-    about: Please ask and answer questions here.
-  - name: 🕹 Marlin on Discord
-    url: https://discord.gg/n5NJ59y
-    about: Join the Discord server for support and discussion.
-  - name: 🔗 Marlin Discussion Forum
-    url: https://reprap.org/forum/list.php?415
-    about: A searchable web forum hosted by RepRap dot org.
-  - name: 📺 Marlin Videos on YouTube
-    url: https://www.youtube.com/results?search_query=marlin+firmware
-    about: Tutorials and more from Marlin users all around the world. Great for new users!
-  - name: 💸 Want to donate?
-    url: https://www.thinkyhead.com/donate-to-marlin
-    about: Please take a look at the various options to support Marlin Firmware's development financially!
