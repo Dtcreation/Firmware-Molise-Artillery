@@ -97,7 +97,7 @@ Last Merge : 2022.11.03
 //#define MKSROBINNANOV3  // Choose this if you are using MKS ROBIN NANO V3
 
 
-/*default_envs in Platformio.ini :
+/*default_envs in platformio.ini :
 -Board name: MKS GEN L, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
 -Board name: RUBY, change_value = Artillery_Ruby //use this value in platform.ini. Search for 'change_value' and replace it with this value Artillery_Ruby
 -Board name: MKS GEN L V2.1, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
