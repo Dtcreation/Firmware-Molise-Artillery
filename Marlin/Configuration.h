@@ -145,6 +145,8 @@ Last Merge : 2022.11.03
       //#define WAGGSTER_MOD_WIRING                           //Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
       //#define Z_STEPPER_AUTO_ALIGN                          //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
       //#define DISABLE_LED                                   // Uncomment to disable LED, some users report compatibilty issues with BL Touch and LED enabled
+      //#define BLTOUCH_HIGH_SPEED                            //Enable "HIGH SPEED" option for probing. 
+                                                              //Danger: Disable if your probe sometimes fails. Only suitable for stable well-adjusted systems. 
   #endif
 
 //#define ZMIN_SENSOR_AS_PROBE                                //uncomment to use Z min as Probe for bed leveling (incompatible with BLTouch)
@@ -169,8 +171,7 @@ Last Merge : 2022.11.03
 
 //#define MESH_BED_LEVELING                                     //uncomment if you want to use Mesh Bed Leveling
 
-//#define BLTOUCH_HIGH_SPEED                                    //Enable "HIGH SPEED" option for probing. 
-                                                                //Danger: Disable if your probe sometimes fails. Only suitable for stable well-adjusted systems. 
+
 
 /*** Section 6 - Options ***/
 
@@ -332,6 +333,8 @@ Last Merge : 2022.11.03
 #if ENABLED(RUBY)
   #define BAUDRATE_2 115200
   #define BAUDRATE 115200
+#else
+  #define BAUDRATE 250000
 #endif
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
