@@ -1653,6 +1653,9 @@ Last Merge : 2022.11.03
 #ifdef RUBY
   #define Z_MIN_PROBE_PIN PC2
 #endif
+#ifdef ENABLED(SKR20A) || ENABLED(SKR20B)
+  #define Z_MIN_PROBE_PIN PE4
+#endif
 
 /**
  * Probe Type
