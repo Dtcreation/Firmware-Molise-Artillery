@@ -177,6 +177,8 @@ Last Marlin Merge : 2022.11.03
 //#define LED_PORT_NEOPIXEL                                     // If you want to use a personal Neopixel LED on the original LED Port
 //#define LINEAR_ADV                                            // If you want to use Linear Advance ( /!\ can't be used with S Curve Acceleration)
 //#define S_CURVE_ACCELERATION                                  // If you want to use S Curve Acceleration ( /!\ can't be used with Linear Advance)
+//#define CLASSIC_JERK                                          // If you want to use Classic Jerk instead of "Junction Deviation" & "S-Curve"
+//#define ABL_49_POINTS                                         // If you want to use ABL on 49 points (7x7) instead of 25 points (5x5)
 
 
 /*** Section 7 Sensorless Homing XY ***/
@@ -361,7 +363,7 @@ Last Marlin Merge : 2022.11.03
 
 // Choose the name from boards.h that matches your setup
 #ifdef SKR13
-      #define MOTHERBOARD BOARD_BTT_SKR_V1_3
+  #define MOTHERBOARD BOARD_BTT_SKR_V1_3
 #endif
 #ifdef RUBY
   #define MOTHERBOARD BOARD_ARTILLERY_RUBY
@@ -1566,8 +1568,8 @@ Last Marlin Merge : 2022.11.03
  */
 //#define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-  #define DEFAULT_XJERK 10.0
-  #define DEFAULT_YJERK 10.0
+  #define DEFAULT_XJERK  8.0
+  #define DEFAULT_YJERK  8.0
   #define DEFAULT_ZJERK  0.3
   //#define DEFAULT_IJERK  0.3
   //#define DEFAULT_JJERK  0.3
@@ -1584,7 +1586,7 @@ Last Marlin Merge : 2022.11.03
   #endif
 #endif
 
-#define DEFAULT_EJERK    5.0  // May be used by Linear Advance
+#define DEFAULT_EJERK    11.0  // May be used by Linear Advance
 
 /**
  * Junction Deviation Factor
@@ -1594,7 +1596,7 @@ Last Marlin Merge : 2022.11.03
  *   https://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-  #define JUNCTION_DEVIATION_MM 0.024 // (mm) Distance from real junction edge
+  #define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
   #define JD_HANDLE_SMALL_SEGMENTS    // Use curvature estimation instead of just the junction angle
                                       // for small segments (< 1mm) with large junction angles (> 135°).
 #endif
@@ -1625,7 +1627,7 @@ Last Marlin Merge : 2022.11.03
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#ifdef ENABLED(RUBY) || ENABLED(SKR20A) || ENABLED(SKR20A) 
+#if ENABLED(RUBY) || ENABLED(SKR20A) || ENABLED(SKR20A)
   //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN          //Disable Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN for X2 and SKR 2.0
 #else
   #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
@@ -1657,10 +1659,9 @@ Last Marlin Merge : 2022.11.03
     #endif
   #endif
 #endif
-#ifdef RUBY
+#if ENABLED(RUBY)
   #define Z_MIN_PROBE_PIN PC2
-#endif
-#ifdef ENABLED(SKR20A) || ENABLED(SKR20B)
+#elif ENABLED(SKR20A) || ENABLED(SKR20B)
   #define Z_MIN_PROBE_PIN PE4
 #endif
 
@@ -2295,10 +2296,10 @@ Last Marlin Merge : 2022.11.03
   // before executing the runout script. Useful for a sensor at the end of
   // a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead.
   //#define FILAMENT_RUNOUT_DISTANCE_MM 25
-     #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
+  #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
      #define FIL_RUNOUT_PIN  2
   #endif
-   #if ENABLED(MKSSGENLV2)
+  #if ENABLED(MKSSGENLV2)
      #define FIL_RUNOUT_PIN  P1_28
   #endif
 
@@ -2375,7 +2376,7 @@ Last Marlin Merge : 2022.11.03
  * these options to restore the prior leveling state or to always enable
  * leveling immediately after G28.
  */
-//#define RESTORE_LEVELING_AFTER_G28
+#define RESTORE_LEVELING_AFTER_G28
 //#define ENABLE_LEVELING_AFTER_G28
 
 /**
@@ -2383,7 +2384,7 @@ Last Marlin Merge : 2022.11.03
  */
 #define PREHEAT_BEFORE_LEVELING
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
-  #define LEVELING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
+  #define LEVELING_NOZZLE_TEMP   0   // (°C) Only applies to E0 at this time
   #define LEVELING_BED_TEMP     50
 #endif
 
@@ -2442,8 +2443,14 @@ Last Marlin Merge : 2022.11.03
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
-  #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
+  #ifdef ABL_49_POINTS
+    #define GRID_MAX_POINTS_X 7
+    #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
+  #else
+    #define GRID_MAX_POINTS_X 5
+    #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
+  #endif
+
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST
@@ -2466,74 +2473,74 @@ Last Marlin Merge : 2022.11.03
 
   #endif
 
-#elif ENABLED(AUTO_BED_LEVELING_UBL)
+  #elif ENABLED(AUTO_BED_LEVELING_UBL)
 
-  //===========================================================================
-  //========================= Unified Bed Leveling ============================
-  //===========================================================================
+    //===========================================================================
+    //========================= Unified Bed Leveling ============================
+    //===========================================================================
 
-  //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
+    //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
 
-  #define MESH_INSET 4              // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 7      // Don't use more than 15 points per axis, implementation limited.
-  #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
+    #define MESH_INSET 4              // Set Mesh bounds as an inset region of the bed
+    #define GRID_MAX_POINTS_X 7      // Don't use more than 15 points per axis, implementation limited.
+    #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
-  //#define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
+    //#define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
 
-  #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
-  #define UBL_SAVE_ACTIVE_ON_M500   // Save the currently active mesh in the current slot on M500
+    #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
+    #define UBL_SAVE_ACTIVE_ON_M500   // Save the currently active mesh in the current slot on M500
 
-  //#define UBL_Z_RAISE_WHEN_OFF_MESH 2.5 // When the nozzle is off the mesh, this value is used
-                                          // as the Z-Height correction value.
+    //#define UBL_Z_RAISE_WHEN_OFF_MESH 2.5 // When the nozzle is off the mesh, this value is used
+                                            // as the Z-Height correction value.
 
-  //#define UBL_MESH_WIZARD         // Run several commands in a row to get a complete mesh
+    //#define UBL_MESH_WIZARD         // Run several commands in a row to get a complete mesh
 
-#elif ENABLED(MESH_BED_LEVELING)
+  #elif ENABLED(MESH_BED_LEVELING)
 
-  //===========================================================================
-  //=================================== Mesh ==================================
-  //===========================================================================
+    //===========================================================================
+    //=================================== Mesh ==================================
+    //===========================================================================
 
-  #define MESH_INSET 30          // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 5    // Don't use more than 7 points per axis, implementation limited.
-  #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
+    #define MESH_INSET 30          // Set Mesh bounds as an inset region of the bed
+    #define GRID_MAX_POINTS_X 5    // Don't use more than 7 points per axis, implementation limited.
+    #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
-  //#define MESH_G28_REST_ORIGIN // After homing all axes ('G28' or 'G28 XYZ') rest Z at Z_MIN_POS
+    //#define MESH_G28_REST_ORIGIN // After homing all axes ('G28' or 'G28 XYZ') rest Z at Z_MIN_POS
 
-#endif // BED_LEVELING
+  #endif // BED_LEVELING
 
-/**
- * Add a bed leveling sub-menu for ABL or MBL.
- * Include a guided procedure if manual probing is enabled.
- */
-#if ENABLED(GraphicalLCD) || ENABLED(HORNET)
-  #define LCD_BED_LEVELING
-  #if ENABLED(LCD_BED_LEVELING)
-    #define MESH_EDIT_Z_STEP  0.01 // (mm) Step size while manually probing Z axis.
-    #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
-    #define MESH_EDIT_MENU        // Add a menu to edit mesh points
+  /**
+   * Add a bed leveling sub-menu for ABL or MBL.
+   * Include a guided procedure if manual probing is enabled.
+   */
+  #if ENABLED(GraphicalLCD) || ENABLED(HORNET)
+    #define LCD_BED_LEVELING
+    #if ENABLED(LCD_BED_LEVELING)
+      #define MESH_EDIT_Z_STEP  0.01 // (mm) Step size while manually probing Z axis.
+      #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
+      #define MESH_EDIT_MENU        // Add a menu to edit mesh points
+    #endif
   #endif
-#endif
 
-// Add a menu item to move between bed corners for manual bed adjustment
-#if ENABLED(GraphicalLCD) || ENABLED(HORNET)
-  #define LCD_BED_TRAMMING
-#endif
+  // Add a menu item to move between bed corners for manual bed adjustment
+  #if ENABLED(GraphicalLCD) || ENABLED(HORNET)
+    #define LCD_BED_TRAMMING
+  #endif
 
-#if ENABLED(LCD_BED_TRAMMING)
-  #define BED_TRAMMING_INSET_LFRB { 55, 55, 55, 55 } // (mm) Left, Front, Right, Back insets
-  #define BED_TRAMMING_HEIGHT      0.0   // (mm) Z height of nozzle at leveling points
-  #define BED_TRAMMING_Z_HOP       4.0   // (mm) Z height of nozzle between leveling points
-  //#define LEVEL_CENTER_TOO              // Move to the center after the last corner
+  #if ENABLED(LCD_BED_TRAMMING)
+    #define BED_TRAMMING_INSET_LFRB { 55, 55, 55, 55 } // (mm) Left, Front, Right, Back insets
+    #define BED_TRAMMING_HEIGHT      0.0   // (mm) Z height of nozzle at leveling points
+    #define BED_TRAMMING_Z_HOP       4.0   // (mm) Z height of nozzle between leveling points
+    //#define LEVEL_CENTER_TOO              // Move to the center after the last corner
     #if ENABLED(BLTOUCH) || ENABLED(TOUCH_MI_PROBE) || ENABLED(ZMIN_SENSOR_AS_PROBE)
       #define BED_TRAMMING_USE_PROBE
     #else
-    //#define BED_TRAMMING_USE_PROBE
-    #endif
+      //#define BED_TRAMMING_USE_PROBE
+  #endif
   #if ENABLED(BED_TRAMMING_USE_PROBE)
     #define BED_TRAMMING_PROBE_TOLERANCE 0.1
     #define BED_TRAMMING_VERIFY_RAISED   // After adjustment triggers the probe, re-probe to verify
-    //#define BED_TRAMMING_AUDIO_FEEDBACK
+      //#define BED_TRAMMING_AUDIO_FEEDBACK
   #endif
 
   /**
@@ -2750,9 +2757,8 @@ Last Marlin Merge : 2022.11.03
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
   #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
-  //#define NOZZLE_PARK_X_ONLY          // X move only is required to park
-  //#define NOZZLE_PARK_Y_ONLY          // Y move only is required to park
-  #define NOZZLE_PARK_Z_RAISE_MIN  20   // (mm) Always raise Z by at least this distance
+  #define NOZZLE_PARK_MOVE          0   // Park motion: 0 = XY Move, 1 = X Only, 2 = Y Only, 3 = X before Y, 4 = Y before X
+  #define NOZZLE_PARK_Z_RAISE_MIN   2   // (mm) Always raise Z by at least this distance
   #define NOZZLE_PARK_XY_FEEDRATE 100   // (mm/s) X and Y axes feedrate (also used for delta Z axis)
   #define NOZZLE_PARK_Z_FEEDRATE    5   // (mm/s) Z axis feedrate (not used for delta printers)
 #endif
