@@ -992,7 +992,9 @@
    *
    * Set the default state here, change with 'M401 S' or UI, use M500 to save, M502 to reset.
    */
-  //#define BLTOUCH_HS_MODE true
+  #if ENABLED(BLTOUCH_HIGH_SPEED)
+    #define BLTOUCH_HS_MODE true
+  #endif
 
   // Safety: Enable voltage mode settings in the LCD menu.
   //#define BLTOUCH_LCD_VOLTAGE_MENU
@@ -1806,9 +1808,9 @@
    */
 #if DISABLED(MKSGENL) || DISABLED(RUBY)
   #define SDCARD_CONNECTION ONBOARD
-    #else
+#else
     //#define SDCARD_CONNECTION ONBOARD
-  #endif
+#endif
 
   // Enable if SD detect is rendered useless (e.g., by using an SD extender)
   //#define NO_SD_DETECT

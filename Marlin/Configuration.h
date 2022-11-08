@@ -134,38 +134,38 @@ Last Marlin Merge : 2022.11.03
 
 /*** Section 5 - Bed Leveling ***/
 
-//#define BLTOUCH                                             //uncomment if you use a BLTouch
+//#define BLTOUCH                                             // Uncomment if you use a BLTouch
   #ifdef BLTOUCH
     #define Z_MIN_PROBE_REPEATABILITY_TEST
-    #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }             //Offset preset for Sidewinder X1 Waggster Mod BLTouch 
-    //#define NOZZLE_TO_PROBE_OFFSET { 27.25, -12.8, -2 }     //Offset preset for Stock Sidewinder X2 and Genius Pro
-    //#define WAGGSTER_MOD_WIRING                             //Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
-    //#define Z_STEPPER_AUTO_ALIGN                            //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
-    //#define DISABLE_LED                                     //Uncomment to disable LED, some users report compatibilty issues with BL Touch and LED enabled
-    #define BLTOUCH_HIGH_SPEED                                //Enable "HIGH SPEED" option for probing. Danger: Disable if your probe sometimes fails. Only suitable for stable well-adjusted systems. 
+    #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }             // Offset preset for Sidewinder X1 Waggster Mod BLTouch 
+    //#define NOZZLE_TO_PROBE_OFFSET { 27.25, -12.8, -2 }     // Offset preset for Stock Sidewinder X2 and Genius Pro
+    //#define WAGGSTER_MOD_WIRING                             // Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
+    //#define Z_STEPPER_AUTO_ALIGN                            // Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
+    //#define DISABLE_LED                                     // Uncomment to disable LED, some users report compatibilty issues with BL Touch and LED enabled
+    #define BLTOUCH_HIGH_SPEED                                // Enable "HIGH SPEED" option for probing. Danger: Disable if your probe sometimes fails. Only suitable for stable well-adjusted systems. 
   #endif
 
-//#define ZMIN_SENSOR_AS_PROBE                                //uncomment to use Z min as Probe for bed leveling (incompatible with BLTouch)
+//#define ZMIN_SENSOR_AS_PROBE                                // Uncomment to use Z min as Probe for bed leveling (incompatible with BLTouch)
   #ifdef ZMIN_SENSOR_AS_PROBE
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #define Z_MIN_PROBE_REPEATABILITY_TEST
     #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }   
   #endif
 
-//#define TOUCH_MI_PROBE                                        //uncomment if you use a Touch Mi
+//#define TOUCH_MI_PROBE                                        // Uncomment if you use a Touch Mi
   #ifdef TOUCH_MI_PROBE
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
     #define Z_MIN_PROBE_REPEATABILITY_TEST
-    #define NOZZLE_TO_PROBE_OFFSET { -43, -32, 0 }              //Offset preset for this fanduct : https://www.thingiverse.com/thing:4713319
-    #define TOUCH_MI_RETRACT_Z 0.5                              //Height at which the probe retracts
-    //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)              //For a magnet on the right side of the bed
-    //#define TOUCH_MI_MANUAL_DEPLOY                            //For manual deploy (LCD menu)
-    //#define Z_STEPPER_AUTO_ALIGN                              //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
+    #define NOZZLE_TO_PROBE_OFFSET { -43, -32, 0 }              // Offset preset for this fanduct : https://www.thingiverse.com/thing:4713319
+    #define TOUCH_MI_RETRACT_Z 0.5                              // Height at which the probe retracts
+    //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)              // For a magnet on the right side of the bed
+    //#define TOUCH_MI_MANUAL_DEPLOY                            // For manual deploy (LCD menu)
+    //#define Z_STEPPER_AUTO_ALIGN                              // Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
     //#define TOUCH_MI_LED                                      // Uncomment if you have the additional LED from Hotends.fr for the X1
     #define TOUCH_MI_NEOPIXEL                                   // Uncomment if you have the additional Neopixel LED from Hotends.fr
 #endif
 
-//#define MESH_BED_LEVELING                                     //uncomment if you want to use Mesh Bed Leveling (Not compatible with BLTouch and TouchMi)
+//#define MESH_BED_LEVELING                                     // Uncomment if you want to use Mesh Bed Leveling (Not compatible with BLTouch and TouchMi)
 
 
 /*** Section 6 - Options ***/
@@ -1554,7 +1554,7 @@ Last Marlin Merge : 2022.11.03
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          800     // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION          1000     // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000   // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   2000    // X, Y, Z acceleration for travel (non printing) moves
 
@@ -2692,7 +2692,7 @@ Last Marlin Merge : 2022.11.03
 #define EEPROM_SETTINGS       // Persistent storage with M500 and M501
 //#define DISABLE_M503        // Saves ~2700 bytes of PROGMEM. Disable for release!
 #define EEPROM_CHITCHAT       // Give feedback on EEPROM commands. Disable to save PROGMEM.
-//#define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
+#define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
 #if ENABLED(EEPROM_SETTINGS)
   #define EEPROM_AUTO_INIT    // Init EEPROM automatically on any errors.
   #define EEPROM_INIT_NOW   // Init EEPROM on first boot after a new build.
@@ -2758,7 +2758,7 @@ Last Marlin Merge : 2022.11.03
   // Specify a park position as { X, Y, Z_raise }
   #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
   #define NOZZLE_PARK_MOVE          0   // Park motion: 0 = XY Move, 1 = X Only, 2 = Y Only, 3 = X before Y, 4 = Y before X
-  #define NOZZLE_PARK_Z_RAISE_MIN   2   // (mm) Always raise Z by at least this distance
+  #define NOZZLE_PARK_Z_RAISE_MIN  20   // (mm) Always raise Z by at least this distance
   #define NOZZLE_PARK_XY_FEEDRATE 100   // (mm/s) X and Y axes feedrate (also used for delta Z axis)
   #define NOZZLE_PARK_Z_FEEDRATE    5   // (mm/s) Z axis feedrate (not used for delta printers)
 #endif
