@@ -71,8 +71,9 @@
 /*
 MOLISE VERSION : 4.0
 Based on Marlin : 2.1.1-bugfix
-Last Merge : 2022.11.03
+Last Marlin Merge : 2022.11.03
 */
+
 
 /*** Section 1 - Artillery Printer ***/
 
@@ -82,6 +83,7 @@ Last Merge : 2022.11.03
 //#define SWD_X2
 //#define HORNET
 
+
 /*** Section 2 - Board Type ***/
 
 //#define MKSGENL         // Stock Board for Genuis and X1
@@ -90,8 +92,8 @@ Last Merge : 2022.11.03
 //#define SKR13           // Choose this if you are using BigTreeTech SKR 1.3
 //#define SKR14           // Choose this if you are using BigTreeTech SKR 1.4
 //#define SKR14T          // Choose this if you are using BigTreeTech SKR 1.4 Turbo
-//#define SKR20A           // Choose this if you are using BigTreeTech SKR 2.0 Rev A (Chipset on board : STM32F407VG)
-//#define SKR20B           // Choose this if you are using BigTreeTech SKR 2.0 Rev B (Chipset on board : STM32F429VG)
+//#define SKR20A          // Choose this if you are using BigTreeTech SKR 2.0 Rev A (Chipset on board : STM32F407VG)
+//#define SKR20B          // Choose this if you are using BigTreeTech SKR 2.0 Rev B (Chipset on board : STM32F429VG)
 //#define MKSSGENLV1      // Choose this if you are using MKS SGEN L V1
 //#define MKSSGENLV2      // Choose this if you are using MKS SGEN L V2
 //#define MKSROBINNANOV3  // Choose this if you are using MKS ROBIN NANO V3
@@ -111,6 +113,7 @@ Last Merge : 2022.11.03
 -Board name: MKSROBINNANOV3, change_value = mks_robin_nano_v3_usb_flash_drive_msc //use this value in platform.ini. Search for 'change_value' and replace it with this value mks_robin_nano_v3_usb_flash_drive_msc
 */
 
+
 /*** Section 3 - Extruder Type ***/
 
 //#define TITAN       // Stock Extruder
@@ -118,34 +121,28 @@ Last Merge : 2022.11.03
 //#define HEMERA      // Choose this if you are using HEMERA
 //#define MATRIX      // Choose this if you are using MATRIX
 
+
 /*** Section 4 - Drivers Type ***/
 
 //#define TMC_2100        // Stock Drivers
 //#define TMC_2208_STA    // Standalone Mode
 //#define TMC_2209_STA    // Standalone Mode
-//#define LV_8729
 //#define TMC_2208        // UART Mode
 //#define TMC_2209        // UART Mode
+//#define LV_8729         // LV_8729 Driver
+
 
 /*** Section 5 - Bed Leveling ***/
 
-//#define BLTOUCH      //uncomment if you use a BLTouch
+//#define BLTOUCH                                             //uncomment if you use a BLTouch
   #ifdef BLTOUCH
-    #ifdef RUBY
-      //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
-    #else
-      #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
-    #endif
-      #define Z_MIN_PROBE_REPEATABILITY_TEST
-      #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }           //Offset preset for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
-      //#define NOZZLE_TO_PROBE_OFFSET { 27.25, -12.8, -2 }   //Offset preset for stock X2 and Genius Pro
-      //#define NOZZLE_TO_PROBE_OFFSET { -17, -42, 0 }        //Offset preset for this fanduct with 5015 Fan on Thingiverse : https://www.thingiverse.com/thing:4741530
-      //#define NOZZLE_TO_PROBE_OFFSET { 56, -34, 0 }         //Offset preset for this fanduct with 5015 Fan on Thingiverse : https://www.thingiverse.com/thing:4548854
-      //#define NOZZLE_TO_PROBE_OFFSET { 36, -38, 0 }         //Offset preset for BMG Wind for this fanduct : Sidewinder X1 Waggster Mod BLTouch with improved Fan Duct  by 3dprintbeginnercom on Thingiverse: https://www.thingiverse.com/thing:3972011
-      //#define WAGGSTER_MOD_WIRING                           //Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
-      //#define Z_STEPPER_AUTO_ALIGN                          //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
-      //#define DISABLE_LED                                   // Uncomment to disable LED, some users report compatibilty issues with BL Touch and LED enabled
-      #define BLTOUCH_HIGH_SPEED                              //Enable "HIGH SPEED" option for probing. Danger: Disable if your probe sometimes fails. Only suitable for stable well-adjusted systems. 
+    #define Z_MIN_PROBE_REPEATABILITY_TEST
+    #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }             //Offset preset for Sidewinder X1 Waggster Mod BLTouch 
+    //#define NOZZLE_TO_PROBE_OFFSET { 27.25, -12.8, -2 }     //Offset preset for Stock Sidewinder X2 and Genius Pro
+    //#define WAGGSTER_MOD_WIRING                             //Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
+    //#define Z_STEPPER_AUTO_ALIGN                            //Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
+    //#define DISABLE_LED                                     //Uncomment to disable LED, some users report compatibilty issues with BL Touch and LED enabled
+    #define BLTOUCH_HIGH_SPEED                                //Enable "HIGH SPEED" option for probing. Danger: Disable if your probe sometimes fails. Only suitable for stable well-adjusted systems. 
   #endif
 
 //#define ZMIN_SENSOR_AS_PROBE                                //uncomment to use Z min as Probe for bed leveling (incompatible with BLTouch)
@@ -168,8 +165,7 @@ Last Merge : 2022.11.03
     #define TOUCH_MI_NEOPIXEL                                   // Uncomment if you have the additional Neopixel LED from Hotends.fr
 #endif
 
-//#define MESH_BED_LEVELING                                     //uncomment if you want to use Mesh Bed Leveling
-
+//#define MESH_BED_LEVELING                                     //uncomment if you want to use Mesh Bed Leveling (Not compatible with BLTouch and TouchMi)
 
 
 /*** Section 6 - Options ***/
@@ -182,9 +178,16 @@ Last Merge : 2022.11.03
 //#define LINEAR_ADV                                            // If you want to use Linear Advance ( /!\ can't be used with S Curve Acceleration)
 //#define S_CURVE_ACCELERATION                                  // If you want to use S Curve Acceleration ( /!\ can't be used with Linear Advance)
 
+
 /*** Section 7 Sensorless Homing XY ***/
 
 //#define SENSHOME                                              // Active sensorless homing ONLY for TMC 2208 UART and 2009 UART with SKR 1.3 (extra wiring needed) and SKR 1.4 (no extra wiring needed)
+
+
+
+
+/*** Recommended for advanced users ***/
+/*** Stock Marlin code ***/
 
 /*
 * --------------------------------------------------------------------------------------------
@@ -1622,7 +1625,11 @@ Last Merge : 2022.11.03
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+#ifdef ENABLED(RUBY) || ENABLED(SKR20A) || ENABLED(SKR20A) 
+  //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN          //Disable Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN for X2 and SKR 2.0
+#else
+  #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+#endif
 
 // Force the use of the probe for Z-axis homing
 #define USE_PROBE_FOR_Z_HOMING
