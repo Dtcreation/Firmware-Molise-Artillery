@@ -84,6 +84,33 @@ Others supported Options :
 - Mesh Validation Pattern (G26)
 - Etc ...
 
+#### How to build
+
+The simplest way to build is to switch the PlatformIO project environment and
+use one of the presets:
+
+- For the Sidewinder X1:
+  - **env:x1_mbl**: with Mesh Bed Leveling
+  - **env:x1_bltouch**: with BL Touch
+  - **env:x1_touchmi**: with Touch Mi
+- For the Genius:
+  - **env:genius_mbl**: with Mesh Bed Leveling
+  - **env:genius_bltouch**: with BL Touch
+  - **env:genius_touchmi**: with Touch Mi
+- For the Sidewinder X2: **env:x2**
+- For the Genius Pro: **env:geniuspro**
+- For the Hornet: **env:hornet**
+
+If you're using VSCode extension for PlatformIO, you should be able to pick the
+environment you want directly from the bottom bar. You can also build from `pio`
+command line directly, for instance:
+
+> pio run -e x1_mbl
+
+If you need more fined-grained configuration (e.g. custom board or custom
+extruder), you may stay on the default PlatformIO environment and follow through
+the instructions in [Marlin/Configuration.h](Marlin/Configuration.h).
+
 The code in the `Configuration.h` file has been split into 7 sections to make the code more readable. So, for people who want to compile code from source, the job will be easier. For more explanation on the code compilation, please refer to the [dedicated wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
 Molise firmware is provided to you free of charge in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
