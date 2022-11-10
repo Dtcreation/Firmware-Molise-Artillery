@@ -1,10 +1,10 @@
 # Molise Firmware
 
-Chaine Youtube : [Dtcreation 3D](https://www.youtube.com/channel/UCQOsiY8l6Of56zkFhtDT0Sw)
+Youtube Channel : [Dtcreation 3D](https://www.youtube.com/channel/UCQOsiY8l6Of56zkFhtDT0Sw)
 
-Rejoignez notre groupe facebook : [Molise Firmware](https://www.facebook.com/groups/molisefirmware)
+Facebook group : [Molise Firmware](https://www.facebook.com/groups/molisefirmware)
 
-Les sources pour l'écran TFT sont [disponible sur ce repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
+TFT Firmware :  [disponible sur ce repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
 
 ## FRENCH
 
@@ -12,7 +12,7 @@ Les sources pour l'écran TFT sont [disponible sur ce repository](https://github
 
 Molise est un firmware modifié pour les imprimantes de la marque [Artillery](https://artillery3d.com/). Le firmware support atuellement les Sidewinder X1 et X2, les Genius et Genius Pro et la Hornet.
 
-Le Firmware est découpé en 2
+Le Firmware est découpé en 2 parties
 
 - Pour la carte mère : Marlin Molise
 - Pour l'écran TFT : Basé sur le firmware de Bigtreetech. [Sources disponible ici](https://github.com/Dtcreation/Firmware-Molise-TFT)
@@ -34,11 +34,13 @@ Latest version of Molise __4.0__ based on [Marlin 2.1.1](https://github.com/Marl
 
 ## About Molise Firmware
 
-### Marlin Printer Firmware
+Molise firmware is provided to you free of charge in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
+
+## Marlin Printer Firmware
 
 Molise has a simple and advanced configuration assistant in 7 sections.
 
-Supported Artillery printers : 
+Supported Artillery printers :
 
 - Genius
 - Genuis Pro
@@ -46,7 +48,7 @@ Supported Artillery printers :
 - Sidewinder X2
 - Hornet
 
-Supported boards : 
+Supported boards :
 
 - Stock Board for Genuis and X1
 - Stock Board for Genuis Pro, X2 and Hornet
@@ -55,8 +57,8 @@ Supported boards :
 
 Supported drivers :
 
-- TMC 2208 
-- TMC 2209 
+- TMC 2208
+- TMC 2209
 - LV8729
 
 Supported Extruders :
@@ -65,8 +67,8 @@ Supported Extruders :
 - BMG, BMG Wind
 - HEMERA
 - Matrix
- 
-Others supported Options : 
+
+Others supported Options :
 
 - BlTouch (High Speed Mode, 5x5)
 - TouchMi with or without LED on X1
@@ -84,38 +86,43 @@ Others supported Options :
 - Mesh Validation Pattern (G26)
 - Etc ...
 
-#### How to build
+## How to build
 
-The simplest way to build is to switch the PlatformIO project environment and
-use one of the presets:
+### VSCode
+
+The simplest way to build is to switch the PlatformIO project environment in VSCode (as the screenshot below) and use one of the presets:
+
+![Platform IO env](screenshots/switch_env.png)
 
 - For the Sidewinder X1:
-  - **env:x1_mbl**: with Mesh Bed Leveling
-  - **env:x1_bltouch**: with BL Touch
-  - **env:x1_touchmi**: with Touch Mi
+  - __env:x1_mbl__: with Mesh Bed Leveling
+  - __env:x1_bltouch__: with BL Touch
+  - __env:x1_touchmi__: with Touch Mi
 - For the Genius:
-  - **env:genius_mbl**: with Mesh Bed Leveling
-  - **env:genius_bltouch**: with BL Touch
-  - **env:genius_touchmi**: with Touch Mi
-- For the Sidewinder X2: **env:x2**
-- For the Genius Pro: **env:geniuspro**
-- For the Hornet: **env:hornet**
+  - __env:genius_mbl__: with Mesh Bed Leveling
+  - __env:genius_bltouch__: with BL Touch
+  - __env:genius_touchmi__: with Touch Mi
+- For the Sidewinder X2: __env:x2__
+- For the Genius Pro: __env:geniuspro__
+- For the Hornet: __env:hornet__
 
-If you're using VSCode extension for PlatformIO, you should be able to pick the
-environment you want directly from the bottom bar. You can also build from `pio`
-command line directly, for instance:
+If you're using VSCode extension for PlatformIO, you should be able to pick the environment you want directly from the bottom bar.
 
-> pio run -e x1_mbl
+If you need more fined-grained configuration (e.g. custom board or custom extruder), you may stay on the default PlatformIO environment and follow through the instructions in [Marlin/Configuration.h](Marlin/Configuration.h). To build custom Molise Firmware, replace "CHANGE_VALUE" in [platformio.ini](platformio.ini) with the required configuration, save file and change platform.io env to `default`
 
-If you need more fined-grained configuration (e.g. custom board or custom
-extruder), you may stay on the default PlatformIO environment and follow through
-the instructions in [Marlin/Configuration.h](Marlin/Configuration.h).
+![platform.ini CHANGE_VALUE](screenshots/platform.io-change_value.png)
+
+![Platform.ini env:default](screenshots/switch_env_custom.png)
 
 The code in the `Configuration.h` file has been split into 7 sections to make the code more readable. So, for people who want to compile code from source, the job will be easier. For more explanation on the code compilation, please refer to the [dedicated wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
-Molise firmware is provided to you free of charge in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
+### PIO Command Line Interface
 
-#### TFT Screen Firmware
+You can also build from `pio` command line directly, for instance:
+
+> pio run -e x1_mbl
+
+## TFT Screen Firmware
 
 The Molise Firmware is supplied with a second firmware, this is the firmware of the TFT screen. This TFT Firmware is based on the Official Firmware of Bigtreetech with the support among others of the following touch functions:
 
@@ -160,4 +167,3 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 ## Thanks
 
 Molise Firmware is provided to you by David TOUTON, Thomas Bourcey and [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
-

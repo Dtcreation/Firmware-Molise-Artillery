@@ -100,17 +100,17 @@ Last Marlin Merge : 2022.11.03
 
 
 /*default_envs in platformio.ini :
--Board name: MKS GEN L, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
--Board name: RUBY, change_value = Artillery_Ruby //use this value in platform.ini. Search for 'change_value' and replace it with this value Artillery_Ruby
--Board name: MKS GEN L V2.1, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
--Board name: SKR13, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
--Board name: SKR14, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
--Board name: SKRV14TURBO, change_value = LPC1769 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1769
--Board name: SKR20A, change_value = BIGTREE_SKR_2 //use this value in platform.ini. Search for 'change_value' and replace it with this value BIGTREE_SKR_2
--Board name: SKR20B, change_value = BIGTREE_SKR_2_F429 //use this value in platform.ini. Search for 'change_value' and replace it with this value BIGTREE_SKR_2
--Board name: MKSSGENLV1, change_value = LPC1768 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1768
--Board name: MKSSGENLV2, change_value = LPC1769 //use this value in platform.ini. Search for 'change_value' and replace it with this value LPC1769
--Board name: MKSROBINNANOV3, change_value = mks_robin_nano_v3_usb_flash_drive_msc //use this value in platform.ini. Search for 'change_value' and replace it with this value mks_robin_nano_v3_usb_flash_drive_msc
+-Board name: MKS GEN L, CHANGE_VALUE = mega2560 //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value mega2560
+-Board name: RUBY, CHANGE_VALUE = Artillery_Ruby //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value Artillery_Ruby
+-Board name: MKS GEN L V2.1, CHANGE_VALUE = mega2560 //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value mega2560
+-Board name: SKR13, CHANGE_VALUE = LPC1768 //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value LPC1768
+-Board name: SKR14, CHANGE_VALUE = LPC1768 //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value LPC1768
+-Board name: SKRV14TURBO, CHANGE_VALUE = LPC1769 //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value LPC1769
+-Board name: SKR20A, CHANGE_VALUE = BIGTREE_SKR_2 //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value BIGTREE_SKR_2
+-Board name: SKR20B, CHANGE_VALUE = BIGTREE_SKR_2_F429 //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value BIGTREE_SKR_2
+-Board name: MKSSGENLV1, CHANGE_VALUE = LPC1768 //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value LPC1768
+-Board name: MKSSGENLV2, CHANGE_VALUE = LPC1769 //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value LPC1769
+-Board name: MKSROBINNANOV3, CHANGE_VALUE = mks_robin_nano_v3_usb_flash_drive_msc //use this value in platform.ini. Search for 'CHANGE_VALUE' and replace it with this value mks_robin_nano_v3_usb_flash_drive_msc
 */
 
 
