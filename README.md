@@ -4,7 +4,7 @@ Youtube Channel : [Dtcreation 3D](https://www.youtube.com/channel/UCQOsiY8l6Of56
 
 Facebook group : [Molise Firmware](https://www.facebook.com/groups/molisefirmware)
 
-TFT Firmware :  [disponible sur ce repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
+TFT Firmware :  [Github repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
 
 ## FRENCH
 
@@ -30,7 +30,7 @@ Firmware is split in 2
 
 ## Current version
 
-Latest version of Molise __4.0__ based on [Marlin 2.1.1](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.9.3)
+Latest version of Molise __4.0__ based on [Marlin 2.1.1-bugfix](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.9.3)
 
 ## About Molise Firmware
 
@@ -85,6 +85,39 @@ Others supported Options :
 - Z Steppers Auto-Alignment (G34)
 - Mesh Validation Pattern (G26)
 - Etc ...
+
+## How to download Firmware
+
+Go to [Release](https://github.com/Dtcreation/Firmware-Molise-Artillery/releases) and download needest release
+
+ℹ️ - About precompiled Firmwares
+
+All firmwares are manually precompiled with options :
+
+- Default Enabled :
+
+  - Stock drivers
+  - Stock boards
+  - Stock extruders
+  - Linear Advance (default : K0.12)
+  - Classic Jerk
+  - PID Temp
+  - M600 - Advanced Pause for Filament Change
+  - Restore leveling after G28
+  - BLtouch (only BLtouch version)
+  - Babystepping
+  - G26 Mesh Validation Pattern tool
+  - EEPROM - Persistent storage to preserve configurable settings across reboots.
+  - Nozzle Park
+  - SD Card support + CRC checks and retries on the SD communication
+  - G2/G3 Arc Support
+
+- Disabled (if you want to enabled this options, you need to compile from sources):
+
+  - High Speed BLTouch
+  - S Curve Acceleration
+  - Auto Bed Leveling 49 points (7x7)
+  - Z Steppers Auto-Alignment
 
 ## How to build
 
