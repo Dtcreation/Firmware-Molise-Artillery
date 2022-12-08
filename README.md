@@ -197,6 +197,13 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
+
+## Artillery Genius MKS SGEN L 1.0 MotherBoard
+
+Diagram to move from MKS GEN L 1.0 to MKS SGEN L 1.0
+
+[MKSGENL1_0_To_MKSSGENL1_0](/images/MKSGENL1_0_To_MKSSGENL1_0.png) 
+
 ## Thanks
 
 Molise Firmware is provided to you by David TOUTON, Thomas Bourcey and [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
