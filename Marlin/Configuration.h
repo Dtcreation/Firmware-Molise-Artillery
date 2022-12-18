@@ -137,9 +137,13 @@ Last Marlin Merge : 2022.11.03
 //#define BLTOUCH                                             // Uncomment if you use a BLTouch
   #ifdef BLTOUCH
     #define Z_MIN_PROBE_REPEATABILITY_TEST
-    #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }             // Offset preset for Sidewinder X1 Waggster Mod BLTouch 
-    //#define NOZZLE_TO_PROBE_OFFSET { 27.25, -12.8, -2 }     // Offset preset for Stock Sidewinder X2 and Genius Pro
-    //#define WAGGSTER_MOD_WIRING                             // Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
+    #ifdef RUBY
+      #define NOZZLE_TO_PROBE_OFFSET { 27.25, -12.8, -2 }     // Offset preset for Stock Sidewinder X2 and Genius Pro
+    #else
+      #define NOZZLE_TO_PROBE_OFFSET { 28, -33, 0 }             // Offset preset for Sidewinder X1 Waggster Mod BLTouch 
+      #define WAGGSTER_MOD_WIRING                             // Comment if you don't use Waggster mode on Sidewinder (Guero Loco method by exemple) Mod needed for Genius standard wiring
+    #endif
+    //#define NOZZLE_TO_PROBE_OFFSET { X, Y, Z }              // Uncomment with your own NOZZLE_TO_PROBE_OFFSET
     //#define Z_STEPPER_AUTO_ALIGN                            // Uncomment if you want to use Z_STEPPER_AUTO_ALIGN, be carefull, you need to remove the belt from the Z axes for this - NOT FOR ARTILLERY RUBY
     //#define DISABLE_LED                                     // Uncomment to disable LED, some users report compatibilty issues with BL Touch and LED enabled
     #define BLTOUCH_HIGH_SPEED                                // Enable "HIGH SPEED" option for probing. Danger: Disable if your probe sometimes fails. Only suitable for stable well-adjusted systems. 
