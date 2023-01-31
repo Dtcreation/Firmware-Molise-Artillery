@@ -122,6 +122,10 @@ All firmwares are manually precompiled with options :
 
 # Firmware Update
 
+In order to help you in installing and configuring the Firmware, please take a look at the [Wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
+
+First, you need to install / update TFT Firmware, and after that you will update Marlin with Molise version. 
+
 <a name="TFT-Firmware-Update"></a>
 
 ## TFT Firmware Update
@@ -153,11 +157,6 @@ To update the TFT firmware configuration:
 3. Insert the SD card in the TFT's SD card slot and restart the TFT by pressing the reset button (if you have a Sidewinder X1 v4 or above printer revision) or switching off and on the printer
 4. The TFT will load the configuration from `config.ini` file and store it on internal SPI flash. That means the configuration will be loaded from SPI flash on all the next printer reboots (no need to provide the configuration file on the SD card unless you make changes on `config.ini` file and want to load the new configuration)
 
-## Installation and configuration
-
-In order to help you in installing and configuring the Firmware, please take a look at the [Wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
-
-First, you need to install / update TFT Firmware, and after that you will update Marlin with Molise version. 
 
 <a name="TFT-Firmware-Not-Attached"></a>
 
@@ -200,7 +199,7 @@ The Molise Firmware is supplied with a second firmware, this is the firmware of 
 
 <a name="Marlin-Firmware-Installation"></a>
 
-## Install / Update Molise : Marlin
+## Marlin - Install / Update Molise
 
 On Sidewinder X1 and Genius printers, the mainboard's USB port used to connect the printer to a PC (e.g. to OctoPrint) is wired to a serial bus. This bus is also shared by both TFT and mainboard. The sharing of the serial bus does not allow to easily flash Marlin firmware due to collisions in the bus.
 
