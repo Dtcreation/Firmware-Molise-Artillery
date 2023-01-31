@@ -155,30 +155,12 @@ You can also build from `pio` command line directly, for instance:
 
 > pio run -e x1_mbl
 
-## TFT Screen Firmware
 
-The Molise Firmware is supplied with a second firmware, this is the firmware of the TFT screen. This TFT Firmware is based on the Official Firmware of Bigtreetech with the support among others of the following touch functions:
-
-- M600
-- Babystepping
-- ABL
-- MBL
-- Z Offset
-- Autotune PID
-- Assisted filament loading-unloading
-- Assisted E-step calibration
-- UART management
-- Various configurations
-
-And all preconfigured in French and English
-
-If you like it or would like to contribute to other improvements to this firmware, please consider the possibility of donating to:
-
-### Installation and configuration
+## Installation and configuration
 
 In order to help you in installing and configuring the Firmware, please take a look at the [Wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
-### Update Molise
+### Install / Update Molise : Marlin
 
 On the Sidewinder X1 and Genius printers, the USB port on the motherboard used to connect the printer to a PC (e.g. Octoprint) is wired to a serial bus. This bus is also shared by the TFT and the motherboard. Sharing the serial bus does not allow easy flashing of Marlin firmware due to collisions in the bus.
 
@@ -198,11 +180,26 @@ After the Marlin firmware is flashed, disconnect the application from the printe
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
 
-## Artillery Genius MKS SGEN L 1.0 MotherBoard
+### Artillery Genius MKS SGEN L 1.0 MotherBoard
 
 Diagram to move from MKS GEN L 1.0 to MKS SGEN L 1.0
 
 [MKSGENL1_0_To_MKSSGENL1_0](/images/MKSGENL1_0_To_MKSSGENL1_0.png) 
+
+### Install / Update : TFT Screen Firmware
+
+The Molise Firmware is supplied with a second firmware, this is the firmware of the TFT screen. This TFT Firmware is based on the Official Firmware of Bigtreetech with the support among others of the following touch functions:
+
+- M600
+- Babystepping
+- ABL
+- MBL
+- Z Offset
+- Autotune PID
+- Assisted filament loading-unloading
+- Assisted E-step calibration
+- UART management
+- Various configurations
 
 ## Thanks
 
