@@ -23,6 +23,9 @@
 
 /**
  * Melzi (Creality) pin assignments
+ * Schematic: https://green-candy.osdn.jp/external/MarlinFW/board_schematics/Melzi%20(Creality)/CR-10%20Schematic.pdf
+ * Origin: https://github.com/Creality3DPrinting/CR10-Melzi-1.1.2/blob/master/Circuit%20diagram/Motherboard/CR-10%20Schematic.pdf
+ * ATmega1284P
  *
  * The Creality board needs a bootloader installed before Marlin can be uploaded.
  * If you don't have a chip programmer you can use a spare Arduino plus a few
@@ -42,24 +45,32 @@
   #define BOARD_ST7920_DELAY_3               125
 #endif
 
+//
+// LCD / Controller
+//
+#if ANY(MKS_MINI_12864, CR10_STOCKDISPLAY, ENDER2_STOCKDISPLAY)
+  #if EITHER(CR10_STOCKDISPLAY, ENDER2_STOCKDISPLAY)
+    #define LCD_PINS_RS                       28  // ST9720 CS
+    #define LCD_PINS_ENABLE                   17  // ST9720 DAT
+    #define LCD_PINS_D4                       30  // ST9720 CLK
+  #endif
+  #if EITHER(MKS_MINI_12864, ENDER2_STOCKDISPLAY)
+    #define DOGLCD_CS                         28
+    #define DOGLCD_A0                         30
+  #endif
+
+  #define LCD_SDSS                            31  // Controller's SD card
+
+  #define BTN_ENC                             16
+  #define BTN_EN1                             11
+  #define BTN_EN2                             10
+  #define BEEPER_PIN                          27
+
+  #define LCD_PINS_DEFINED
+
+#endif
+
 #include "pins_MELZI.h" // ... SANGUINOLOLU_12 ... SANGUINOLOLU_11
-
-//
-// For the stock CR-10 enable CR10_STOCKDISPLAY in Configuration.h
-//
-#undef LCD_SDSS
-#undef LED_PIN
-#undef LCD_PINS_RS
-#undef LCD_PINS_ENABLE
-#undef LCD_PINS_D4
-#undef LCD_PINS_D5
-#undef LCD_PINS_D6
-#undef LCD_PINS_D7
-
-#define LCD_SDSS                              31  // Smart Controller SD card reader (rather than the Melzi)
-#define LCD_PINS_RS                           28  // ST9720 CS
-#define LCD_PINS_ENABLE                       17  // ST9720 DAT
-#define LCD_PINS_D4                           30  // ST9720 CLK
 
 #if ENABLED(BLTOUCH)
   #ifndef SERVO0_PIN

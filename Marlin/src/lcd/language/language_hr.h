@@ -86,6 +86,7 @@ namespace Language_hr {
   LSTR MSG_MOVE_01MM                      = _UxGT("Miči 0.1mm");
   LSTR MSG_MOVE_1MM                       = _UxGT("Miči 1mm");
   LSTR MSG_MOVE_10MM                      = _UxGT("Miči 10mm");
+  LSTR MSG_MOVE_50MM                      = _UxGT("Miči 50mm");
   LSTR MSG_MOVE_100MM                     = _UxGT("Miči 100mm");
   LSTR MSG_SPEED                          = _UxGT("Brzina");
   LSTR MSG_BED_Z                          = _UxGT("Bed Z");
@@ -94,7 +95,6 @@ namespace Language_hr {
   LSTR MSG_BED                            = _UxGT("Bed");
   LSTR MSG_FAN_SPEED                      = _UxGT("Brzina ventilatora");
   LSTR MSG_FAN_SPEED_N                    = _UxGT("Brzina ventilatora ~");
-  LSTR MSG_SELECT                         = _UxGT("Odaberi");
   LSTR MSG_SELECT_E                       = _UxGT("Odaberi *");
   LSTR MSG_TEMPERATURE                    = _UxGT("Temperature");
   LSTR MSG_MOTION                         = _UxGT("Gibanje");

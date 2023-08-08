@@ -84,7 +84,7 @@ void GcodeSuite::M48() {
   };
 
   if (!probe.can_reach(test_position)) {
-    ui.set_status(GET_TEXT_F(MSG_M48_OUT_OF_BOUNDS), 99);
+    LCD_MESSAGE_MAX(MSG_M48_OUT_OF_BOUNDS);
     SERIAL_ECHOLNPGM("? (X,Y) out of bounds.");
     return;
   }
@@ -112,7 +112,7 @@ void GcodeSuite::M48() {
     set_bed_leveling_enabled(false);
   #endif
 
-  TERN_(HAS_PTC, ptc.set_enabled(!parser.seen('C') || parser.value_bool()));
+  TERN_(HAS_PTC, ptc.set_enabled(parser.boolval('C', true)));
 
   // Work with reasonable feedrates
   remember_feedrate_scaling_off();

@@ -57,7 +57,8 @@ void MarlinUI::tft_idle() {
   #endif
 
   tft.queue.async();
-  TERN_(TOUCH_SCREEN, touch.idle());
+
+  TERN_(TOUCH_SCREEN, if (tft.queue.is_empty()) touch.idle()); // Touch driver is not DMA-aware, so only check for touch controls after screen drawing is completed
 }
 
 #if ENABLED(SHOW_BOOTSCREEN)
@@ -227,25 +228,25 @@ void MarlinUI::draw_status_screen() {
   for (i = 0 ; i < ITEMS_COUNT; i++) {
     x = (320 / ITEMS_COUNT - 64) / 2  + (320 * i / ITEMS_COUNT);
     switch (i) {
-      #ifdef ITEM_E0
+      #if HAS_EXTRUDERS
         case ITEM_E0: draw_heater_status(x, y, H_E0); break;
       #endif
-      #ifdef ITEM_E1
+      #if HAS_MULTI_HOTEND
         case ITEM_E1: draw_heater_status(x, y, H_E1); break;
       #endif
-      #ifdef ITEM_E2
+      #if HOTENDS > 2
         case ITEM_E2: draw_heater_status(x, y, H_E2); break;
       #endif
-      #ifdef ITEM_BED
+      #if HAS_HEATED_BED
         case ITEM_BED: draw_heater_status(x, y, H_BED); break;
       #endif
-      #ifdef ITEM_CHAMBER
+      #if HAS_TEMP_CHAMBER
         case ITEM_CHAMBER: draw_heater_status(x, y, H_CHAMBER); break;
       #endif
-      #ifdef ITEM_COOLER
+      #if HAS_TEMP_COOLER
         case ITEM_COOLER: draw_heater_status(x, y, H_COOLER); break;
       #endif
-      #ifdef ITEM_FAN
+      #if HAS_FAN
         case ITEM_FAN: draw_fan_status(x, y, blink); break;
       #endif
     }
@@ -342,7 +343,10 @@ void MarlinUI::draw_status_screen() {
 
   #if ENABLED(TOUCH_SCREEN)
     add_control(256, 130, menu_main, imgSettings);
-    TERN_(SDSUPPORT, add_control(0, 130, menu_media, imgSD, !printingIsActive(), COLOR_CONTROL_ENABLED, card.isMounted() && printingIsActive() ? COLOR_BUSY : COLOR_CONTROL_DISABLED));
+    #if ENABLED(SDSUPPORT)
+      const bool cm = card.isMounted(), pa = printingIsActive();
+      add_control(0, 130, menu_media, imgSD, cm && !pa, COLOR_CONTROL_ENABLED, cm && pa ? COLOR_BUSY : COLOR_CONTROL_DISABLED);
+    #endif
   #endif
 }
 

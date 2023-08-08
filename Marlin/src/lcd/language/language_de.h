@@ -301,6 +301,7 @@ namespace Language_de {
   LSTR MSG_MOVE_01MM                      = _UxGT("  0,1  mm");
   LSTR MSG_MOVE_1MM                       = _UxGT("  1,0  mm");
   LSTR MSG_MOVE_10MM                      = _UxGT(" 10,0  mm");
+  LSTR MSG_MOVE_50MM                      = _UxGT(" 50,0  mm");
   LSTR MSG_MOVE_100MM                     = _UxGT("100,0  mm");
   LSTR MSG_MOVE_0001IN                    = _UxGT("0.001 in");
   LSTR MSG_MOVE_001IN                     = _UxGT("0.010 in");
@@ -356,7 +357,6 @@ namespace Language_de {
   LSTR MSG_SENSOR_RESPONSIVENESS_E        = _UxGT("Sensor res *");
   LSTR MSG_MPC_AMBIENT_XFER_COEFF_E       = _UxGT("Ambient h *");
   LSTR MSG_MPC_AMBIENT_XFER_COEFF_FAN_E   = _UxGT("Amb. h fan *");
-  LSTR MSG_SELECT                         = _UxGT("Auswählen");
   LSTR MSG_SELECT_E                       = _UxGT("Auswählen *");
   LSTR MSG_ACC                            = _UxGT("Beschleunigung");
   LSTR MSG_JERK                           = _UxGT("Jerk");
@@ -414,7 +414,7 @@ namespace Language_de {
   LSTR MSG_RESTORE_DEFAULTS               = _UxGT("Standardwerte laden");
   LSTR MSG_INIT_EEPROM                    = _UxGT("Werkseinstellungen");
   LSTR MSG_ERR_EEPROM_CRC                 = _UxGT("EEPROM CRC Fehler");
-  LSTR MSG_ERR_EEPROM_INDEX               = _UxGT("EEPROM Index Fehler");
+  LSTR MSG_ERR_EEPROM_SIZE                = _UxGT("EEPROM Größe Fehler");
   LSTR MSG_ERR_EEPROM_VERSION             = _UxGT("EEPROM Version Fehler");
   LSTR MSG_SETTINGS_STORED                = _UxGT("Einstell. gespei.");
   LSTR MSG_MEDIA_UPDATE                   = _UxGT("FW Update vom Medium");
@@ -539,7 +539,7 @@ namespace Language_de {
   LSTR MSG_MANUAL_DEPLOY_TOUCHMI          = _UxGT("TouchMI ausfahren");
   LSTR MSG_MANUAL_DEPLOY                  = _UxGT("Z-Sonde ausfahren");
   LSTR MSG_MANUAL_STOW                    = _UxGT("Z-Sonde einfahren");
-  LSTR MSG_HOME_FIRST                     = _UxGT("Vorher %s%s%s homen");
+  LSTR MSG_HOME_FIRST                     = _UxGT("Vorher %s homen");
   LSTR MSG_ZPROBE_SETTINGS                = _UxGT("Sondeneinstellungen");
   LSTR MSG_ZPROBE_OFFSETS                 = _UxGT("Sondenversatz");
   LSTR MSG_ZPROBE_XOFFSET                 = _UxGT("Sondenversatz X");

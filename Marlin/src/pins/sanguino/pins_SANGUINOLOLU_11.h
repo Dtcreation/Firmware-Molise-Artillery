@@ -23,6 +23,16 @@
 
 /**
  * Sanguinololu board pin assignments
+ * Schematic (0.1): https://green-candy.osdn.jp/external/MarlinFW/board_schematics/Sanguinololu%20v0.1/schematic.png
+ * Origin (0.1): https://github.com/mosfet/Sanguinololu/blob/master/rev0.1/sanguinololu.sch
+ * Schematic (0.6): https://green-candy.osdn.jp/external/MarlinFW/board_schematics/Sanguinololu%20v0.6/schematic.jpg
+ * Origin (0.6): https://github.com/mosfet/Sanguinololu/blob/master/rev0.6/images/schematic.jpg
+ * Schematic (0.7): https://green-candy.osdn.jp/external/MarlinFW/board_schematics/Sanguinololu%20v0.7/schematic.jpg
+ * Origin (0.7): https://github.com/mosfet/Sanguinololu/blob/master/rev0.7/images/schematic.jpg
+ * Schematic (1.0): https://green-candy.osdn.jp/external/MarlinFW/board_schematics/Sanguinololu%20v1.0/Sanguinololu-schematic.jpg
+ * Origin (1.0): https://reprap.org/wiki/File:Sanguinololu-schematic.jpg
+ * Schematic (1.1): https://green-candy.osdn.jp/external/MarlinFW/board_schematics/Sanguinololu%20v1.1/schematic.png
+ * Origin (1.1): https://github.com/mosfet/Sanguinololu/blob/master/rev1.1/sanguinololu.sch
  */
 
 /**
@@ -90,30 +100,18 @@
 //
 #define HEATER_0_PIN                          13  // (extruder)
 
-#if ENABLED(SANGUINOLOLU_V_1_2)
+#ifndef FAN_PIN
+  #define FAN_PIN                              4  // Works for Panelolu2 too
+#endif
 
-  #define HEATER_BED_PIN                      12  // (bed)
-  #define X_ENABLE_PIN                        14
-  #define Y_ENABLE_PIN                        14
-  #define Z_ENABLE_PIN                        26
-  #define E0_ENABLE_PIN                       14
-
-  #if !defined(FAN_PIN) && ENABLED(LCD_I2C_PANELOLU2)
-    #define FAN_PIN                            4  // Uses Transistor1 (PWM) on Panelolu2's Sanguino Adapter Board to drive the fan
-  #endif
-
-#else
-
+#if DISABLED(SANGUINOLOLU_V_1_2)
   #define HEATER_BED_PIN                      14  // (bed)
   #define X_ENABLE_PIN                         4
   #define Y_ENABLE_PIN                         4
-  #define Z_ENABLE_PIN                         4
+  #ifndef Z_ENABLE_PIN
+    #define Z_ENABLE_PIN                       4
+  #endif
   #define E0_ENABLE_PIN                        4
-
-#endif
-
-#if !defined(FAN_PIN) && (MB(AZTEEG_X1, STB_11) || IS_MELZI)
-  #define FAN_PIN                              4  // Works for Panelolu2 too
 #endif
 
 //
@@ -151,7 +149,7 @@
 //
 // LCD / Controller
 //
-#if HAS_WIRED_LCD
+#if HAS_WIRED_LCD && DISABLED(LCD_PINS_DEFINED)
 
   #define SD_DETECT_PIN                       -1
 
@@ -245,7 +243,9 @@
 
     #if IS_MELZI
       #define BTN_ENC                         29
-      #define LCD_SDSS                        30  // Panelolu2 SD card reader rather than the Melzi
+      #ifndef LCD_SDSS
+        #define LCD_SDSS                      30  // Panelolu2 SD card reader rather than the Melzi
+      #endif
     #else
       #define BTN_ENC                         30
     #endif
@@ -253,7 +253,9 @@
   #else                                           // !LCD_FOR_MELZI && !ZONESTAR_LCD && !LCD_I2C_PANELOLU2
 
     #define BTN_ENC                           16
-    #define LCD_SDSS                          28  // Smart Controller SD card reader rather than the Melzi
+    #ifndef LCD_SDSS
+      #define LCD_SDSS                        28  // Smart Controller SD card reader rather than the Melzi
+    #endif
 
   #endif
 
