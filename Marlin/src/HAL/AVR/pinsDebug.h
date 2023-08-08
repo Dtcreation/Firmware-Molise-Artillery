@@ -64,17 +64,19 @@
 
 #define VALID_PIN(pin) (pin >= 0 && pin < NUM_DIGITAL_PINS ? 1 : 0)
 #if AVR_ATmega1284_FAMILY
-  #define DIGITAL_PIN_TO_ANALOG_PIN(P) int(analogInputToDigitalPin(0) - (P))
-  #define IS_ANALOG(P) ((P) >= analogInputToDigitalPin(7) && (P) <= analogInputToDigitalPin(0))
+  #define IS_ANALOG(P) WITHIN(P, analogInputToDigitalPin(7), analogInputToDigitalPin(0))
+  #define DIGITAL_PIN_TO_ANALOG_PIN(P) int(IS_ANALOG(P) ? (P) - analogInputToDigitalPin(7) : -1)
 #else
-  #define DIGITAL_PIN_TO_ANALOG_PIN(P) int((P) - analogInputToDigitalPin(0))
-  #define IS_ANALOG(P) ((P) >= analogInputToDigitalPin(0) && ((P) <= analogInputToDigitalPin(15) || (P) <= analogInputToDigitalPin(7)))
+  #define _ANALOG1(P) WITHIN(P, analogInputToDigitalPin(0), analogInputToDigitalPin(7))
+  #define _ANALOG2(P) WITHIN(P, analogInputToDigitalPin(8), analogInputToDigitalPin(15))
+  #define IS_ANALOG(P) (_ANALOG1(P) || _ANALOG2(P))
+  #define DIGITAL_PIN_TO_ANALOG_PIN(P) int(_ANALOG1(P) ? (P) - analogInputToDigitalPin(0) : _ANALOG2(P) ? (P) - analogInputToDigitalPin(8) + 8 : -1)
 #endif
 #define GET_ARRAY_PIN(p) pgm_read_byte(&pin_array[p].pin)
 #define MULTI_NAME_PAD 26 // space needed to be pretty if not first name assigned to a pin
 
 void PRINT_ARRAY_NAME(uint8_t x) {
-  char *name_mem_pointer = (char*)pgm_read_ptr(&pin_array[x].name);
+  PGM_P const name_mem_pointer = (PGM_P)pgm_read_ptr(&pin_array[x].name);
   LOOP_L_N(y, MAX_NAME_LENGTH) {
     char temp_char = pgm_read_byte(name_mem_pointer + y);
     if (temp_char != 0)

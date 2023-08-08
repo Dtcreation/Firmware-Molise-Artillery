@@ -24,8 +24,6 @@
 
 #if ENABLED(MIXING_EXTRUDER)
 
-//#define MIXER_NORMALIZER_DEBUG
-
 #include "mixing.h"
 
 Mixer mixer;
@@ -63,7 +61,7 @@ void Mixer::normalize(const uint8_t tool_index) {
   #ifdef MIXER_NORMALIZER_DEBUG
     SERIAL_ECHOPGM("Mixer: Old relation : [ ");
     MIXER_STEPPER_LOOP(i) {
-      SERIAL_ECHO_F(collector[i] / csum, 3);
+      SERIAL_DECIMAL(collector[i] / csum);
       SERIAL_CHAR(' ');
     }
     SERIAL_ECHOLNPGM("]");

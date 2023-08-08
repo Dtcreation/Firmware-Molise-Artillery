@@ -77,6 +77,10 @@ static_assert(!(NUM_SERVOS && ENABLED(FAST_PWM_FAN)), "BLTOUCH and Servos are in
   #endif
 #endif
 
+#if HAS_FSMC_TFT
+  #error "Sorry! FSMC TFT displays are not current available for HAL/LPC1768."
+#endif
+
 static_assert(DISABLED(BAUD_RATE_GCODE), "BAUD_RATE_GCODE is not yet supported on LPC176x.");
 
 /**
@@ -113,7 +117,7 @@ static_assert(DISABLED(BAUD_RATE_GCODE), "BAUD_RATE_GCODE is not yet supported o
   #define _IS_RX1_1 IS_RX1
   #if IS_TX1(TMC_SW_SCK)
     #error "Serial port pins (1) conflict with other pins!"
-  #elif HAS_WIRED_LCD
+  #elif HAS_ROTARY_ENCODER
     #if IS_TX1(BTN_EN2) || IS_RX1(BTN_EN1)
       #error "Serial port pins (1) conflict with Encoder Buttons!"
     #elif ANY_TX(1, SD_SCK_PIN, LCD_PINS_D4, DOGLCD_SCK, LCD_RESET_PIN, LCD_PINS_RS, SHIFT_CLK_PIN) \

@@ -38,7 +38,7 @@
 #include "../../../MarlinCore.h"
 #include "../../../inc/MarlinConfig.h"
 
-#include HAL_PATH(../../../HAL, tft/xpt2046.h)
+#include HAL_PATH(../../.., tft/xpt2046.h)
 #include "../../marlinui.h"
 XPT2046 touch;
 
@@ -125,21 +125,40 @@ void tft_lvgl_init() {
   ui_cfg_init();
   disp_language_init();
 
-  watchdog_refresh();     // LVGL init takes time
-
-  #if MB(MKS_ROBIN_NANO)
-    OUT_WRITE(PB0, LOW);  // HE1
-  #endif
+  hal.watchdog_refresh();     // LVGL init takes time
 
   // Init TFT first!
   SPI_TFT.spi_init(SPI_FULL_SPEED);
   SPI_TFT.LCD_init();
 
-  watchdog_refresh();     // LVGL init takes time
+  hal.watchdog_refresh();     // LVGL init takes time
+
+  #if ENABLED(USB_FLASH_DRIVE_SUPPORT)
+    uint16_t usb_flash_loop = 1000;
+    #if ENABLED(MULTI_VOLUME) && !HAS_SD_HOST_DRIVE
+      SET_INPUT_PULLUP(SD_DETECT_PIN);
+      if (IS_SD_INSERTED())
+        card.changeMedia(&card.media_driver_sdcard);
+      else
+        card.changeMedia(&card.media_driver_usbFlash);
+    #endif
+    do {
+      card.media_driver_usbFlash.idle();
+      hal.watchdog_refresh();
+      delay(2);
+    } while (!card.media_driver_usbFlash.isInserted() && usb_flash_loop--);
+    card.mount();
+  #elif HAS_LOGO_IN_FLASH
+    delay(1000);
+    hal.watchdog_refresh();
+    delay(1000);
+  #endif
+
+  hal.watchdog_refresh();     // LVGL init takes time
 
   #if ENABLED(SDSUPPORT)
     UpdateAssets();
-    watchdog_refresh();   // LVGL init takes time
+    hal.watchdog_refresh();   // LVGL init takes time
     TERN_(MKS_TEST, mks_test_get());
   #endif
 
@@ -235,18 +254,43 @@ void tft_lvgl_init() {
   #endif
 }
 
+static lv_disp_drv_t* disp_drv_p;
+
+#if ENABLED(USE_SPI_DMA_TC)
+  bool lcd_dma_trans_lock = false;
+#endif
+
+void dmc_tc_handler(struct __DMA_HandleTypeDef * hdma) {
+  #if ENABLED(USE_SPI_DMA_TC)
+    lv_disp_flush_ready(disp_drv_p);
+    lcd_dma_trans_lock = false;
+    TFT_SPI::Abort();
+  #endif
+}
+
 void my_disp_flush(lv_disp_drv_t * disp, const lv_area_t * area, lv_color_t * color_p) {
   uint16_t width = area->x2 - area->x1 + 1,
           height = area->y2 - area->y1 + 1;
 
+  disp_drv_p = disp;
+
   SPI_TFT.setWindow((uint16_t)area->x1, (uint16_t)area->y1, width, height);
 
-  SPI_TFT.tftio.WriteSequence((uint16_t*)color_p, width * height);
-
-  lv_disp_flush_ready(disp); // Indicate you are ready with the flushing
+  #if ENABLED(USE_SPI_DMA_TC)
+    lcd_dma_trans_lock = true;
+    SPI_TFT.tftio.WriteSequenceIT((uint16_t*)color_p, width * height);
+    TFT_SPI::DMAtx.XferCpltCallback = dmc_tc_handler;
+  #else
+    SPI_TFT.tftio.WriteSequence((uint16_t*)color_p, width * height);
+    lv_disp_flush_ready(disp_drv_p); // Indicate you are ready with the flushing
+  #endif
 
   W25QXX.init(SPI_QUARTER_SPEED);
 }
+
+#if ENABLED(USE_SPI_DMA_TC)
+  bool get_lcd_dma_lock() { return lcd_dma_trans_lock; }
+#endif
 
 void lv_fill_rect(lv_coord_t x1, lv_coord_t y1, lv_coord_t x2, lv_coord_t y2, lv_color_t bk_color) {
   uint16_t width, height;
@@ -441,18 +485,19 @@ void lv_encoder_pin_init() {
   #if BUTTON_EXISTS(UP)
     SET_INPUT(BTN_UP);
   #endif
-  #if BUTTON_EXISTS(DWN)
-    SET_INPUT(BTN_DWN);
+  #if BUTTON_EXISTS(DOWN)
+    SET_INPUT(BTN_DOWN);
   #endif
-  #if BUTTON_EXISTS(LFT)
-    SET_INPUT(BTN_LFT);
+  #if BUTTON_EXISTS(LEFT)
+    SET_INPUT(BTN_LEFT);
   #endif
-  #if BUTTON_EXISTS(RT)
-    SET_INPUT(BTN_RT);
+  #if BUTTON_EXISTS(RIGHT)
+    SET_INPUT(BTN_RIGHT);
   #endif
 }
 
 #if 1 // HAS_ENCODER_ACTION
+
   void lv_update_encoder() {
     static uint32_t encoder_time1;
     uint32_t tmpTime, diffTime = 0;
@@ -513,7 +558,7 @@ void lv_encoder_pin_init() {
 
       #endif // HAS_ENCODER_WHEEL
 
-    } // next_button_update_ms
+    } // encoder_time1
   }
 
 #endif // HAS_ENCODER_ACTION

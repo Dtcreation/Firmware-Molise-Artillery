@@ -28,19 +28,6 @@
   #include "../feature/meatpack.h"
 #endif
 
-// Commonly-used strings in serial output
-extern const char NUL_STR[],
-                  SP_X_STR[], SP_Y_STR[], SP_Z_STR[],
-                  SP_A_STR[], SP_B_STR[], SP_C_STR[], SP_E_STR[],
-                  SP_X_LBL[], SP_Y_LBL[], SP_Z_LBL[], SP_E_LBL[],
-                  SP_I_STR[], SP_J_STR[], SP_K_STR[],
-                  SP_I_LBL[], SP_J_LBL[], SP_K_LBL[],
-                  SP_P_STR[], SP_T_STR[],
-                  X_STR[], Y_STR[], Z_STR[], E_STR[],
-                  I_STR[], J_STR[], K_STR[],
-                  X_LBL[], Y_LBL[], Z_LBL[], E_LBL[],
-                  I_LBL[], J_LBL[], K_LBL[];
-
 //
 // Debugging flags for use by M111
 //
@@ -340,18 +327,53 @@ inline void serial_echolnpair(FSTR_P const fstr, T v) { serial_echolnpair_P(FTOP
 
 void serial_echo_start();
 void serial_error_start();
-void serial_ternary(const bool onoff, FSTR_P const pre, FSTR_P const on, FSTR_P const off, FSTR_P const post=nullptr);
+inline void serial_ternary(const bool onoff, FSTR_P const pre, FSTR_P const on, FSTR_P const off, FSTR_P const post=nullptr) {
+  if (pre) serial_print(pre);
+  if (onoff && on) serial_print(on);
+  if (!onoff && off) serial_print(off);
+  if (post) serial_print(post);
+}
 void serialprint_onoff(const bool onoff);
 void serialprintln_onoff(const bool onoff);
 void serialprint_truefalse(const bool tf);
 void serial_spaces(uint8_t count);
+void serial_offset(const_float_t v, const uint8_t sp=0); // For v==0 draw space (sp==1) or plus (sp==2)
 
 void print_bin(const uint16_t val);
-void print_pos(LINEAR_AXIS_ARGS(const_float_t), FSTR_P const prefix=nullptr, FSTR_P const suffix=nullptr);
+void print_pos(NUM_AXIS_ARGS(const_float_t), FSTR_P const prefix=nullptr, FSTR_P const suffix=nullptr);
 
-inline void print_pos(const xyz_pos_t &xyz, FSTR_P const prefix=nullptr, FSTR_P const suffix=nullptr) {
-  print_pos(LINEAR_AXIS_ELEM(xyz), prefix, suffix);
+inline void print_pos(const xyze_pos_t &xyze, FSTR_P const prefix=nullptr, FSTR_P const suffix=nullptr) {
+  print_pos(NUM_AXIS_ELEM(xyze), prefix, suffix);
 }
 
 #define SERIAL_POS(SUFFIX,VAR) do { print_pos(VAR, F("  " STRINGIFY(VAR) "="), F(" : " SUFFIX "\n")); }while(0)
 #define SERIAL_XYZ(PREFIX,V...) do { print_pos(V, F(PREFIX)); }while(0)
+
+//
+// Commonly-used strings in serial output
+//
+
+#define _N_STR(N) N##_STR
+#define _N_LBL(N) N##_LBL
+#define _N_STR_A(N) _N_STR(N)[]
+#define _N_LBL_A(N) _N_LBL(N)[]
+#define _SP_N_STR(N) SP_##N##_STR
+#define _SP_N_LBL(N) SP_##N##_LBL
+#define _SP_N_STR_A(N) _SP_N_STR(N)[]
+#define _SP_N_LBL_A(N) _SP_N_LBL(N)[]
+
+extern const char SP_A_STR[], SP_B_STR[], SP_C_STR[], SP_P_STR[], SP_T_STR[], NUL_STR[],
+                  MAPLIST(_N_STR_A, LOGICAL_AXIS_NAMES), MAPLIST(_SP_N_STR_A, LOGICAL_AXIS_NAMES),
+                  MAPLIST(_N_LBL_A, LOGICAL_AXIS_NAMES), MAPLIST(_SP_N_LBL_A, LOGICAL_AXIS_NAMES);
+
+PGM_P const SP_AXIS_LBL[] PROGMEM = { MAPLIST(_SP_N_LBL, LOGICAL_AXIS_NAMES) };
+PGM_P const SP_AXIS_STR[] PROGMEM = { MAPLIST(_SP_N_STR, LOGICAL_AXIS_NAMES) };
+
+#undef _N_STR
+#undef _N_LBL
+#undef _N_STR_A
+#undef _N_LBL_A
+#undef _SP_N_STR
+#undef _SP_N_LBL
+#undef _SP_N_STR_A
+#undef _SP_N_LBL_A
