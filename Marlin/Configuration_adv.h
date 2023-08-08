@@ -860,36 +860,6 @@
   #endif
 #endif
 
-//
-// For Z set the number of stepper drivers
-//
-#if ENABLED(RUBY)
-#define NUM_Z_STEPPER_DRIVERS 1   // (1-4) Z options change based on how many
-  #else
-  #define NUM_Z_STEPPER_DRIVERS 2   // (1-4) Z options change based on how many
-#endif
-
-#if NUM_Z_STEPPER_DRIVERS > 1
-  // Enable if Z motor direction signals are the opposite of Z1
-  //#define INVERT_Z2_VS_Z_DIR
-  //#define INVERT_Z3_VS_Z_DIR
-  //#define INVERT_Z4_VS_Z_DIR
-
-  //#define Z_MULTI_ENDSTOPS
-  #if ENABLED(Z_MULTI_ENDSTOPS)
-    #define Z2_USE_ENDSTOP          _XMAX_
-    #define Z2_ENDSTOP_ADJUSTMENT   0
-    #if NUM_Z_STEPPER_DRIVERS >= 3
-      #define Z3_USE_ENDSTOP        _YMAX_
-      #define Z3_ENDSTOP_ADJUSTMENT 0
-    #endif
-    #if NUM_Z_STEPPER_DRIVERS >= 4
-      #define Z4_USE_ENDSTOP        _ZMAX_
-      #define Z4_ENDSTOP_ADJUSTMENT 0
-    #endif
-  #endif
-#endif
-
 // Drive the E axis with two synchronized steppers
 //#define E_DUAL_STEPPER_DRIVERS
 #if ENABLED(E_DUAL_STEPPER_DRIVERS)
