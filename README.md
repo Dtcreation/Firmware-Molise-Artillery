@@ -1,310 +1,23 @@
 # Molise Firmware
 
-N'hésitez pas à me soutenir. Payez moi une 🍺 ou un ☕ : [https://paypal.me/dtouton](https://paypal.me/dtouton)
+Youtube Channel : [Dtcreation 3D](https://www.youtube.com/channel/UCQOsiY8l6Of56zkFhtDT0Sw)
 
-Ma chaine Youtube : [Dtcreation 3D](https://www.youtube.com/channel/UCQOsiY8l6Of56zkFhtDT0Sw)
+Facebook group : [Molise Firmware](https://www.facebook.com/groups/molisefirmware)
 
-Ma page Instagram : [Dtcreation 3D](https://www.instagram.com/dtcreation3d/)
+TFT Firmware :  [Github repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
 
-Mon Twitter : [Dtcreation 3D](https://twitter.com/Dtcreation3)
-
-Rejoignez notre groupe facebook : [Molise Firmware](https://www.facebook.com/groups/molisefirmware)
-
-Les sources pour l'écran TFT sont [disponible sur ce repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
-
-Téléchargez le super fang pour BLtouch sur [Thingiverse](https://www.thingiverse.com/thing:4589399)
-
-Téléchargez le super fang pour TouchMi sur [Thingiverse](https://www.thingiverse.com/thing:4713319)
-
-## FRENCH - ENGLISH DOWN
+## FRENCH
 
 ### Qu'est ce que le firmware Molise
 
 Molise est un firmware modifié pour les imprimantes de la marque [Artillery](https://artillery3d.com/). Le firmware support atuellement les Sidewinder X1 et X2, les Genius et Genius Pro et la Hornet.
 
-Le Firmware est découpé en 2
+Le Firmware est découpé en 2 parties
 
 - Pour la carte mère : Marlin Molise
 - Pour l'écran TFT : Basé sur le firmware de Bigtreetech. [Sources disponible ici](https://github.com/Dtcreation/Firmware-Molise-TFT)
 
-### Version actuelle
-
-Dernière version de Molise __3.0__ basée sur [Marlin 2.0.9.3](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.9.3)
-
-### A propos du Firmware Molise
-
-Voici un listing de ce que propose actuellement le Firmware :
-
-Le Firmware supporte actuellement le hardware suivant :
-
-- Drivers TMC 2100, 2208 ou 2209 et LV8729 et mode UART
-- Carte mère SKR 1.3, 1.4, 1.4 Turbo et MKS SGen L v1 and v2, MKS Gen L v1 et v2.1, MKS Robin Nano v3, Artillery Ruby
-- Extruder BMG, Hemera et Matrix
-- BlTouch (avec ou sans Waggster Mod)
-- TouchMi avec ou sans LED sur X1
-
-Le Firmware apporte les modifications suivantes à Marlin (par rapport à la version stock)
-- Support du BlTouch et du TouchMi
-- Auto Bed Leveling with Stock Sensor [plus d'information sur le site 3dprintbeginner](https://3dprintbeginner.com/sidewinder-x1-auto-bed-leveling-stock-sensor/)
-- Graphical LCD : Mode Marlin pour les écrans Bigtreetech et clônes
-- Sensorless Homing : Permet de positionner un axe sans avoir besoin d'un interrupteur de fin de course physique
-- Le M600 : permet de changer de couleur en cours de print (Compatible avec la carte SD, la clé USB et Ocotprint)
-- Mesh Bed Leveling : MBL - Permet de palper manuellement plusieurs points de votre plateau comme un BLTouch le ferait automatiquement
-- Alignement automatique des stepper Z (Z_STEPPER_AUTO_ALIGN)
-- Solution au problème de communication d'Octoprint via changement de la connexion de l'écran TFT sur la MKS Gen L (option)
-- Déport du capteur de fin de filament sur la carte mère pour compatibilité avec Octoprint et lecteur SD sur carte mère (Option) (pour la carte mère d'origine, brancher sur le pin D2 du connecteur X+)
-
-Le code du fichier `Configuration.h` a été découpé en 7 sections afin de rendre le code plus lisible. Ainsi, pour les personnes souhaitant compiler le code à partir des sources, le travail sera plus simple. Pour plus d'explication sur la compilation du code, merci de vous reporter à la page du [wiki dédiée](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
-
-Le firmware Molise 3.0 vous est fourni gratuitement, dans un état « tel quel ». Nous ne pouvons pas être tenus responsables des dommages qu’il pourrait faire à votre imprimante 3D le cas échéant. S’il vous plaît procéder avec prudence.
-
-Pour vous faciliter la tâche, le firmware molise vous est fourni "pré-compilé" pour les 6 cas de figures suivants:
-
-- X1 Stock + MBL
-- X1 Stock + BLTouch (Waggster Mod)
-- X1 Stock + TouchMi
-- Genius Stock + MBL
-- Genius Stock + BLTouch (Waggster Mod)
-- Genius Stock + TouchMi
-- X2 Stock
-- Genius Pro Stock
-- Hornet Stock
-
-Le Firmware Molise est fourni avec un second firmware, il s'agit du firmware de l'écran TFT. Ce Firmware TFT est basé le firmware Officiel de Bigtreetech avec la prise en charge entre autre des fonctions tactiles suivantes :
-
-- M600
-- Babystepping
-- ABL
-- MBL
-- Z Offset
-- PID Autotune
-- Chargement-Déchargement de filament assisté
-- Calibration des E-steps assisté
-- Gestion de l'UART
-- COnfigurations diverses
-
-Et le tout préconfiguré en Français et Anglais
-
-Si vous l'aimez ou si vous souhaitez contribuer à d'autres améliorations de ce firmware, veuillez envisager la possibilité de faire un don à :
-
-https://paypal.me/dtouton
-
-Merci !
-
-
-### Installation et configuration
-
-Afin de vous aider dans l'installation et la configuration du Firmware, merci de faire un tour sur le [Wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
-
-PROCÉDURES DE MISE À JOUR DE MARLIN FW:
-
-Sur les imprimantes Sidewinder X1 et Genius, le port USB de la carte mère utilisé pour connecter l'imprimante à un PC (par exemple à Octoprint) est câblé à un bus série. Ce bus est également partagé par le TFT et la carte mère. Le partage du bus série ne permet pas de flasher facilement le firmware Marlin en raison de collisions dans le bus.
-
-Trois solutions possibles ont normalement été adoptées pour permettre les mises à jour du firmware Marlin avec un prérequis, débrancher le câble noir et rouge de l'écran TFT (définitivement, ce câble sert surtout à bloquer le flash):
-
-1) déconnexion physique du câble série TFT afin que le bus série ne soit plus partagé avec le TFT. Cette solution nécessite de retirer le capot sous le châssis et éventuellement de perdre toute garantie.
-
-2) allumez l'imprimante à partir du bouton d'alimentation principal (à l'arrière de l'imprimante)
-depuis le TFT, appuyez sur le bouton "Menu-> Paramètres-> Connexion-> Déconnecter". Un fond noir avec un texte demandant de toucher l'écran pour reconnecter le TFT est invité. N'appuyez PAS sur l'écran pour que le TFT continue d'être déconnecté du bus série.
-à partir du PC, ouvrez l'application que vous utilisez habituellement pour flasher le firmware Marlin.
-branchez un câble USB du PC au port USB de la carte mère et connectez l'application à l'imprimante
-suivez les instructions fournies par votre application pour flasher le firmware Marlin.
-Une fois le micrologiciel Marlin flashé, déconnectez l'application de l'imprimante et redémarrez l'imprimante.
-
-3) déportez la connexion du TFT sur le port EXP1, vous pourrez alors flasher sans aucun soucis
-
-![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
-
-### Changelog
-
-#### 3.0
-
-- Upgrade to Marlin 2.0.9.3
-- Add support for Sidewinder X2, Genius Pro and Hornet
-
-#### 2.3
-
-- Upgrade to Marlin 2.0.9.1
-- Add an option to activate Linear Advance (desactivated by default)
-- Slow Z probing
-
-#### 2.0
-
-- Upgrade to Marlin 2.0.8
-- Bugfix for MKS SgenL V2
-- Reduce Z feedrate
-- Change manual Z Probe start
-
-#### 1.4.0
-
-Changelog Molise Marlin :
-
-- Add M48 For TouchMi
-- Align version number with Molise for Wanhao D12
-
-Changelog Molise TFT 5.0 :
-
-- Add Level Corner With Probe
-- Desactivate TFT M600 Emulation to use Marlin M600 (you can reactivate it in config.ini)
-- Change notifications style
-- Bugfix
-
-#### 1.3.2
-
-- Add support for BMG Wind
-- Adjust junction deviation
-- Active S Curve
-- Change K value to 0
-- Adjust Genius size bed for BLTouch Y problem
-- Neopixel bugfix
-- Add M73 support
-
-#### 1.3.1
-
-- Bugfix Z_STEPPER_AUTO_ALIGN with TouchMi
-- Bugfix G34 with TouchMi
-- Add TouchMi Neopixel LED support
-- Add personal Neopixel LED for SKR
-- Change PREHEAT_BEFORE_PROBING by PREHEAT_BEFORE_LEVELING
-
-#### 1.3.0
-
-- Upgrade with Marlin BugFix 2.0.X
-- Return to 250.000 connection speed (old bug fixed - don't forget to change the connection speed on the TFT screen)
-- Some bugfix for TouchMi (Z_auto_alignement problem still here)
-- Add Offset for fan duct with 5015 : <https://www.thingiverse.com/thing:4548854>
-- Add LEVEL_CORNERS_USE_PROBE (works only with LCD screen or Marlin Mode for now)
-- Add auto pre-heat bed when probe
-- Add BINARY_FILE_TRANSFER (for flashing Molise with Octoprint for boards with sd reader)
-
-#### 1.2.7
-
-- Add MKS Gen L v2.1
-- Optimise ABL
-- Optimise Sensorless Homing
-- Add Readme.md
-- Add Github Wiki
-
-#### 1.2.6
-
-- Compilation with MKS Gen L and Z steppers Alignment bugfix
-
-#### 1.2.5
-
-- Small bugfix
-- Support BTT TFT35, TFT43
-
-#### 1.2.4
-
-- Improves travel for SKR board
-- Support for TMC2209 Standalone
-
-#### 1.2.3
-
-- TouchMi bugfix
-- Graphical LCD bug fix
-
-#### Version 1.2.2
-
-##### Fixed
-
-- TFT and Marlin bug fix for Octoprint
-- Add option in section 6 if you want to plug runout sensor filament on the mainboard
-
-#### Version 1.2.1
-
-##### Fixed
-
-- Communication bug fix
-- New TFT firmware
-
-#### Version 1.2.0
-
-##### Fixed
-
-- Add support for TouchMi
-- Add Solution to Octoprint communication problem (you have to change the connection of the TFT on the mainboard, see jpg file included) communication speed : 115000
-- New TFT firmware with TouchMi and Z steppers Align button
-- Linear Advance 0.13 by default with experimental Scurve
-
-#### Version 1.1.2
-
-##### Fixed
-
-- Bug fixes
-- Add support for LV8729
-- Add Support for Matrix extruder
-- Add Z_STEPPER_AUTO_ALIGN with G34 (only for advanced users - Z belt
-- remove obligation) in BLTouch options
-
-#### Version 1.1.1
-
-##### Fixed
-
-- Bug fixes
-- Active or not MBL in section 5
-- M600 works with Octoprint
-- TFT Firmware based on last Bigtreetech Version
-
-#### Version 1.1.0
-
-##### Fixed
-
-- Marlin 2.0.7.2
-- Major Bug fixes
-- Ajout du MBL
-- Fixed bug "erreur de détection de fin de filament"
-- Choix de la langue du TFT dans Screen->Language menu
-
-#### Version 1.0.3
-
-##### Fixed
-
-- Add support for MKS SGEN L V1 and V2
-
-#### Version 1.0.2
-
-##### Fixed
-
-- TFT bug fix
-
-#### Version 1.0.1
-
-##### Fixed
-
-- Buffers bug fix
-
-#### Version 1.0
-
-##### Fixed
-
-- First release
-
-# Remerciement
-
-Le firmware Molise 2.0 vous est fourni par David TOUTON, [la géniale communauté d’impression 3D sur Facebook](https://www.facebook.com/groups/molisefirmware), et bien sûr, nous ne pouvons pas oublier l’équipe Marlin qui a passé d’innombrables jours, nuits et années à construire Marlin jusqu’où il est aujourd’hui.
-
-
-
 ## ENGLISH
-
-# Molise Firmware
-
-Please do not hesitate to support me. Pay me a 🍺 or a ☕: [https://paypal.me/dtouton](https://paypal.me/dtouton)
-
-My Youtube channel: [Dtcreation 3D](https://www.youtube.com/channel/UCQOsiY8l6Of56zkFhtDT0Sw)
-
-My Instagram : [Dtcreation 3D](https://www.instagram.com/dtcreation3d/)
-
-My Twitter : [Dtcreation 3D](https://twitter.com/Dtcreation3)
-
-Join our facebook group: [Molise Firmware](https://www.facebook.com/groups/molisefirmware)
-
-The sources for the TFT screen are [available on this repository](https://github.com/Dtcreation/Firmware-Molise-TFT)
-
-Super fang for BLtouch [Thingiverse](https://www.thingiverse.com/thing:4589399)
-
-Super fang for TouchMi [Thingiverse](https://www.thingiverse.com/thing:4713319)
 
 ### What is Molise firmware
 
@@ -315,48 +28,161 @@ Firmware is split in 2
 - For the motherboard: Marlin Molise
 - For TFT screen: Based on Bigtreetech firmware. [Sources available here](https://github.com/Dtcreation/Firmware-Molise-TFT)
 
-### Current version
+## Current version
 
-Latest version of Molise __3.0__ based on [Marlin 2.0.9.3](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.9.3)
+Latest version of Molise __4.0__ based on [Marlin 2.1.1-bugfix](https://github.com/MarlinFirmware/Marlin/releases/tag/2.0.9.3)
 
-### About Molise Firmware
+## About Molise Firmware
 
-Here is a listing of what the Firmware currently offers:
+Molise firmware is provided to you free of charge in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
 
-Firmware currently supports the following hardware:
+## Marlin Printer Firmware
 
-- TMC 2100, 2208 or 2209 and LV8729 drivers and UART mode
-- Motherboard SKR 1.3, 1.4, 1.4 Turbo and MKS SGen L v1 and v2, MKS Gen L v1 and v2.1
-- Extrude BMG, Hemera and Matrix
-- BlTouch (with or without Waggster Mod)
+Molise has a simple and advanced configuration assistant in 7 sections.
+
+Supported Artillery printers :
+
+- Genius
+- Genuis Pro
+- Sidewinder X1
+- Sidewinder X2
+- Hornet
+
+Supported boards :
+
+- Stock Board for Genuis and X1
+- Stock Board for Genuis Pro, X2 and Hornet
+- MKS GEN L V2.1, SGEN L V1, SGEN L V2, ROBIN NANO V3
+- BigTreeTech SKR 1.3, SKR 1.4, SKR 1.4 Turbo, SKR 2.0 (Rev A and B)
+
+Supported drivers :
+
+- TMC 2208
+- TMC 2209
+- LV8729
+
+Supported Extruders :
+
+- Titan (Stock Extruder)
+- BMG, BMG Wind
+- HEMERA
+- Matrix
+
+Others supported Options :
+
+- BlTouch (High Speed Mode, 5x5)
 - TouchMi with or without LED on X1
+- GraphicalLCD
+- Sensorless Homing
+- MBL
+- M600 & Nozzle Park / Advanced Pause
+- NeoPixels
+- PID Tune
+- EEPROM
+- Linear Advance
+- S Curve Acceleration
+- ABL Bilinear Subdivision
+- Z Steppers Auto-Alignment (G34)
+- Mesh Validation Pattern (G26)
+- Etc ...
 
-The Firmware makes the following changes to Marlin (compared to the stock version)
-- Support of BlTouch and TouchMi
-- Auto Bed Leveling with Stock Sensor [more information on the 3dprintbeginner website](https://3dprintbeginner.com/sidewinder-x1-auto-bed-leveling-stock-sensor/)
-- Graphical LCD: Marlin mode for Bigtreetech and clone screens
-- Sensorless Homing: Allows positioning of an axis without the need for a physical limit switch
-- The M600: allows you to change color during printing (Compatible with SD card, USB key and Ocotprint)
-- Mesh Bed Leveling: MBL - Allows you to manually palpate several points of your plate as a BLTouch would do it automatically
-- Automatic alignment of Z steppers (Z_STEPPER_AUTO_ALIGN)
-- Solution to the Octoprint communication problem by changing the connection of the TFT screen on the MKS Gen L (option)
-- Removal of the runout filament sensor on the motherboard for compatibility with Octoprint and SD reader on the motherboard (Option) (for the original motherboard, plug it on D2 pin X+ connector)
+## How to download Firmware
 
-The code in the `Configuration.h` file has been split into 7 sections to make the code more readable. So, for people who want to compile code from source, the job will be easier. For more explanation on the code compilation, please refer to the [dedicated wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
+Go to [Release](https://github.com/Dtcreation/Firmware-Molise-Artillery/releases) and download needest release
 
-Molise 2.0 firmware is provided to you free of charge in an "as is" state. We cannot be held responsible for any damage it may do to your 3D printer if it occurs. Please proceed with caution.
+ℹ️ - About precompiled Firmwares
 
-To make your task easier, the molise firmware is supplied to you "pre-compiled" for the following 6 cases:
+All firmwares are manually precompiled with options :
 
-- X1 Stock
-- X1 Stock + BLTouch (Waggster Mod)
-- X1 Stock + TouchMi
-- Genius Stock
-- Genius Stock + BLTouch (Waggster Mod)
-- Genius Stock + TouchMi
-- X2 Stock
-- Genius Pro Stock
-- Hornet Stock
+- Default Enabled :
+
+  - Stock drivers
+  - Stock boards
+  - Stock extruders
+  - Linear Advance (default : K0.12)
+  - Classic Jerk
+  - PID Temp
+  - M600 - Advanced Pause for Filament Change
+  - Restore leveling after G28
+  - BLtouch (only BLtouch version)
+  - Babystepping
+  - G26 Mesh Validation Pattern tool
+  - EEPROM - Persistent storage to preserve configurable settings across reboots.
+  - Nozzle Park
+  - SD Card support + CRC checks and retries on the SD communication
+  - G2/G3 Arc Support
+
+- Disabled (if you want to enabled this options, you need to compile from sources):
+
+  - High Speed BLTouch
+  - S Curve Acceleration
+  - Auto Bed Leveling 49 points (7x7)
+  - Z Steppers Auto-Alignment
+
+
+# Firmware Update
+
+In order to help you in installing and configuring the Firmware, please take a look at the [Wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
+
+First, you need to install / update TFT Firmware, and after that you will update Marlin with Molise version. 
+
+<a name="TFT-Firmware-Update"></a>
+
+## TFT Firmware Update
+
+<a name="TFT-Firmware-Installation"></a>
+
+### TFT Firmware Installation
+
+In order to install the TFT firmware:
+
+1. Download the firmware
+2. Unzip the archive and copy the contents to the SD Card. The folder `TFT28` and file `MKSTFT28.bin` must be on the root folder of the SD card
+3. Plug in the SD card into the printer
+4. Turn on the printer and wait for the firmware to finish flashing
+5. In case calibration procedure is started, touch the calibration points on the screen
+6. Restart the printer
+7. Proceed with the configuration as reported on section [TFT Firmware Configuration](#TFT-Firmware-Configuration)
+
+IMPORTANT NOTE: Always install all the content provided in the zip file. That means, copy in the SD card the .bin + config.ini + TFT28 folder with its files. In addition (optional) also the desired language_xx.ini file can be provided in the root folder of the SD card. All the language files are found in the Language_Packs folder.
+
+<a name="TFT-Firmware-Configuration"></a>
+
+### TFT Firmware Configuration
+
+To update the TFT firmware configuration:
+
+1. Edit the settings in `config.ini`. See the comments on the file to properly set each setting
+2. Copy the `config.ini` file to the root folder of the SD card. (The SD card capacity should be less than or equal to 8GB and formatted as FAT32)
+3. Insert the SD card in the TFT's SD card slot and restart the TFT by pressing the reset button (if you have a Sidewinder X1 v4 or above printer revision) or switching off and on the printer
+4. The TFT will load the configuration from `config.ini` file and store it on internal SPI flash. That means the configuration will be loaded from SPI flash on all the next printer reboots (no need to provide the configuration file on the SD card unless you make changes on `config.ini` file and want to load the new configuration)
+
+
+<a name="TFT-Firmware-Not-Attached"></a>
+
+### TFT Firmware Not Attached
+
+If the text:
+
+    No printer attached!
+
+is displayed on top of the display it means you need to change the value for the **UART speed** setting. By default it is set to **250000**. Change it from TFT menu **Menu->Settings->Connection->S. Ports**, wait few seconds in order to check that with the selected UART speed the error message disappears. Once the message disappears it means that the TFT firmware is now connected to the printer and you can use it.
+
+<a name="TFT-Firmware-Rollback"></a>
+
+### TFT Firmware Rollback
+
+In case you have issues with this custom firmware or you don't like it, you can rollback to the firmware previously installed in your printer.
+
+In order to rollback:
+
+1. Download the stock Artillery TFT firmware (from https://artillery3d.com) or any other custom TFT firmware you had previously installed in your printer
+2. Unzip the archive and copy the contents to the SD Card. The contents must be on the root folder of the SD card
+3. Plug in the SD card into the printer
+4. Turn on the printer and wait for the firmware to finish flashing
+5. Restart the printer
+
+### About TFT Screen Firmware
 
 The Molise Firmware is supplied with a second firmware, this is the firmware of the TFT screen. This TFT Firmware is based on the Official Firmware of Bigtreetech with the support among others of the following touch functions:
 
@@ -371,205 +197,103 @@ The Molise Firmware is supplied with a second firmware, this is the firmware of 
 - UART management
 - Various configurations
 
-And all preconfigured in French and English
+<a name="Marlin-Firmware-Installation"></a>
 
-If you like it or would like to contribute to other improvements to this firmware, please consider the possibility of donating to:
+## Marlin - Install / Update Molise
 
-https://paypal.me/dtouton
+On Sidewinder X1 and Genius printers, the mainboard's USB port used to connect the printer to a PC (e.g. to OctoPrint) is wired to a serial bus. This bus is also shared by both TFT and mainboard. The sharing of the serial bus does not allow to easily flash Marlin firmware due to collisions in the bus.
 
-Thank you !
+Two possible solutions were normally adopted to allow Marlin firmware updates:
 
+1. Physical disconnection of the TFT serial cable so the serial bus is no more shared with the TFT. This solution requires to remove the cover under the chassis and possibly to loose any warrenty
+2. Use a script under Linux OS trying to lock the serial bus to the TFT
 
-### Installation and configuration
+This TFT firmware provides a third, and easy to use, solution for flashing Marlin firmware.
 
-In order to help you in installing and configuring the Firmware, please take a look at the [Wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
+In order to flash Marlin firmware, follow the steps below in the same order they are reported:
 
-#### Create a Wiki with the following data
+1. Switch on the printer from the main power button (on the back of the printer)
+2. From the TFT, press on button **Menu->Settings->Connection->Disconnect**. A black background with a text asking to touch the screen to connect again the TFT is prompted. **DO NOT** press on the display, so the TFT will continue to be disconnected from the serial bus
+3. From the PC, open the application you usually use for flashing Marlin firmware (e.g. PrusaSlicer)
+4. Plug a USB cable from the PC to the mainboard's USB port and connect the application to the printer
+5. Follow the instructions provided by your application to flash Marlin firmware
+6. Once Marlin firmware is flashed, disconnect the application from the printer and restart the printer (switching off and on or pressing on the TFT's reset button if you have a Sidewinder X1 v4)
 
-MARLIN FW UPDATE PROCEDURES:
+<a name="Marlin-Firmware-Configuration"></a>
 
-On the Sidewinder X1 and Genius printers, the USB port on the motherboard used to connect the printer to a PC (e.g. Octoprint) is wired to a serial bus. This bus is also shared by the TFT and the motherboard. Sharing the serial bus does not allow easy flashing of Marlin firmware due to collisions in the bus.
+#### Marlin Firmware Configuration
 
-Three possible solutions have normally been adopted to allow Marlin firmware updates with a prerequisite, disconnecting the black and red cable from the TFT screen (definitely, this cable is mainly used to block the flash):
+After a new Marlin firmware is installed (see section [Marlin Firmware Installation](#Marlin-Firmware-Installation)), EEPROM must always be reset and the following setups have to be performed again and saved to EEPROM after completion:
 
-1) physical disconnection of the TFT serial cable so that the serial bus is no longer shared with the TFT. This solution requires removing the cover under the chassis and possibly losing all warranty.
+1. Reset EEPROM, from **Menu->Settings->Machine->EEPROM->Reset** button
+2. Perform **PID** process, from **Menu->Settings->Machine->Tuning->PID** menu
+3. Perform **Probe Offset** process (only for BLTouch Marlin firmware versions), from **Menu->Movement->Bed Level->P Offset** menu
+4. Perform **Bed Leveling** process, from **Menu->Movement->Bed Level->UBL** (or MBL) menu
+5. Save to EEPROM, from **Menu->Settings->Machine->EEPROM->Save** button
 
-2) Turn on the printer from the main power button (on the back of the printer)
-from the TFT, press the "Menu-> Parameters-> Connection-> Disconnect" button. A black background with text asking to touch the screen to reconnect the TFT is prompted. DO NOT press the screen to keep the TFT disconnected from the serial bus.
-from the PC, open the application you usually use to flash the Marlin firmware.
-connect a USB cable from the PC to the USB port on the motherboard and connect the application to the printer
-follow the instructions provided by your application to flash the Marlin firmware.
-After the Marlin firmware is flashed, disconnect the application from the printer and restart the printer.
+### Disconnect TFT screen
 
-3) deport the TFT connection to the EXP1 port, you can then flash without any worries
+This solutions have normally been adopted to allow Marlin firmware updates with a prerequisite, disconnecting the black and red cable from the TFT screen (definitely, this cable is mainly used to block the flash):
+
+Physical disconnection of the TFT serial cable so that the serial bus is no longer shared with the TFT. This solution requires removing the cover under the chassis and possibly losing all warranty.
+
+See image below, and disconnect TFT1 (original connection)
+
+### Change the port of the TFT on the mainboard to avoid conflict with Octoprint
+
+When you use Octoprint with a custom firmware, you have a conflict with the TFT display. On Sidewinder X1 and Genius printers, the mainboard's USB port used to connect the printer to a PC (e.g. to Octoprint) is wired to a serial bus. This bus is also shared by both TFT and mainboard. To install a new firmware, you need to disconnect the TFT by opening the printer each time. So you can change the port of the TFT on another slot of the mainboard MKS to avoid any conflict in the future.
+
+- Deport the TFT connection to the EXP1 port, you can then flash without any worries
 
 ![MKS_GEN_LnewTFTwiring](https://user-images.githubusercontent.com/60579620/107208792-598fb080-6a02-11eb-8e8a-aaaefea56d4c.jpg)
 
-### Changelog
 
-#### 3.0
+## Board update
 
-- Upgrade to Marlin 2.0.9.3
-- Add support for Sidewinder X2, Genius Pro and Hornet
+### MKS SGEN L 
 
-#### 2.3
+#### Artillery Genius MKS SGEN L 1.0 MotherBoard
 
-- Upgrade to Marlin 2.0.9.1
-- Add an option to activate Linear Advance (desactivated by default)
-- Slow Z probing
+Diagram to move from MKS GEN L 1.0 to MKS SGEN L 1.0
 
-#### 2.0
+![MKSGENL1_0_To_MKSSGENL1_0](https://github.com/Dtcreation/Firmware-Molise-Artillery/blob/master/images/MKSGENL1_0_To_MKSSGENL1_0.png?raw=true) 
 
-- Upgrade to Marlin 2.0.8
-- Bugfix for MKS SgenL V2
-- Reduce Z feedrate
-- Change manual Z Probe start
+# How to build
 
-#### 1.4.0
+## VSCode
 
-Changelog Molise Marlin :
+The simplest way to build is to switch the PlatformIO project environment in VSCode (as the screenshot below) and use one of the presets:
 
-- Add M48 For TouchMi
-- Align version number with Molise for Wanhao D12
+![Platform IO env](screenshots/switch_env.png)
 
-Changelog Molise TFT 5.0 :
+- For the Sidewinder X1:
+  - __env:x1_mbl__: with Mesh Bed Leveling
+  - __env:x1_bltouch__: with BL Touch
+  - __env:x1_touchmi__: with Touch Mi
+- For the Genius:
+  - __env:genius_mbl__: with Mesh Bed Leveling
+  - __env:genius_bltouch__: with BL Touch
+  - __env:genius_touchmi__: with Touch Mi
+- For the Sidewinder X2: __env:x2__
+- For the Genius Pro: __env:geniuspro__
+- For the Hornet: __env:hornet__
 
-- Add Level Corner With Probe
-- Desactivate TFT M600 Emulation to use Marlin M600 (you can reactivate it in config.ini)
-- Change notifications style
-- Bugfix
+If you're using VSCode extension for PlatformIO, you should be able to pick the environment you want directly from the bottom bar.
 
-#### 1.3.2
+If you need more fined-grained configuration (e.g. custom board or custom extruder), you may stay on the default PlatformIO environment and follow through the instructions in [Marlin/Configuration.h](Marlin/Configuration.h). To build custom Molise Firmware, replace "CHANGE_VALUE" in [platformio.ini](platformio.ini) with the required configuration, save file and change platform.io env to `default`
 
-- Add support for BMG Wind
-- Adjust junction deviation
-- Active S Curve
-- Change K value to 0
-- Adjust Genius size bed for BLTouch Y problem
-- Neopixel bugfix
-- Add M73 support
+![platform.ini CHANGE_VALUE](screenshots/platform.io-change_value.png)
 
-#### 1.3.1
+![Platform.ini env:default](screenshots/switch_env_custom.png)
 
-- Bugfix Z_STEPPER_AUTO_ALIGN with TouchMi
-- Bugfix G34 with TouchMi
-- Add TouchMi Neopixel LED support
-- Add personal Neopixel LED for SKR
-- Change PREHEAT_BEFORE_PROBING by PREHEAT_BEFORE_LEVELING
+The code in the `Configuration.h` file has been split into 7 sections to make the code more readable. So, for people who want to compile code from source, the job will be easier. For more explanation on the code compilation, please refer to the [dedicated wiki](https://github.com/Dtcreation/Firmware-Molise-Artillery/wiki)
 
-#### 1.3.0
+## PIO Command Line Interface
 
-- Upgrade with Marlin BugFix 2.0.X
-- Return to 250.000 connection speed (old bug fixed - don't forget to change the connection speed on the TFT screen)
-- Some bugfix for TouchMi (Z_auto_alignement problem still here)
-- Add Offset for fan duct with 5015 : <https://www.thingiverse.com/thing:4548854>
-- Add LEVEL_CORNERS_USE_PROBE (works only with LCD screen or Marlin Mode for now)
-- Add auto pre-heat bed when probe
-- Add BINARY_FILE_TRANSFER (for flashing Molise with Octoprint for boards with sd reader)
+You can also build from `pio` command line directly, for instance:
 
-#### 1.2.7
-
-- Add MKS Gen L v2.1
-- Optimizes ABL
-- Optimizes Sensorless Homing
-- Add Readme.md
-- Add Github Wiki
-
-#### 1.2.6
-
-- Compilation with MKS Gen L and Z steppers Alignment bugfix
-
-#### 1.2.5
-
-- Small bugfix
-- Support BTT TFT35, TFT43
-
-#### 1.2.4
-
-- Improves travel for SKR board
-- Support for TMC2209 Standalone
-
-#### 1.2.3
-
-- TouchMi bugfix
-- Graphical LCD bug fix
-
-#### Version 1.2.2
-
-##### Fixed
-
-- TFT and Marlin bug fix for Octoprint
-- Add option in section 6 if you want to plug runout sensor filament on the mainboard
-
-#### Version 1.2.1
-
-##### Fixed
-
-- Bug fix communication
-- New TFT firmware
-
-#### Version 1.2.0
-
-##### Fixed
-
-- Add support for TouchMi
-- Add Solution to Octoprint communication problem (you have to change the connection of the TFT on the mainboard, see jpg file included) communication speed: 115000
-- New TFT firmware with TouchMi and Z steppers Align button
-- Linear Advance 0.13 by default with experimental Scurve
-
-#### Version 1.1.2
-
-##### Fixed
-
-- Fixed bug
-- Add support for LV8729
-- Add Support for Matrix extruder
-- Add Z_STEPPER_AUTO_ALIGN with G34 (only for advanced users - Z belt
-- remove obligation) in BLTouch options
-
-#### Version 1.1.1
-
-##### Fixed
-
-- Fixed bug
-- Active or not MBL in section 5
-- M600 works with Octoprint
-- TFT Firmware based on last Bigtreetech Version
-
-#### Version 1.1.0
-
-##### Fixed
-
-- Marlin 2.0.7.2
-- Major Bug fixes
-- Addition of MBL
-- Fixed bug "end of filament detection error"
-- Choice of TFT language in Screen-> Language menu
-
-#### Version 1.0.3
-
-##### Fixed
-
-- Add support for MKS SGEN L V1 and V2
-
-#### Version 1.0.2
-
-##### Fixed
-
-- TFT bug fix
-
-#### Version 1.0.1
-
-##### Fixed
-
-- Bug fix buffers
-
-#### Version 1.0
-
-##### Fixed
-
-- First release
+> pio run -e x1_mbl
 
 # Thanks
 
-Molise 3.0 firmware is provided to you by David TOUTON, [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
+Molise Firmware is provided to you by David TOUTON, Thomas Bourcey and [the awesome 3D printing community on Facebook](https://www.facebook.com/groups/molisefirmware), and of course, we can't forget the team Marlin who spent countless days, nights and years building Marlin to where it is today.
