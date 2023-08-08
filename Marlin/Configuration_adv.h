@@ -557,6 +557,7 @@
 #else
 //#define USE_CONTROLLER_FAN
 #if ENABLED(USE_CONTROLLER_FAN)
+
   //#define CONTROLLER_FAN_PIN -1           // Set a custom pin for the controller fan
   //#define CONTROLLER_FAN2_PIN -1          // Set a custom pin for second controller fan
   //#define CONTROLLER_FAN_USE_Z_ONLY       // With this option only the Z axis is considered
@@ -570,6 +571,7 @@
   //#define CONTROLLER_FAN_MIN_BOARD_TEMP 40  // (°C) Turn on the fan if the board reaches this temperature
 
   //#define CONTROLLER_FAN_EDITABLE         // Enable M710 configurable settings
+
   #if ENABLED(CONTROLLER_FAN_EDITABLE)
     #define CONTROLLER_FAN_MENU             // Enable the Controller Fan submenu
   #endif
@@ -600,7 +602,11 @@
  *
  * Define one or both of these to override the default 0-255 range.
  */
-//#define FAN_MIN_PWM 50
+#ifdef ARTILLERYRUBY
+#define FAN_MIN_PWM 50
+  #else
+  //#define FAN_MIN_PWM 50
+#endif
 //#define FAN_MAX_PWM 128
 
 /**
@@ -668,6 +674,9 @@
 #endif
 #if ENABLED(MKSSGENLV2)
 #define E0_AUTO_FAN_PIN FAN2_PIN
+#endif
+#if ENABLED(ARTILLERYRUBY)
+#define E0_AUTO_FAN_PIN PC7
 #endif
 #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
 #define E0_AUTO_FAN_PIN 7

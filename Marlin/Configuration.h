@@ -108,7 +108,6 @@
 //#define MKSSGENLV2      // Choose this if you are using MKS SGEN L V2
 //#define MKSROBINNANOV3  // Choose this if you are using MKS ROBIN NANO V3
 
-
 /*default_envs in Platformio.ini :
 -Board name: MKS GEN L, change_value = mega2560 //use this value in platform.ini. Search for 'change_value' and replace it with this value mega2560
 -Board name: RUBY, change_value = Artillery_Ruby //use this value in platform.ini. Search for 'change_value' and replace it with this value Artillery_Ruby
@@ -256,7 +255,7 @@
 
 // Show the bitmap in Marlin/_Statusscreen.h on the status screen.
 //#define CUSTOM_STATUS_SCREEN_IMAGE
-#endif
+
 // @section machine
 
 /**
@@ -338,6 +337,9 @@
   #ifdef MKSGENL
       #define MOTHERBOARD BOARD_MKS_GEN_L
   #endif
+    #ifdef ARTILLERYRUBY
+      #define MOTHERBOARD BOARD_ARTILLERY_RUBY
+  #endif
   #ifdef MKSSGENLV1
       #define MOTHERBOARD BOARD_MKS_SGEN_L
   #endif
@@ -356,6 +358,7 @@
   #define CUSTOM_MACHINE_NAME "Artillery Genius - " STRING_CONFIG_H_AUTHOR
 #endif
 #ifdef X1
+
   #define CUSTOM_MACHINE_NAME "Artillery Sidewinder X1 - " STRING_CONFIG_H_AUTHOR
 #endif
 #ifdef GENIUSPRO
@@ -367,6 +370,7 @@
 #ifdef HORNET
   #define CUSTOM_MACHINE_NAME "Artillery Hornet - " STRING_CONFIG_H_AUTHOR
 #endif
+
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -1280,6 +1284,7 @@
 #endif
 #define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
+
 //#define USE_IMIN_PLUG
 //#define USE_JMIN_PLUG
 //#define USE_KMIN_PLUG
@@ -1296,9 +1301,6 @@
 //#define USE_IMAX_PLUG
 //#define USE_JMAX_PLUG
 //#define USE_KMAX_PLUG
-//#define USE_UMAX_PLUG
-//#define USE_VMAX_PLUG
-//#define USE_WMAX_PLUG
 
 // Enable pullup for all endstops to prevent a floating state
 #define ENDSTOPPULLUPS
@@ -1361,6 +1363,10 @@
     #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
   #endif
   #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+    #else
+    #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+    #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+#endif
 #endif
 #if defined(RUBY)
   #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
@@ -1371,14 +1377,14 @@
     #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #endif
 #endif
-#ifdef HORNET
-#define X_MAX_ENDSTOP_INVERTING true  // Set to true to invert the logic of the endstop.
-  #else
+<<<<<<< HEAD
+
+
   #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #endif
+>>>>>>> master
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define I_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #if defined(BLTOUCH)
@@ -3664,11 +3670,11 @@
 // at zero value, there are 128 effective control positions.
 // :[0,1,2,3,4,5,6,7]
 #define SOFT_PWM_SCALE 2
-
-// If SOFT_PWM_SCALE is set to a value higher than 0, dithering can
-// be used to mitigate the associated resolution loss. If enabled,
-// some of the PWM cycles are stretched so on average the desired
-// duty cycle is attained.
+#ifndef HORNET
+  #else
+  #define SOFT_PWM_DITHER
+#endif
+=======
 #define SOFT_PWM_DITHER
 
 // @section extras
@@ -3682,6 +3688,9 @@
 // If all hotends, bed temperature, and target temperature are under 54C
 // then the BLUE led is on. Otherwise the RED led is on. (1C hysteresis)
 //#define TEMP_STAT_LEDS
+
+// Support for the BariCUDA Paste Extruder
+//#define BARICUDA
 
 // Support for BlinkM/CyzRgb
 //#define BLINKM
