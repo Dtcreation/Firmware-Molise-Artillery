@@ -23,6 +23,9 @@
 
 //
 // FYSETC F6 1.3 (and 1.4) pin assignments
+// Schematic (1.3): https://green-candy.osdn.jp/external/MarlinFW/board_schematics/RAMPS/FYSETC%20F6%201.3/F6_V13.pdf
+// Origin: https://github.com/FYSETC/FYSETC-F6/blob/master/Hardware/V1.3/F6_V13.pdf
+// ATmega2560
 //
 
 #if NOT_TARGET(__AVR_ATmega2560__)
@@ -234,7 +237,7 @@
 
   #if ENABLED(FYSETC_MINI_12864)
     //
-    // See https://wiki.fysetc.com/Mini12864_Panel/?fbclid=IwAR1FyjuNdVOOy9_xzky3qqo_WeM5h-4gpRnnWhQr_O1Ef3h0AFnFXmCehK8
+    // See https://wiki.fysetc.com/Mini12864_Panel/
     //
     #define DOGLCD_A0                         16
     #define DOGLCD_CS                         17

@@ -23,10 +23,13 @@
 
 /**
  * BAM&DICE Due (Arduino Mega) pin assignments
+ * Schematic: https://green-candy.osdn.jp/external/MarlinFW/board_schematics/BAM&DICE%20Due/2PRINTBETA-BAM&DICE-DUE-V1.1-sch.pdf
+ * Origin: http://www.2printbeta.de/download/2PRINTBETA-BAM&DICE-DUE-V1.1-sch.pdf
+ * ATmega2560, ATmega1280
  */
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "2PrintBeta Due supports up to 2 hotends / E-steppers. Comment out this line to continue."
+  #error "2PrintBeta Due supports up to 2 hotends / E steppers."
 #endif
 
 #define BOARD_INFO_NAME "2PrintBeta Due"

@@ -81,7 +81,7 @@ void IRAM_ATTR timer_isr(void *para) {
  * @param timer_num timer number to initialize
  * @param frequency frequency of the timer
  */
-void HAL_timer_start(const uint8_t timer_num, uint32_t frequency) {
+void HAL_timer_start(const uint8_t timer_num, const uint32_t frequency) {
   const tTimerConfig timer = timer_config[timer_num];
 
   timer_config_t config;
@@ -111,12 +111,12 @@ void HAL_timer_start(const uint8_t timer_num, uint32_t frequency) {
 /**
  * Set the upper value of the timer, when the timer reaches this upper value the
  * interrupt should be triggered and the counter reset
- * @param timer_num timer number to set the count to
- * @param count     threshold at which the interrupt is triggered
+ * @param timer_num timer number to set the compare value to
+ * @param compare   threshold at which the interrupt is triggered
  */
-void HAL_timer_set_compare(const uint8_t timer_num, hal_timer_t count) {
+void HAL_timer_set_compare(const uint8_t timer_num, const hal_timer_t compare) {
   const tTimerConfig timer = timer_config[timer_num];
-  timer_set_alarm_value(timer.group, timer.idx, count);
+  timer_set_alarm_value(timer.group, timer.idx, compare);
 }
 
 /**

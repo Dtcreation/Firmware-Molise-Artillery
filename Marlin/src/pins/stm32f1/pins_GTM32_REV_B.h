@@ -53,7 +53,7 @@
 // Enable EEPROM Emulation for this board as it doesn't have EEPROM
 #if EITHER(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
   #define FLASH_EEPROM_EMULATION
-  #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
+  #define MARLIN_EEPROM_SIZE              0x1000  // 4K
 #endif
 
 //
@@ -223,10 +223,11 @@
 
 #define SDSS                           SD_SS_PIN
 
-//
-// ESP WiFi can be soldered to J9 connector which is wired to USART2.
-// Must define WIFISUPPORT in Configuration.h for the printer.
-//
-#define ESP_WIFI_MODULE_COM                    2
-#define ESP_WIFI_MODULE_BAUDRATE          115200
-#define ESP_WIFI_MODULE_RESET_PIN           -1
+#if ENABLED(WIFISUPPORT)
+  //
+  // ESP WiFi can be soldered to J9 connector which is wired to USART2.
+  //
+  #define ESP_WIFI_MODULE_COM                  2
+  #define ESP_WIFI_MODULE_BAUDRATE        115200
+  #define ESP_WIFI_MODULE_RESET_PIN         -1
+#endif

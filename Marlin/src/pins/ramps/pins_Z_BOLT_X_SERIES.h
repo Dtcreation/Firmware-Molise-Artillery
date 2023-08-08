@@ -23,13 +23,14 @@
 
 /**
  *  Z-Bolt X Series board – based on Arduino Mega2560
+ *  ATmega2560
  */
 
 #define REQUIRE_MEGA2560
 #include "env_validate.h"
 
 #if HOTENDS > 4 || E_STEPPERS > 4
-  #error "Z-Bolt X Series board supports up to 4 hotends / E-steppers."
+  #error "Z-Bolt X Series supports up to 4 hotends / E steppers."
 #endif
 
 #define BOARD_INFO_NAME "Z-Bolt X Series"
