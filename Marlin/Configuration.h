@@ -3692,8 +3692,10 @@
 // Support for PCA9533 PWM LED driver
 //#define PCA9533
 
-/**
- * RGB LED / LED Strip Control
+/**/**
+ * @brief 
+ * 
+ */
  *
  * Enable support for an RGB LED connected to 5V digital pins, or
  * an RGB Strip connected to MOSFETs controlled by digital pins.
