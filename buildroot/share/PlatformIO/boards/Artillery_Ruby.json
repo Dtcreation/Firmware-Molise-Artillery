@@ -14,7 +14,6 @@
         "0x3748"
       ]
     ],
-<<<<<<< HEAD
 <<<<<<< HEAD:buildroot/share/PlatformIO/boards/marlin_CREALITY_STM32F401RC.json
     "ldscript": "ldscript.ld",
     "mcu": "stm32f401rct6",
@@ -23,11 +22,6 @@
     "mcu": "stm32f401rct6",
     "variant": "Artillery_Ruby"
 >>>>>>> master:buildroot/share/PlatformIO/boards/Artillery_Ruby.json
-=======
-    "ldscript": "ldscript.ld",
-    "mcu": "stm32f401rct6",
-    "variant": "MARLIN_CREALITY_STM32F401RC"
->>>>>>> master
   },
   "debug": {
     "jlink_device": "STM32F401RC",

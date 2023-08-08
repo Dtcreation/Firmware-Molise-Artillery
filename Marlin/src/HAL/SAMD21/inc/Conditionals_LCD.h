@@ -20,4 +20,13 @@
  *
  */
 
+<<<<<<< HEAD
 #pragma once
+=======
+<<<<<<< HEAD:Marlin/src/tests/marlin_tests.h
+void runStartupTests();
+void runPeriodicTests();
+=======
+#pragma once
+>>>>>>> master:Marlin/src/HAL/SAMD21/inc/Conditionals_LCD.h
+>>>>>>> master

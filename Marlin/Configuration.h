@@ -912,6 +912,7 @@
     #define DEFAULT_Kp  14.58
     #define DEFAULT_Ki   1.14
     #define DEFAULT_Kd  46.57
+<<<<<<< HEAD
   #endif
 #endif
 
@@ -939,6 +940,35 @@
   #if ENABLED(MPC_INCLUDE_FAN)
     #define MPC_AMBIENT_XFER_COEFF_FAN255 { 0.097f }  // (W/K) Heat transfer coefficients from heat block to room air with fan on full.
   #endif
+=======
+  #endif
+#endif
+
+/**
+ * Model Predictive Control for hotend
+ *
+ * Use a physical model of the hotend to control temperature. When configured correctly
+ * this gives better responsiveness and stability than PID and it also removes the need
+ * for PID_EXTRUSION_SCALING and PID_FAN_SCALING. Use M306 T to autotune the model.
+ * @section mpctemp
+ */
+#if ENABLED(MPCTEMP)
+  //#define MPC_EDIT_MENU                             // Add MPC editing to the "Advanced Settings" menu. (~1300 bytes of flash)
+  //#define MPC_AUTOTUNE_MENU                         // Add MPC auto-tuning to the "Advanced Settings" menu. (~350 bytes of flash)
+
+  #define MPC_MAX BANG_MAX                            // (0..255) Current to nozzle while MPC is active.
+  #define MPC_HEATER_POWER { 40.0f }                  // (W) Heat cartridge powers.
+
+  #define MPC_INCLUDE_FAN                             // Model the fan speed?
+
+  // Measured physical constants from M306
+  #define MPC_BLOCK_HEAT_CAPACITY { 16.7f }           // (J/K) Heat block heat capacities.
+  #define MPC_SENSOR_RESPONSIVENESS { 0.22f }         // (K/s per ∆K) Rate of change of sensor temperature from heat block.
+  #define MPC_AMBIENT_XFER_COEFF { 0.068f }           // (W/K) Heat transfer coefficients from heat block to room air with fan off.
+  #if ENABLED(MPC_INCLUDE_FAN)
+    #define MPC_AMBIENT_XFER_COEFF_FAN255 { 0.097f }  // (W/K) Heat transfer coefficients from heat block to room air with fan on full.
+  #endif
+>>>>>>> master
 
   // For one fan and multiple hotends MPC needs to know how to apply the fan cooling effect.
   #if ENABLED(MPC_INCLUDE_FAN)
@@ -1180,6 +1210,7 @@
   // Delta radius and diagonal rod adjustments (mm)
   //#define DELTA_RADIUS_TRIM_TOWER { 0.0, 0.0, 0.0 }
   //#define DELTA_DIAGONAL_ROD_TRIM_TOWER { 0.0, 0.0, 0.0 }
+<<<<<<< HEAD
 #endif
 
 // @section scara
@@ -1227,6 +1258,55 @@
 
 #endif
 
+=======
+#endif
+
+// @section scara
+
+/**
+ * MORGAN_SCARA was developed by QHARLEY in South Africa in 2012-2013.
+ * Implemented and slightly reworked by JCERNY in June, 2014.
+ *
+ * Mostly Printed SCARA is an open source design by Tyler Williams. See:
+ *   https://www.thingiverse.com/thing:2487048
+ *   https://www.thingiverse.com/thing:1241491
+ */
+//#define MORGAN_SCARA
+//#define MP_SCARA
+#if EITHER(MORGAN_SCARA, MP_SCARA)
+  // If movement is choppy try lowering this value
+  #define DEFAULT_SEGMENTS_PER_SECOND 200
+
+  // Length of inner and outer support arms. Measure arm lengths precisely.
+  #define SCARA_LINKAGE_1 150       // (mm)
+  #define SCARA_LINKAGE_2 150       // (mm)
+
+  // SCARA tower offset (position of Tower relative to bed zero position)
+  // This needs to be reasonably accurate as it defines the printbed position in the SCARA space.
+  #define SCARA_OFFSET_X  100       // (mm)
+  #define SCARA_OFFSET_Y  -56       // (mm)
+
+  #if ENABLED(MORGAN_SCARA)
+
+    //#define DEBUG_SCARA_KINEMATICS
+    #define SCARA_FEEDRATE_SCALING  // Convert XY feedrate from mm/s to degrees/s on the fly
+
+    // Radius around the center where the arm cannot reach
+    #define MIDDLE_DEAD_ZONE_R   0  // (mm)
+
+    #define THETA_HOMING_OFFSET  0  // Calculated from Calibration Guide and M360 / M114. See http://reprap.harleystudio.co.za/?page_id=1073
+    #define PSI_HOMING_OFFSET    0  // Calculated from Calibration Guide and M364 / M114. See http://reprap.harleystudio.co.za/?page_id=1073
+
+  #elif ENABLED(MP_SCARA)
+
+    #define SCARA_OFFSET_THETA1  12 // degrees
+    #define SCARA_OFFSET_THETA2 131 // degrees
+
+  #endif
+
+#endif
+
+>>>>>>> master
 // @section tpara
 
 // Enable for TPARA kinematics and configure below
@@ -1636,6 +1716,17 @@
  */
 #ifndef BLTOUCH
 //#define BLTOUCH
+
+/**
+ * MagLev V4 probe by MDD
+ *
+ * This probe is deployed and activated by powering a built-in electromagnet.
+ */
+//#define MAGLEV4
+#if ENABLED(MAGLEV4)
+  //#define MAGLEV_TRIGGER_PIN 11     // Set to the connected digital output
+  #define MAGLEV_TRIGGER_DELAY 15     // Changing this risks overheating the coil
+#endif
 
 /**
  * MagLev V4 probe by MDD

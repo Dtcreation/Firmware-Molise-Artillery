@@ -22,6 +22,10 @@
 #pragma once
 
 /**
+<<<<<<< HEAD
+<<<<<<< HEAD:Marlin/src/HAL/SAMD21/ServoTimers.h
+=======
+>>>>>>> master
  * SAMD21 HAL developed by Bart Meijer (brupje)
  * Based on SAMD51 HAL by Giuliano Zaro (AKA GMagician)
  */
@@ -43,3 +47,22 @@ typedef enum {
   #endif
   _Nbr_16timers
 } timer16_Sequence_t;
+<<<<<<< HEAD
+=======
+ * Creality V24S1_301F4 (STM32F401RC) board pin assignments as found on Ender-3 S1.
+ */
+
+#ifndef BOARD_INFO_NAME
+  #define BOARD_INFO_NAME "Creality V24S1-301F4"
+#endif
+#ifndef DEFAULT_MACHINE_NAME
+  #define DEFAULT_MACHINE_NAME "Ender-3 S1 F4"
+#endif
+
+#define DISABLE_DEBUG false // DISABLE_(DEBUG|JTAG) is not supported for STM32F4.
+#define ALLOW_STM32F4
+
+#include "../stm32f1/pins_CREALITY_V24S1_301.h"
+>>>>>>> master:Marlin/src/pins/stm32f4/pins_CREALITY_V24S1_301F4.h
+=======
+>>>>>>> master

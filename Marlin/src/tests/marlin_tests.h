@@ -19,7 +19,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
+<<<<<<< HEAD
+
+<<<<<<< HEAD:Marlin/src/tests/marlin_tests.h
+void runStartupTests();
+void runPeriodicTests();
+=======
+#pragma once
+>>>>>>> master:Marlin/src/HAL/SAMD21/inc/Conditionals_LCD.h
+=======
 #pragma once
 
 void runStartupTests();
 void runPeriodicTests();
+>>>>>>> master

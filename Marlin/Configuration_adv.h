@@ -557,6 +557,7 @@
 #else
 //#define USE_CONTROLLER_FAN
 #if ENABLED(USE_CONTROLLER_FAN)
+
   //#define CONTROLLER_FAN_PIN -1           // Set a custom pin for the controller fan
   //#define CONTROLLER_FAN2_PIN -1          // Set a custom pin for second controller fan
   //#define CONTROLLER_FAN_USE_Z_ONLY       // With this option only the Z axis is considered
@@ -570,6 +571,7 @@
   //#define CONTROLLER_FAN_MIN_BOARD_TEMP 40  // (°C) Turn on the fan if the board reaches this temperature
 
   //#define CONTROLLER_FAN_EDITABLE         // Enable M710 configurable settings
+
   #if ENABLED(CONTROLLER_FAN_EDITABLE)
     #define CONTROLLER_FAN_MENU             // Enable the Controller Fan submenu
   #endif
@@ -600,7 +602,11 @@
  *
  * Define one or both of these to override the default 0-255 range.
  */
-//#define FAN_MIN_PWM 50
+#ifdef ARTILLERYRUBY
+#define FAN_MIN_PWM 50
+  #else
+  //#define FAN_MIN_PWM 50
+#endif
 //#define FAN_MAX_PWM 128
 
 /**
@@ -668,6 +674,9 @@
 #endif
 #if ENABLED(MKSSGENLV2)
 #define E0_AUTO_FAN_PIN FAN2_PIN
+#endif
+#if ENABLED(ARTILLERYRUBY)
+#define E0_AUTO_FAN_PIN PC7
 #endif
 #if ENABLED(MKSGENL) || ENABLED(MKSGENLV21)
 #define E0_AUTO_FAN_PIN 7
@@ -857,36 +866,6 @@
   #if ENABLED(Y_DUAL_ENDSTOPS)
     #define Y2_USE_ENDSTOP _YMAX_
     #define Y2_ENDSTOP_ADJUSTMENT  0
-  #endif
-#endif
-
-//
-// For Z set the number of stepper drivers
-//
-#if ENABLED(RUBY)
-#define NUM_Z_STEPPER_DRIVERS 1   // (1-4) Z options change based on how many
-  #else
-  #define NUM_Z_STEPPER_DRIVERS 2   // (1-4) Z options change based on how many
-#endif
-
-#if NUM_Z_STEPPER_DRIVERS > 1
-  // Enable if Z motor direction signals are the opposite of Z1
-  //#define INVERT_Z2_VS_Z_DIR
-  //#define INVERT_Z3_VS_Z_DIR
-  //#define INVERT_Z4_VS_Z_DIR
-
-  //#define Z_MULTI_ENDSTOPS
-  #if ENABLED(Z_MULTI_ENDSTOPS)
-    #define Z2_USE_ENDSTOP          _XMAX_
-    #define Z2_ENDSTOP_ADJUSTMENT   0
-    #if NUM_Z_STEPPER_DRIVERS >= 3
-      #define Z3_USE_ENDSTOP        _YMAX_
-      #define Z3_ENDSTOP_ADJUSTMENT 0
-    #endif
-    #if NUM_Z_STEPPER_DRIVERS >= 4
-      #define Z4_USE_ENDSTOP        _ZMAX_
-      #define Z4_ENDSTOP_ADJUSTMENT 0
-    #endif
   #endif
 #endif
 
@@ -2769,6 +2748,7 @@
  *  - Define the required Stepper CS pins in your `pins_MYBOARD.h` file.
  *    (See the RAMPS pins, for example.)
  *  - You can also use Software SPI with GPIO pins instead of Hardware SPI.
+<<<<<<< HEAD
  *
  * To use TMC220x stepper drivers with Serial UART:
  *  - Connect PDN_UART to the #_SERIAL_TX_PIN through a 1K resistor.
@@ -2779,6 +2759,18 @@
  * The TMC26XStepper library is required for TMC26X stepper drivers.
  *   https://github.com/MarlinFirmware/TMC26XStepper
  *
+=======
+ *
+ * To use TMC220x stepper drivers with Serial UART:
+ *  - Connect PDN_UART to the #_SERIAL_TX_PIN through a 1K resistor.
+ *    For reading capabilities also connect PDN_UART to #_SERIAL_RX_PIN with no resistor.
+ *    Some boards have simple jumper connections! See your board's documentation.
+ *  - These drivers can also be used with Hardware Serial.
+ *
+ * The TMC26XStepper library is required for TMC26X stepper drivers.
+ *   https://github.com/MarlinFirmware/TMC26XStepper
+ *
+>>>>>>> master
  * The TMCStepper library is required for other TMC stepper drivers.
  *   https://github.com/teemuatlut/TMCStepper
  *
@@ -3579,6 +3571,7 @@
 
     /**
      * Any M3 or G1/2/3/5 command with the 'I' parameter enables continuous inline power mode.
+<<<<<<< HEAD
      *
      * e.g., 'M3 I' enables continuous inline power which is processed by the planner.
      * Power is stored in move blocks and applied when blocks are processed by the Stepper ISR.
@@ -3591,6 +3584,20 @@
      * The calculation gives us ocr values from 0 to 255, values over F65535 will be set as 255 .
      * More refined power control such as compesation for accell/decell will be addressed in future releases.
      *
+=======
+     *
+     * e.g., 'M3 I' enables continuous inline power which is processed by the planner.
+     * Power is stored in move blocks and applied when blocks are processed by the Stepper ISR.
+     *
+     * 'M4 I' sets dynamic mode which uses the current feedrate to calculate a laser power OCR value.
+     *
+     * Any move in dynamic mode will use the current feedrate to calculate the laser power.
+     * Feed rates are set by the F parameter of a move command e.g. G1 X0 Y10 F6000
+     * Laser power would be calculated by bit shifting off 8 LSB's. In binary this is div 256.
+     * The calculation gives us ocr values from 0 to 255, values over F65535 will be set as 255 .
+     * More refined power control such as compesation for accell/decell will be addressed in future releases.
+     *
+>>>>>>> master
      * M5 I clears inline mode and set power to 0, M5 sets the power output to 0 but leaves inline mode on.
      */
 
